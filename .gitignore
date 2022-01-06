@@ -1,0 +1,13 @@
+docs/.vitepress/i18n/*
+docs/.vitepress/crowdin/*
+!docs/.vitepress/crowdin/en-US
+
+temp
+zh-CN
+fr-FR
+es-ES
+ja-JP
+
+dist
+
+node_modules
