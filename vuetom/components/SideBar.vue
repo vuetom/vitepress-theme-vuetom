@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import NavLinks from './NavLinks.vue'
 import SideBarLinks from './SideBarLinks.vue'
-
 defineProps<{ open: boolean }>()
 </script>
 
 <template>
-  <aside class="sidebar" :class="{ open }">
+  <aside 
+    class="sidebar" 
+    :class="{ open }">
     <NavLinks class="nav" />
 
     <slot name="sidebar-top" />

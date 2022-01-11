@@ -16,15 +16,15 @@ export function isSideBarEmpty(sidebar) {
  * combinations such as matching `guide/` and `/guide/`. If no matching config
  * was found, it will return `auto` as a fallback.
  */
-export function getSideBarConfig(sidebar, path) {
+export function getSideBarConfig(sidebar, path, lang) {
   if (isSideBarConfig(sidebar)) {
     return sidebar
   }
   path = ensureStartingSlash(path)
   for (const dir in sidebar) {
     // make sure the multi sidebar key starts with slash too
-    if (path.startsWith(ensureStartingSlash(dir))) {
-      return sidebar[dir]
+    if (path.startsWith(ensureStartingSlash(`${lang}${dir}`))) {
+      return sidebar[dir][lang]
     }
   }
 

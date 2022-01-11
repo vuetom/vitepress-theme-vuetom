@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useRoute } from 'vitepress'
+import { useRouter, useRoute } from 'vitepress'
 import type { DefaultTheme } from '../config'
+import { PREFERRED_LANG_KEY } from '../constant'
 import NavDropdownLinkItem from './NavDropdownLinkItem.vue'
 
 defineProps<{
@@ -9,6 +10,7 @@ defineProps<{
 }>()
 
 const route = useRoute()
+const router = useRouter()
 
 const open = ref(false)
 
@@ -22,6 +24,16 @@ watch(
 function toggle() {
   open.value = !open.value
 }
+
+function switchLang(lang) {
+    if (lang.value === lang) return
+    localStorage.setItem(PREFERRED_LANG_KEY, lang)
+    const firstSlash = route.path.indexOf('/', 1)
+
+    const goTo = `/${lang}/${route.path.slice(firstSlash + 1)}`
+
+    router.go(goTo)
+}
 </script>
 
 <template>
@@ -33,7 +45,7 @@ function toggle() {
 
     <ul class="dialog">
       <li v-for="item in item.items" :key="item.text" class="dialog-item">
-        <NavDropdownLinkItem :item="item" />
+        <NavDropdownLinkItem :item="item" v-if="item.lang" @click="switchLang(item.lang)"/>
       </li>
     </ul>
   </div>

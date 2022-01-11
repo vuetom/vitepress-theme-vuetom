@@ -2,13 +2,19 @@ import { computed } from 'vue';
 import { useData } from 'vitepress';
 import { isArray, ensureStartingSlash, removeExtention } from '../utils';
 import { getSideBarConfig, getFlatSideBarLinks } from '../support/sideBar';
+import { useLang } from './lang'
 export function useNextAndPrevLinks() {
     const { page, theme } = useData();
+    const lang = useLang();
     const path = computed(() => {
         return removeExtention(ensureStartingSlash(page.value.relativePath));
     });
     const candidates = computed(() => {
-        const config = getSideBarConfig(theme.value.sidebar, path.value);
+        const config = getSideBarConfig(
+            theme.value.sidebar, 
+            path.value,
+            lang.value
+            );
         return isArray(config) ? getFlatSideBarLinks(config) : [];
     });
     const index = computed(() => {

@@ -1,10 +1,12 @@
 import { computed } from 'vue';
 import { useRoute, useData } from 'vitepress';
+import { useLang } from './lang';
 import { useActiveSidebarLinks } from '../composables/activeSidebarLink';
 import { getSideBarConfig } from '../support/sideBar';
 export function useSideBar() {
     const route = useRoute();
     const { site } = useData();
+    const lang = useLang();
     useActiveSidebarLinks();
     return computed(() => {
         // at first, we'll check if we can find the sidebar setting in frontmatter.
@@ -20,7 +22,11 @@ export function useSideBar() {
             return resolveAutoSidebar(headers, sidebarDepth);
         }
         // now, there's no sidebar setting at frontmatter; let's see the configs
-        const themeSidebar = getSideBarConfig(site.value.themeConfig.sidebar, route.data.relativePath);
+        const themeSidebar = getSideBarConfig(
+            site.value.themeConfig.sidebar, 
+            route.data.relativePath,
+            lang.value
+            );
         if (themeSidebar === false) {
             return [];
         }

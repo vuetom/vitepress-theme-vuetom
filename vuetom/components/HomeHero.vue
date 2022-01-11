@@ -27,7 +27,7 @@ const tagline = computed(
       />
     </figure>
 
-    <h1 v-if="heroText" id="main-title" class="title">{{ heroText }}222</h1>
+    <h1 v-if="heroText" id="main-title" class="title">{{ heroText }}</h1>
     <p v-if="tagline" class="tagline">{{ tagline }}</p>
 
     <NavLink
@@ -75,7 +75,7 @@ const tagline = computed(
   margin: 0 auto;
   width: auto;
   max-width: 100%;
-  max-height: 280px;
+  max-height: 200px;
 }
 
 .title {
@@ -140,7 +140,8 @@ const tagline = computed(
 }
 
 .action.alt :deep(.item) {
-  background-color: var(--c-bg);
+  /* background-color: var(--c-bg); */
+  background-color: transparent;
   color: var(--c-brand);
 }
 
