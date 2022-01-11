@@ -1,0 +1,43 @@
+[
+    {
+        "text": "指引",
+        "link": "/guide/info",
+        "activeMatch": "^/$|^/guide/info"
+    },
+    {
+        "text": "组件",
+        "link": "/menu/",
+        "activeMatch": "/menu/"
+    },
+    {
+        "text": "样式",
+        "link": "/styl/",
+        "activeMatch": "/styl/"
+    },
+    {
+        "text": "反馈",
+        "link": "/feedback/",
+        "activeMatch": "/feedback/"
+    },
+    {
+        "text": "多语言",
+        "items": [
+            {
+                "text": "English",
+                "link": "/en-US",
+                "activeMatch": "/en-US",
+                "lang": "en-US"
+            },
+            {
+                "text": "简体中文",
+                "link": "zh-CN",
+                "activeMatch": "/zh-CN",
+                "lang": "zh-CN"
+            }
+        ]
+    },
+    {
+        "text": "GITHUB",
+        "link": "https://github.com/lauset/vitepress-theme-vuetom"
+    }
+]
