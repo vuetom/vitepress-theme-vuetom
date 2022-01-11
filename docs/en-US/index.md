@@ -2,45 +2,39 @@
 home: true
 heroImage: /logo/vuetom-logo-m.png
 heroAlt: VUETOM
-heroText: vitepress-theme-vuetom
-tagline: vue3 扁平化风格 UI 框架
-
-actionText: 点 击 开 始
+heroText: Vuetom
+tagline: vitepress flat theme
+actionText: Quick Start
 actionLink: /en-US/guide/info
-
-altActionText: 仓 库
+altActionText: Inventory
 altActionLink: /en-US/guide/
-
 features:
-  - title: 💡 极速的服务启动
-    details: 使用原生 ESM 文件，无需打包!
-  - title: ⚡️ 轻量快速的热重载
-    details: 无论应用程序大小如何，都始终极快的模块热重载（HMR）
-  - title: 🛠️ 丰富的功能
-    details: 对 TypeScript、JSX、CSS 等支持开箱即用。
-  - title: 📦 优化的构建
-    details: 可选 “多页应用” 或 “库” 模式的预配置 Rollup 构建
-  - title: 🔩 通用的插件
-    details: 在开发和构建之间共享 Rollup-superset 插件接口。
-  - title: 🔑 完全类型化的API
-    details: 灵活的 API 和完整 TypeScript 类型。
-
+  - 
+    title: '📦 Optimized build'
+    details: Optional multi-page application or library mode for Rollup build
+  - 
+    title: '🔩 Generic Plugins'
+    details: Share Rollup-superset plugin interface between development and build.
+  - 
+    title: '🔑 Fully Typeized API'
+    details: Flexible API and full TypeScript type.
 footer: MIT Licensed
 ---
 
 <div class="frontpage sponsors">
-  <h2>赞助</h2>
+  <h2>Thanks</h2>
   <div class="platinum-sponsors">
     <a v-for="{ href, src, name, id } of sponsors.filter(s => s.tier === 'platinum')" :href="href" target="_blank" rel="noopener" aria-label="sponsor-img">
       <img :src="src" :alt="name" :id="`sponsor-${id}`">
+      <p>{{ name }}</p>
     </a>
   </div>
   <div class="gold-sponsors">
     <a v-for="{ href, src, name, id } of sponsors.filter(s => s.tier !== 'platinum')" :href="href" target="_blank" rel="noopener" aria-label="sponsor-img">
       <img :src="src" :alt="name" :id="`sponsor-${id}`">
+      <p>{{ name }}</p>
     </a>
   </div>
-  <a href="https://github.com/sponsors/yyx990803" target="_blank" rel="noopener">在 GitHub 上赞助我们</a>
 </div>
 
 
@@ -49,29 +43,29 @@ import { onMounted } from 'vue'
 
 const sponsors = [
   {
-    "id": "stackblitz",
-    "name": "StackBlitz",
-    "href": "https://stackblitz.com/",
-    "src": "/stackblitz.svg",
+    "id": "vue",
+    "name": "Vue",
+    "href": "https://v3.cn.vuejs.org/",
+    "src": "https://v3.cn.vuejs.org/logo.png",
     "tier": "platinum"
   },
   {
-    "id": "tailwind",
-    "name": "Tailwind Labs",
-    "href": "https://tailwindcss.com",
-    "src": "/tailwind-labs.svg"
+    "id": "vite",
+    "name": "Vite",
+    "href": "https://vitejs.cn/",
+    "src": "https://vitejs.cn/logo.svg"
   },
   {
-    "id": "vuejobs",
-    "name": "Vue Jobs",
-    "href": "https://vuejobs.com/?ref=vuejs",
-    "src": "/vuejobs.png"
+    "id": "vitepress",
+    "name": "Vitepress",
+    "href": "https://fttp.jjf-tech.cn/vitepress/",
+    "src": "https://v3.cn.vuejs.org/logo.png"
   },
   {
-    "id": "mux",
-    "name": "Mux",
-    "href": "https://mux.com",
-    "src": "/mux.svg"
+    "id": "elementplus",
+    "name": "Element Plus",
+    "href": "https://element-plus.gitee.io/zh-CN/",
+    "src": "https://element-plus.gitee.io/images/element-plus-logo.svg"
   }
 ]
 
