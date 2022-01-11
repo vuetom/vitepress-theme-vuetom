@@ -1,10 +1,11 @@
 import './styles/vars.css'
 import './styles/layout.css'
-import './styles/code.css'
-import './styles/custom-blocks.css'
 import './styles/sidebar-links.css'
 import './styles/vuetom-home.css'
 import './styles/vuetom-container.css'
+import './styles/custom-blocks.css'
+import './styles/code.css'
+import './styles/code-light.scss'
 import Layout from './layouts/Layout.vue'
 import NotFound from './layouts/NotFound.vue'
 

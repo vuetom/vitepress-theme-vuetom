@@ -1,27 +1,18 @@
 :root {
   --c-brand: #1496ce;
-  --c-brand-light: #1596a7;
+  --c-brand-light: #19aeee;
   --color-main: var(--c-brand);
   /* --color-border: #f56be38a; */
   --color-border: #ad295c8a;
   --color-block: #2a7f8a;
   --color-strong: #c13e74;
   --color-code: #7ea1c5;
-  --color-border-left: #1a33a1;
+  --color-border-left: #1d8ab9;
   --color-code-bg: rgba(77,208,225,0.08);
   --color-block-bg: rgba(77,208,225,0.15);
   --linear-title: linear-gradient(to right, #32defd, rgb(247 69 152));
 }
 
-#main-title {
-  /* color: var(--c-brand); */
-  background: var(--linear-title);
-  -webkit-background-clip: text;
-  color: transparent;
-  font-weight: bold;
-  letter-spacing: 0.2rem;
-  margin-bottom: 10px;
-}
 .nav-bar a.nav-bar-title {
   color: var(--c-brand) !important;
 }
@@ -250,7 +241,7 @@
   top: 12px;
   width: 26px;
   height: 26px;
-  background-image: url("../imgs/vuetom-logo-s.png");
+  background-image: url("/logo/vuetom-logo-s.png");
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;
@@ -325,7 +316,7 @@
 }
 .container blockquote {
   margin: 0;
-  border-left: 4px solid var(--color-border-left);
+  border-left: 6px solid var(--color-border-left);
   color: var(--color-block);
   background: var(--color-block-bg);
 }
@@ -625,7 +616,7 @@
   border: 0;
 }
 .container blockquote {
-  padding: 2em 2em;
+  padding: 1em 1em;
   color: #6a737d;
 }
 .container blockquote>:first-child {
@@ -820,31 +811,3 @@
   margin: 0 0.2em 0.25em -1.6em;
   vertical-align: middle;
 }
-h3:not(h2 + h3) {
-  border-top: 2px dashed #d6d6d6;
-  padding-top: 1.5rem;
-}
-/* pre code */
-.container pre {
-	font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  /* box-shadow: 0 0 8px rgba(110,110,110,0.45); */
-  padding: 15px;
-  overflow: auto;
-  letter-spacing: 1px;
-	background-color: #000000;
-}
-div[class*='language-'] {
-  background-color: #c13e7460 !important;
-}
-/* light theme */
-div[class*='language-'].light{
-  background-color: transparent !important;
-  /* background-color: var(--color-code) !important; */
-}
-div[class*='language-'].light pre{
-  background-color: #f6f6f6 !important;
-}
-div[class*='language-'].light pre code {
-  color: #d55d5d;
-}
-

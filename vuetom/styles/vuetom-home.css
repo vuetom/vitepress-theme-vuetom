@@ -12,18 +12,21 @@
 }
 .home {
   /* background: url("../imgs/homebg.jpg") no-repeat 50% 50%/cover; */
-  
-	/* background-image: -webkit-linear-gradient(top,
-  rgba(0,0,0,0.9) 0%,
-  rgba(0,0,0,0.5) 20%,
-  rgba(0,0,0,0.5) 80%,
-  rgba(0,0,0,0.9) 100%),
-  -webkit-linear-gradient(left,
-  rgba(0,0,0,0.9) 0%,
-  rgba(0,0,0,0.3) 20%,
-  rgba(0,0,0,0.3) 80%,
-  rgba(0,0,0,0.9) 100%),
-  url("../imgs/homebg.jpg"); */
+  /* background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-12-15%2F5c14b251e831a.jpg%3Fdown&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1644329038&t=8bd7fc67844966db6150373c19e17a29'); */
+ 
+  /* -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px); */
+  /* background: linear-gradient(90deg,
+  rgba(247,149,51,.1),
+  rgba(243,112,85,.1) 15%,
+  rgba(239,78,123,.1) 30%,
+  rgba(161,102,171,.1) 44%,
+  rgba(80,115,184,.1) 58%,
+  rgba(16,152,173,.1) 72%,
+  rgba(7,179,155,.1) 86%,
+  rgba(109,186,130,.1)); */
 }
 .home-hero {
   background-image: linear-gradient(90deg, rgba(159,219,252,0.15) 3%, transparent 0), linear-gradient(1turn, rgba(159,219,252,0.15) 3%, transparent 0);
@@ -89,7 +92,31 @@
   }
 }
 
-/* Punk Button Start */
+#main-title {
+  /* color: var(--c-brand); */
+  background: var(--linear-title);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  /* letter-spacing: 0.2rem; */
+  margin-bottom: 10px;
+}
+
+#main-title .release-tag {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px;
+  margin-left: 6px;
+  background: var(--c-brand);
+  color: #fff;
+  border-radius: 10px;
+}
+
+/* Punk Button Start 
 .home-hero a.item,
 .home-hero a.item::after{
   border-radius: 3px !important;
@@ -173,12 +200,20 @@
 
   }
 }
+*/
 /* Punk Button End */
+
+/* Button Start */
+
+/* Button End */
 
 /* Features Start */
 .home-features {
-  background: linear-gradient(to right, #06cdff40, rgba(223, 7, 107, 0.4));
   border-radius: 15px;
+  position: relative;
+  backdrop-filter: saturate(180%) blur(5px);
+  background: linear-gradient(to right, #06cdff30, rgba(223, 7, 107, 0.3));
+  box-shadow: 3px 3px 10px rgb(20, 20, 20, 0.5);
 }
 .home-features p.details,.home-hero p.tagline {
   color: rgba(248, 182, 237, 0.979) !important;

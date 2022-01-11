@@ -1,10 +1,36 @@
 <script setup lang="ts">
 import PageFooter from './PageFooter.vue'
 import NextAndPrevLinks from './NextAndPrevLinks.vue'
+import { useData } from 'vitepress';
+const { theme } = useData();
+let { pageBgEnable, pageBgOpacity, bgImg } = theme.value
+let pageBgStyle = ``
+if (pageBgOpacity == undefined) {
+  pageBgOpacity = 1
+}
+if (pageBgEnable == undefined) {
+  pageBgEnable = false
+}
+if (pageBgEnable) {
+  let pageBgOuterColor = '255,255,255'
+  pageBgStyle = `background-image: -webkit-linear-gradient(top,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 0%,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 20%,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 80%,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 100%),
+    -webkit-linear-gradient(left,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 0%,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 20%,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 80%,
+    rgba(${pageBgOuterColor}, ${pageBgOpacity}) 100%),
+    url(${bgImg});`
+}
 </script>
 
 <template>
-  <main class="page">
+  <main 
+    class="page"
+    :style="pageBgStyle">
     <div class="container">
       <slot name="top" />
 
@@ -20,6 +46,9 @@ import NextAndPrevLinks from './NextAndPrevLinks.vue'
 <style scoped>
 .page {
   padding-top: var(--header-height);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
 }
 
 @media (min-width: 720px) {
