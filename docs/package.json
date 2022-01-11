@@ -7,8 +7,11 @@
     "serve": "vitepress serve .",
     "clean": "rimraf .vitepress/i18n && rimraf .vitepress/dist",
     "gen:lang": "rimraf .vitepress/i18n && sucrase-node .vitepress/utils/crowdin-generate.ts",
-    "crowdin:l": "crowdin list project",
-    "crowdin:zh": "crowdin download -l zh-CN"
+    "crowdin:list": "crowdin list project",
+    "crowdin:upload": "crowdin upload sources",
+    "crowdin:us": "crowdin download -l en-US",
+    "crowdin:tw": "crowdin download -l zh-TW",
+    "crowdin:dryrun": "crowdin download --dryrun"
   },
   "dependencies": {
     "@vueuse/core": "6.7.4",
@@ -21,7 +24,7 @@
     "nprogress": "0.2.0"
   },
   "devDependencies": {
-    "@crowdin/cli": "3.7.1",
+    "@crowdin/cli": "^3.7.4",
     "@types/markdown-it": "12.2.3",
     "@typescript-eslint/eslint-plugin": "5.2.0",
     "@typescript-eslint/parser": "5.2.0",
@@ -34,6 +37,7 @@
     "markdown-it": "12.2.0",
     "markdown-it-container": "3.0.0",
     "prettier": "2.4.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.45.2",
     "sucrase": "3.20.3",
     "vitepress": "^0.18.1"
