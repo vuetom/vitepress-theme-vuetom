@@ -80,6 +80,6 @@
     // "skipDefaultLibCheck": true,
     "skipLibCheck": true
   },
-  "include": ["**/*", ".vuepress/**/*"],
+  "include": ["**/*", ".vitepress/**/*"],
   "exclude": ["node_modules"]
 }
