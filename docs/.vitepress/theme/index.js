@@ -4,24 +4,10 @@ import { globals } from '../views'
 
 export default {
   ...DefaultTheme,
-
   // NotFound,
-
   // Layout: VtApp,
-  logo: '/logo/vuetom-logo.png',
   enhanceApp({ app, router, siteData }) {
     app.use(VuetomUI)
-
-    // app.use(ElementPlus)
-    // app.mixin({
-    //   mounted() {
-    //     var VuetomUI = require('@lauset/vuetom-ui/src/index.js')
-    //     app.use(VuetomUI)
-    //     import('@lauset/vuetom-ui/src/index.js').then(function(m){
-    //       app.use(m.default)
-    //     })
-    //   }
-    // })
 
     // 注册组件
     globals.forEach(([name, Comp]) => {

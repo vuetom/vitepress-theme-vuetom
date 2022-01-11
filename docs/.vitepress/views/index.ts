@@ -1,5 +1,3 @@
-import ButtonIcon from './button/btn-icon.vue'
-import ButtonLink from './button/btn-link.vue'
 import CardBasic from './card/card-basic.vue'
 import ColorList from './styl/color-list.vue'
 import IconList from './styl/icon-list.vue'
@@ -9,8 +7,6 @@ import VtDemo from './vt/vt-demo.vue'
 
 // export default VtApp
 export const globals = [
-  ['ButtonIcon', ButtonIcon],
-  ['ButtonLink', ButtonLink],
   ['CardBasic', CardBasic],
   ['ColorList', ColorList],
   ['IconList', IconList],

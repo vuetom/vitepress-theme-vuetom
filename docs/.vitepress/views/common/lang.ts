@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import { useRoute } from 'vitepress'
-import { defaultLang } from '../constant'
 
 export const useLang = () => {
   const route = useRoute()
@@ -12,7 +11,7 @@ export const useLang = () => {
     if (path?.includes('/')) {
       lang = path.split('/').shift()
     } else {
-      lang = defaultLang
+      lang = 'zh-CN'
     }
     return lang
   })

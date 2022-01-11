@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed, toRef, getCurrentInstance } from 'vue'
 import { useClipboard } from '@vueuse/core'
-import { useToggle } from '../toggle'
-import { useLang } from '../lang'
+import { useToggle } from '../common/toggle'
+import { useLang } from '../common/lang'
 
 // import { useSourceCode } from '../composables/source-code'
 // import { usePlayGround } from '../composables/use-playground'
-import demoBlockLocale from '../../i18n/component/demo-block.json'
+import demoBlockLocale from '../../i18n/views/demo-block.json'
 import Example from './demo/vp-example.vue'
 import SourceCode from './demo/vp-source-code.vue'
 
@@ -26,6 +26,7 @@ const { copy, isSupported } = useClipboard({
   source: decodeURIComponent(props.rawSource),
   read: false
 })
+
 const [sourceVisible, setSourceVisible] = useToggle()
 const lang = useLang()
 
@@ -65,48 +66,37 @@ const copyCode = async () => {
 
 <template>
   <ClientOnly>
-    <!-- danger here DO NOT USE INLINE SCRIPT TAG -->
     <p text="sm" v-html="decodedDescription" />
     <div class="example">
       <div class="op-btns">
-        <!-- <ElTooltip :content="locale['edit-on-github']" :show-arrow="false">
-          <ElIcon
-            :size="20"
-            class="op-btn github"
-            style="color: var(--text-color-light)"
-          >
-            <a :href="demoSourceUrl" rel="noreferrer noopener" target="_blank">
-              <i-ri-github-line />
-            </a>
-          </ElIcon>
-        </ElTooltip>
-        <ElTooltip :content="locale['copy-code']" :show-arrow="false">
-          <ElIcon :size="20" class="op-btn" @click="copyCode">
-            <i-ri-file-copy-2-line />
-          </ElIcon>
-        </ElTooltip>
-        <ElTooltip :content="locale['view-source']" :show-arrow="false">
-          <ElIcon :size="20" class="op-btn" @click="setSourceVisible">
-            <i-ri-code-line />
-          </ElIcon>
-        </ElTooltip> -->
-        <vt-button type="success" size="mini" plain @click="copyCode">复制</vt-button>
-        <vt-button type="primary" size="mini" plain @click="setSourceVisible">代码</vt-button>
+        <vt-button type="success" size="mini" plain @click="copyCode">
+          {{ locale['copy-code'] }}
+        </vt-button>
+        <vt-button type="primary" size="mini" plain @click="setSourceVisible">
+          {{ locale['view-source'] }}
+        </vt-button>
       </div>
       <div class="demo-hr"></div>
-      <!-- <ElDivider class="m-0" /> -->
       <Example :file="path" :demo="formatPathDemos[path]" />
       <div class="demo-hr" v-if="sourceVisible"></div>
-      <SourceCode v-show="sourceVisible" :source="source" />
-      <!-- <ElDivider v-if="sourceVisible" />
-      <el-collapse-transition>
+      <transition name="code-slide-fade">
         <SourceCode v-show="sourceVisible" :source="source" />
-      </el-collapse-transition> -->
+      </transition>
     </div>
   </ClientOnly>
 </template>
 
 <style scoped lang="scss">
+.code-slide-fade-enter-active {
+  transition: all .6s ease;
+}
+.code-slide-fade-leave-active {
+  transition: all .3 cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.code-slide-fade-enter-from, .code-slide-fade-leave-to {
+  transform: translateY(100px);
+  opacity: 0;
+}
 .example {
   background: #fcfcfc;
   border: 1px solid #dcdfe6;
