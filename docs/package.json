@@ -1,6 +1,7 @@
 {
   "name": "vuetom-doc",
   "version": "0.0.3",
+  "repository": "https://github.com/lauset/vitepress-theme-vuetom",
   "scripts": {
     "dev": "pnpm gen:lang && vitepress dev .",
     "build": "vitepress build .",
@@ -40,6 +41,6 @@
     "rimraf": "^3.0.2",
     "sass": "^1.45.2",
     "sucrase": "3.20.3",
-    "vitepress": "^0.18.1"
+    "vitepress": "^0.21.6"
   }
 }

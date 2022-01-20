@@ -16,8 +16,8 @@
 [**更新日志**]()
 
 ## 主题风格
-* 文档
-* 博客
+* [文档风格](http://212.64.67.168:3010)
+* 博客(开发中...)
 
 
 ## 快速上手
@@ -36,12 +36,12 @@ npm install
 - 启动文档
 
 ```bash
-# enter the documents directory
-cd docs
-# install packages
-npm i
-# development
-npm run dev
+npm run docs
+```
+- 构建主题
+
+```bash
+npm run build:theme
 ```
 
 ## 仓库地址
@@ -49,3 +49,11 @@ npm run dev
 [github](https://github.com/lauset/vitepress-theme-vuetom)
 
 [gitee](https://gitee.com/lauset/vitepress-theme-vuetom)
+
+## YYDS
+
+[Vite](https://vitejs.cn/)
+
+[ElementPlus](https://element-plus.gitee.io/zh-CN/)
+
+[Crowdin](https://crowdin.com/)
