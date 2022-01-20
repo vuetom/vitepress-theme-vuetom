@@ -1,9 +1,8 @@
 (() => {
   const { supportedLangs } = window
-  const cacheKey = 'vuetom-lang'
+  const cacheKey = 'vuetom_lang'
   const defaultLang = 'zh-CN'
 
-  // docs supported languages
   const langAlias = {
     zh: 'zh-CN',
     en: 'en-US',

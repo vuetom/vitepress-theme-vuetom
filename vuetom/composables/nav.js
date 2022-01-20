@@ -3,7 +3,8 @@ import { useData, useRoute } from 'vitepress';
 export function useLanguageLinks() {
     const { site, localePath, theme } = useData();
     return computed(() => {
-        const langs = theme.value.langs;
+        const { langs } = site.value
+        // const langs = theme.value.langs;
         // const localePaths = langs
         const localePaths = Object.keys(langs);
         // one language
