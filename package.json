@@ -1,26 +1,50 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "1.0.0",
-  "description": "Vitepress Theme",
+  "version": "1.0.1",
+  "description": "Vitepress Theme Vuetom",
   "main": "./vuetom/index.js",
+  "typings": "./vuetom/types/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf vuetom/dist",
+    "build:theme": "gulp --require sucrase/register/ts -f vuetom/gulpfile.ts"
   },
+  "files": [
+    "vuetom"
+  ],
   "keywords": [
     "vitepress",
     "theme"
   ],
   "author": "lauset",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauset/vitepress-theme-vuetom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lauset/vitepress-theme-vuetom/issues"
+  },
+  "homepage": "https://github.com/lauset/vitepress-theme-vuetom#readme",
   "devDependencies": {
+    "@types/gulp-autoprefixer": "0.0.33",
+    "@types/gulp-clean-css": "4.3.0",
+    "@types/gulp-rename": "2.0.1",
+    "@types/gulp-sass": "5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
     "@typescript-eslint/parser": "^5.9.0",
     "eslint": "^8.6.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.0.3",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "8.0.0",
+    "gulp-clean-css": "4.3.0",
+    "gulp-rename": "2.0.0",
+    "gulp-sass": "5.1.0",
     "sass": "^1.47.0",
-    "vitepress": "^0.20.10"
+    "sucrase": "3.20.3",
+    "vitepress": "^0.21.6"
   },
   "dependencies": {
     "dayjs": "^1.10.7"
