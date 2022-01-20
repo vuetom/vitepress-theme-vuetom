@@ -1,11 +1,12 @@
 // .vitepress/theme/index.js
-import DefaultTheme, { VuetomUI } from '../../../vuetom' // To extend default theme.
+import VuetomTheme, { VuetomUI } from '../../../vuetom'
 import { globals } from '../views'
 
 export default {
-  ...DefaultTheme,
+  ...VuetomTheme,
+
   // NotFound,
-  // Layout: VtApp,
+  // Layout,
   enhanceApp({ app, router, siteData }) {
     app.use(VuetomUI)
 

@@ -5,9 +5,18 @@ import HomeFeatures from './HomeFeatures.vue'
 import HomeFooter from './HomeFooter.vue'
 import { VuetomThemeConfig } from '../types/vuetom-theme'
 const { theme } = useData<VuetomThemeConfig>()
-let { bgImg, bgColor, bgOpacity } = theme.value
+let { bgImg, bgColor, bgOpacity, featuresColor: ftColor } = theme.value
 let bgInnerOpacity = 0.3
 let bgStyle = ``
+let ftStyle = `background:rgba(255,255,255,0.8);`
+if (typeof ftColor === 'string') {
+  ftStyle = `background:${ftColor}`
+} else if (typeof ftColor === 'object') {
+  if (ftColor.length >= 2) {
+    ftStyle = `background: linear-gradient(to right,${ftColor[0]},${ftColor[1]});`
+  }
+}
+// background: linear-gradient(to right,#06cdff30,rgba(223,7,107,.3));
 if (bgOpacity == undefined) {
   bgOpacity = 0.6
 }
@@ -15,14 +24,16 @@ bgInnerOpacity = bgOpacity - 0.3 <= 0 ? 0 : bgOpacity - 0.3
 if (bgColor == undefined) {
   bgColor = '0,0,0'
 }
-bgStyle = `background-image: -webkit-linear-gradient(top,rgba(${bgColor},${bgOpacity}) 0%,rgba(${bgColor},${bgInnerOpacity}) 20%,rgba(${bgColor},${bgInnerOpacity}) 80%,rgba(${bgColor},${bgOpacity}) 100%),-webkit-linear-gradient(left,rgba(${bgColor},${bgOpacity}) 0%,rgba(${bgColor},${bgInnerOpacity}) 20%,rgba(${bgColor},${bgInnerOpacity}) 80%,rgba(${bgColor},${bgOpacity}) 100%),url(${bgImg});`
+if (bgImg) {
+  bgStyle = `background-image: -webkit-linear-gradient(top,rgba(${bgColor},${bgOpacity}) 0%,rgba(${bgColor},${bgInnerOpacity}) 20%,rgba(${bgColor},${bgInnerOpacity}) 80%,rgba(${bgColor},${bgOpacity}) 100%),-webkit-linear-gradient(left,rgba(${bgColor},${bgOpacity}) 0%,rgba(${bgColor},${bgInnerOpacity}) 20%,rgba(${bgColor},${bgInnerOpacity}) 80%,rgba(${bgColor},${bgOpacity}) 100%),url(${bgImg});`
+}
 </script>
 
 <template>
   <main class="home" aria-labelledby="main-title" :style="bgStyle">
     <HomeHero />
     <slot name="hero" />
-    <HomeFeatures />
+    <HomeFeatures :style="ftStyle"/>
     <div class="home-content">
       <Content />
     </div>
