@@ -1,11 +1,4 @@
-import './styles/vars.css'
-import './styles/layout.css'
-import './styles/sidebar-links.css'
-import './styles/vuetom-home.css'
-import './styles/vuetom-container.css'
-import './styles/custom-blocks.css'
-import './styles/code.css'
-import './styles/code-light.scss'
+import './dist/styles/index.css'
 import Layout from './layouts/Layout.vue'
 import NotFound from './layouts/NotFound.vue'
 
@@ -60,8 +53,10 @@ const VuetomUI = {
   VtIcon,
   VtLink,
   VtRow,
-  VtCol,
+  VtCol
 }
+
+const VuetomThemeConfig = []
 
 const theme = {
   Layout,
@@ -69,7 +64,7 @@ const theme = {
 }
 
 export default theme
-export { VuetomUI }
+export { VuetomUI, VuetomThemeConfig }
 
 // export const components = [
 //   ['VtButton', VtButton],

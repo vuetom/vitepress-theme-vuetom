@@ -13,9 +13,12 @@ function getNav() {
         link: `${changeLang(lang)}${item.link}`,
         activeMatch: `${changeLang(lang)}${item.activeMatch}`
       }))
+
       return [lang, item]
     })
   )
 }
 
-export const nav = getNav()
+const nav = getNav()
+
+export default nav

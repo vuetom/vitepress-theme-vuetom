@@ -1,94 +1,77 @@
-require('sucrase/register/ts')
-const { resolve } = require('path')
-const { mdPlugin } = require('./utils/plugins.ts')
-const { nav } = require('./config/nav.ts')
-const { sidebar } = require('./config/sidebars.ts')
-// const { languages } = require('./utils/lang.ts')
+import { defineConfigWithTheme } from 'vitepress'
+import type { VuetomThemeConfig } from '../../vuetom'
+import { mdPlugin } from './utils/plugins'
+import nav from './config/nav'
+import head from './config/head'
+import sidebar from './config/sidebars'
+import { languages } from './utils/lang'
+import pkg from '../package.json'
 
 // eslint-disable-next-line no-console
 console.log(`DOC_ENV: ${process.env.DOC_ENV}`)
 
-const locales = {
-  '/zh-CN': {
-    label: '简体中文',
-    lang: 'zh-CN'
-  },
-  '/en-US': {
-    label: 'English',
-    lang: 'en-US'
-  },
-  '/zh-TW': {
-    label: '繁体中文',
-    lang: 'zh-TW'
-  }
-}
-const languages = [
-  'zh-CN',
-  'en-US',
-  'zh-TW'
-]
+const locales = {}
 languages.forEach((lang) => {
   locales[`/${lang}`] = {
     label: lang,
-    lang,
+    lang
   }
 })
 
-exports.locales = locales
-
-module.exports = {
+export default defineConfigWithTheme<VuetomThemeConfig>({
   title: 'Vuetom',
   base: '/',
-  dest: 'public',
-  // theme: 'vuetom',
-  theme: require.resolve('../../vuetom'), // 使用本地主题包
-  // hmr: { overlay: false },
-  head: getHead(),
+  head,
   themeConfig: {
+    repo: pkg.repository,
     docsDir: 'docs',
-    author: 'lauset',
-    smoothScroll: true,
     sidebar,
     nav,
-    langs: locales,
-    logoImg: '/logo/vuetom-logo.png',
-    logoIcon: '/logo/vuetom-logo-s.png',
     bgImg: '/imgs/homg-bg01.jpg',
     bgColor: '0,0,0',
     bgOpacity: 0.6,
     pageBgEnable: true,
-    pageBgOpacity: 0.6,
+    pageBgOpacity: 0.8,
+    featuresColor: ['#06cdff30', 'rgba(223,7,107,.3)']
   },
   locales,
   markdown: {
+    lineNumbers: false,
     config: (md) => mdPlugin(md)
   }
-}
+})
 
-function getHead() {
-  return [
-    [
-      'meta',
-      {
-        name: 'viewport',
-        content:
-          'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
-      }
-    ],
-    ['link', { rel: 'icon', href: '/logo/vuetom-logo-s.png' }]
-
-    // 统计代码
-    // [
-    //   "script",
-    //   { src: "" },
-    // ],
-    // 百度推送代码
-    // [
-    //   "script",
-    //   { src: "/public/push.js" },
-    // ],
-  ]
-}
+// function getHead() {
+//   return [
+//     [
+//       'meta',
+//       {
+//         name: 'viewport',
+//         content:
+//           'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+//       }
+//     ],
+//     ['link', { rel: 'icon', href: '/logo/vuetom-logo-s.png' }],
+//     [
+//       'script',
+//       {},
+//       `;(() => {
+//         window.supportedLangs = ${JSON.stringify(languages)}
+//       })()`,
+//     ],
+//     ['script', {}, fs.readFileSync(path.resolve(vpRoot, 'lang.js'), 'utf-8')],
+//     // 统计代码
+//     // [
+//     //   "script",
+//     //   { src: "" },
+//     // ],
+//     // 百度推送代码
+//     // [
+//     //   "script",
+//     //   { src: "/public/push.js" },
+//     // ],
+//   ]
+// }
 
 // function getSidebar(lang) {
 //   return [
