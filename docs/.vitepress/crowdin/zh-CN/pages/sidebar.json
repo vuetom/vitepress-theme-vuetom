@@ -1,0 +1,45 @@
+[
+  {
+    "text": "指引",
+    "link": "/guide",
+    "children": [
+      { "text": "什么是Vitepress?", "link": "/info" },
+      { "text": "开始", "link": "/start" },
+      { "text": "问题一览", "link": "/question" },
+      { "text": "主题目录", "link": "/prodir" },
+      { "text": "主题配置", "link": "/config" }
+    ]
+  },
+  {
+    "text": "UI组件",
+    "link": "/menu",
+    "children": [
+      { "text": "Alert", "link": "/alert" },
+      { "text": "Button", "link": "/button" },
+      { "text": "Card", "link": "/card" },
+      { "text": "CodeBlock", "link": "/codeblock" }
+    ]
+  },
+  {
+    "text": "主题与样式",
+    "link": "/styl",
+    "children": [
+      { "text": "Colors", "link": "/colors" },
+      { "text": "Spacing", "link": "/spacing" },
+      { "text": "Icons", "link": "/icons" }
+    ]
+  },
+  {
+    "text": "Markdown示例",
+    "link": "/mdshow",
+    "children": [
+      { "text": "Example", "link": "/example" },
+      { "text": "Custom md", "link": "/custom" }
+    ]
+  },
+  {
+    "text": "留言反馈",
+    "link": "/feedback",
+    "children": [{ "text": "Feedback", "link": "/feedback" }]
+  }
+]

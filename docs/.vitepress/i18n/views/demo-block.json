@@ -1,0 +1,16 @@
+{
+  "zh-CN": {
+    "view-source": "代码",
+    "edit-on-github": "前往 Github 编辑",
+    "copy-code": "复制",
+    "copy-success": "复制成功",
+    "copy-error": "复制出现了一些问题"
+  },
+  "en-US": {
+    "view-source": "Code",
+    "edit-on-github": "Edit on Github",
+    "copy-code": "Copy Code",
+    "copy-success": "Copy Success",
+    "copy-error": "Copy Error"
+  }
+}

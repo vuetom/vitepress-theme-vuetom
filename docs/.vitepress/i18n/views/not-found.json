@@ -1,0 +1,12 @@
+{
+  "zh-CN": {
+    "title": "资源未找到",
+    "button-title": "返回首页",
+    "desc": "你请求的页面可能不存在"
+  },
+  "en-US": {
+    "title": "Not Found",
+    "button-title": "Back To Home",
+    "desc": "The requested page may not exist"
+  }
+}

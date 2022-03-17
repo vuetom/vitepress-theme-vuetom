@@ -1,39 +1,39 @@
 [
   {
-    "text": "Guide",
+    "text": "指引",
     "link": "/guide/info",
     "activeMatch": "^/$|^/guide/info"
   },
   {
-    "text": "Components",
+    "text": "组件",
     "link": "/menu/",
     "activeMatch": "/menu/"
   },
   {
-    "text": "Style",
+    "text": "样式",
     "link": "/styl/",
     "activeMatch": "/styl/"
   },
   {
-    "text": "Links",
+    "text": "链接",
     "items": [
       {
-        "text": "FeedBack",
-        "link": "/en-US/feedback/",
+        "text": "反馈",
+        "link": "/zh-CN/feedback/",
         "activeMatch": "/feedback/"
       },
       {
-        "text": "Gitee",
+        "text": "码云",
         "link": "https://gitee.com/lauset/vitepress-theme-vuetom"
       },
       {
-        "text": "Vitepress",
+        "text": "Vitepress官网",
         "link": "https://vitepress.vuejs.org/"
       }
     ]
   },
   {
-    "text": "Languages",
+    "text": "多语言",
     "items": [
       {
         "text": "English",
