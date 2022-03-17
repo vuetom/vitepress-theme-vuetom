@@ -2,6 +2,8 @@ import { DefaultTheme, Theme } from 'vitepress'
 
 declare const theme: Theme
 
+// vuetom ui
+
 declare const VuetomUI: {
   name: string,
   version: string,
@@ -13,11 +15,19 @@ export type VtSiderbarItem = {
   link?: string
 }
 
-export type VtNavItem = {
-  link: string
-  text: string
-  activeMatch?: string
+// navbar
+
+export interface VtNavItemWithLink extends DefaultTheme.NavItemBase {
+  lang: string
 }
+
+export interface VtNavItemWithChildren extends DefaultTheme.NavItemBase {
+  items: VtNavItemWithLink[]
+}
+
+export type VtNavItem = VtNavItemWithLink | VtNavItemWithChildren
+
+// theme config
 
 declare interface VuetomThemeConfig extends DefaultTheme.Config {
 

@@ -1,10 +1,12 @@
 import path from 'path'
+
 // import Inspect from 'vite-plugin-inspect'
 import { defineConfig } from 'vite'
-import { projRoot } from './.vitepress/utils/paths'
 import type { Alias } from 'vite'
+import { projRoot } from './.vitepress/utils/paths'
 
 const alias: Alias[] = []
+
 // if (process.env.DOC_ENV !== 'production') {
 //   alias.push(
 //     {
@@ -23,14 +25,15 @@ export default defineConfig({
     host: true,
     fs: {
       strict: true,
-      allow: [projRoot],
-    },
+      allow: [projRoot]
+    }
   },
+
   // resolve: {
   //   alias,
   // },
   // plugins: [Inspect()],
   optimizeDeps: {
-    include: ['@vueuse/core', 'dayjs'],
-  },
+    include: ['@vueuse/core']
+  }
 })
