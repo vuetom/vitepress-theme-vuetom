@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 import type { HeadConfig } from 'vitepress'
-import { vpRoot } from '../utils/paths'
 import { languages } from '../utils/lang'
 
 const head: HeadConfig[] = [
@@ -9,19 +8,42 @@ const head: HeadConfig[] = [
     'meta',
     {
       name: 'viewport',
-      content:
-            'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
+      content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no'
     }
   ],
   ['link', { rel: 'icon', href: '/logo/vuetom-logo-s.png' }],
   [
+    'script', {}, ';(() => { })()'
+  ],
+  [
     'script',
     {},
     `;(() => {
-          window.supportedLangs = ${JSON.stringify(languages)}
-        })()`
-  ],
-  ['script', {}, fs.readFileSync(path.resolve(vpRoot, 'lang.js'), 'utf-8')]
+      const supportedLangs = ${JSON.stringify(languages)}
+      const cacheKey = 'vuetom_lang'
+      const defaultLang = 'zh-CN'
+      const langAlias = {
+        zh: 'zh-CN',
+        en: 'en-US',
+        tw: 'zh-TW'
+      }
+      let preLang = localStorage.getItem(cacheKey) || navigator.language
+      const language = langAlias[preLang]
+        || (supportedLangs.includes(preLang)
+          ? preLang
+          : defaultLang)
+      localStorage.setItem(cacheKey, language)
+      preLang = language
+      if (!location.pathname.startsWith('/' + preLang)) {
+        const toPath = ['/' + preLang]
+          .concat(location.pathname.split('/').slice(2))
+          .join('/')
+        location.pathname = toPath.endsWith('.html') || toPath.endsWith('/')
+          ? toPath
+          : toPath.concat('/')
+      }
+    })()`
+  ]
 
   // 统计代码
   // [
