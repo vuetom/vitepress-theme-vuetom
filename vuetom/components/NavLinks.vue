@@ -19,7 +19,7 @@ const navs = computed(() => theme.value.nav[lang.value])
   <nav v-if="show" class="nav-links">
     <template v-if="navs">
       <div v-for="item in navs" :key="item.text" class="item">
-        <NavDropdownLink v-if="item.items" :item="item" />
+        <NavDropdownLink v-if="item.items" :item="item"/>
         <NavLink v-else :item="item" />
       </div>
     </template>

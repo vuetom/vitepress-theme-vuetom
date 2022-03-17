@@ -1,15 +1,13 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
-import type { DefaultTheme } from '../config'
 import { useNavLink } from '../composables/navLink'
 import OutboundLink from './icons/OutboundLink.vue'
+import { VtNavItemWithLink } from '../types'
 
 const props = defineProps<{
-  item: DefaultTheme.NavItemWithLink
+  item: VtNavItemWithLink
 }>()
-
 const propsRefs = toRefs(props)
-
 const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
 </script>
 

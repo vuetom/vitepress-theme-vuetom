@@ -3,12 +3,15 @@ import { useData } from 'vitepress'
 import HomeHero from './HomeHero.vue'
 import HomeFeatures from './HomeFeatures.vue'
 import HomeFooter from './HomeFooter.vue'
-import { VuetomThemeConfig } from '../types/vuetom-theme'
+import type { VuetomThemeConfig } from '../types'
+
 const { theme } = useData<VuetomThemeConfig>()
-let { bgImg, bgColor, bgOpacity, featuresColor: ftColor } = theme.value
+let {
+  bgImg, bgColor, bgOpacity, featuresColor: ftColor
+} = theme.value
 let bgInnerOpacity = 0.3
-let bgStyle = ``
-let ftStyle = `background:rgba(255,255,255,0.8);`
+let bgStyle = ''
+let ftStyle = 'background:rgba(255,255,255,0.8);'
 if (typeof ftColor === 'string') {
   ftStyle = `background:${ftColor}`
 } else if (typeof ftColor === 'object') {
@@ -16,6 +19,7 @@ if (typeof ftColor === 'string') {
     ftStyle = `background: linear-gradient(to right,${ftColor[0]},${ftColor[1]});`
   }
 }
+
 // background: linear-gradient(to right,#06cdff30,rgba(223,7,107,.3));
 if (bgOpacity == undefined) {
   bgOpacity = 0.6
