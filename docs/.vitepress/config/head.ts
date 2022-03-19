@@ -22,16 +22,8 @@ const head: HeadConfig[] = [
       const supportedLangs = ${JSON.stringify(languages)}
       const cacheKey = 'vuetom_lang'
       const defaultLang = 'zh-CN'
-      const langAlias = {
-        zh: 'zh-CN',
-        en: 'en-US',
-        tw: 'zh-TW'
-      }
       let preLang = localStorage.getItem(cacheKey) || navigator.language
-      const language = langAlias[preLang]
-        || (supportedLangs.includes(preLang)
-          ? preLang
-          : defaultLang)
+      let language = supportedLangs.includes(preLang) ? preLang : defaultLang
       localStorage.setItem(cacheKey, language)
       preLang = language
       if (!location.pathname.startsWith('/' + preLang)) {

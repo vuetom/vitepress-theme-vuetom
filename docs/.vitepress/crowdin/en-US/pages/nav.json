@@ -31,22 +31,5 @@
         "link": "https://vitepress.vuejs.org/"
       }
     ]
-  },
-  {
-    "text": "Languages",
-    "items": [
-      {
-        "text": "English",
-        "link": "/en-US",
-        "activeMatch": "/en-US",
-        "lang": "en-US"
-      },
-      {
-        "text": "简体中文",
-        "link": "/zh-CN",
-        "activeMatch": "/zh-CN",
-        "lang": "zh-CN"
-      }
-    ]
   }
 ]

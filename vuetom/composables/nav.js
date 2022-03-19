@@ -6,9 +6,6 @@ export function useLanguageLinks() {
 
   return computed(() => {
     const { langs } = site.value
-
-    // const langs = theme.value.langs;
-    // const localePaths = langs
     const localePaths = Object.keys(langs)
 
     // one language
@@ -31,3 +28,5 @@ export function useLanguageLinks() {
     }
   })
 }
+
+export default {}

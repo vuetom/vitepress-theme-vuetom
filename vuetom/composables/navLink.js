@@ -1,10 +1,8 @@
 import { computed } from 'vue'
 import { useRoute, withBase } from 'vitepress'
-import { useLang } from './lang'
 import { isExternal as isExternalCheck } from '../utils'
 
 export function useNavLink(item) {
-  const lang = useLang()
   const route = useRoute()
   const isExternal = isExternalCheck(item.value.link)
   const props = computed(() => {

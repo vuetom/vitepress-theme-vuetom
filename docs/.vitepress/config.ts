@@ -1,23 +1,16 @@
 import { defineConfigWithTheme } from 'vitepress'
-import type { VuetomThemeConfig } from '../../vuetom'
+import { VuetomThemeConfig } from '../..'
 import { mdPlugin } from './utils/plugins'
 import nav from './config/nav'
 import head from './config/head'
 import sidebar from './config/sidebars'
-import { languages } from './utils/lang'
 import pkg from '../package.json'
 
-const locales = {}
-languages.forEach((lang) => {
-  locales[`/${lang}`] = {
-    label: lang,
-    lang
-  }
-})
-
 export default defineConfigWithTheme<VuetomThemeConfig>({
-  title: 'Vuetom',
+  lang: 'en-US',
   base: '/',
+  title: 'Vuetom Theme',
+  description: 'Theme For Vitepress',
   head,
   themeConfig: {
     repo: pkg.repository,
@@ -29,11 +22,34 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
     bgOpacity: 0.6,
     pageBgEnable: true,
     pageBgOpacity: 0.8,
-    featuresColor: ['#06cdff30', 'rgba(223,7,107,.3)']
+    featuresColor: ['#06cdff30', 'rgba(223,7,107,.3)'],
+    locales: {
+      '/zh-CN/': {
+        label: '简体中文',
+        selectText: '多国语言'
+      },
+      '/en-US/': {
+        label: 'English',
+        selectText: 'Languages'
+      }
+    }
   },
-  locales,
+  locales: {
+    '/zh-CN/': {
+      lang: 'zh-CN',
+      title: 'Vuetom 主题',
+      description: '为 Vitepress 提供的一款主题'
+    },
+    '/en-US/': {
+      lang: 'en-US',
+      title: 'Vuetom Theme',
+      description: 'Theme For Vitepress'
+    }
+  },
   markdown: {
     lineNumbers: false,
     config: (md) => mdPlugin(md)
-  }
+  },
+  lastUpdated: true,
+  scrollOffset: 20
 })

@@ -24,9 +24,9 @@ const navs = computed(() => theme.value.nav[lang.value])
       </div>
     </template>
 
-    <!-- <div v-if="localeLinks" class="item">
-      <NavLang :item="localeLinks" />
-    </div> -->
+    <div v-if="localeLinks" class="item">
+      <NavDropdownLink :item="localeLinks" :lang="true"/>
+    </div>
 
     <div v-if="repo" class="item">
       <NavLink :item="repo" />

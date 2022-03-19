@@ -6,7 +6,8 @@ import NavDropdownLinkItem from './NavDropdownLinkItem.vue'
 import { VtNavItemWithChildren } from '../types'
 
 const props = defineProps<{
-  item: VtNavItemWithChildren
+  item: VtNavItemWithChildren,
+  lang: boolean
 }>()
 const route = useRoute()
 const router = useRouter()
@@ -23,14 +24,16 @@ function toggle() {
   open.value = !open.value
 }
 
-function switchLang(lang) {
-  if (lang.value === lang) return
-  localStorage.setItem(PREFERRED_LANG_KEY, lang)
-  const firstSlash = route.path.indexOf('/', 1)
+function switchLang(item, lang) {
+  if (lang) {
+    localStorage.setItem(PREFERRED_LANG_KEY, item.link.replaceAll('/', ''))
+  }
 
-  const goTo = `/${lang}/${route.path.slice(firstSlash + 1)}`
-
-  router.go(goTo)
+  // if (lang.value === lang) return
+  // localStorage.setItem(PREFERRED_LANG_KEY, lang)
+  // const firstSlash = route.path.indexOf('/', 1)
+  // const goTo = `/${lang}/${route.path.slice(firstSlash + 1)}`
+  // router.go(goTo)
 }
 </script>
 
@@ -43,9 +46,8 @@ function switchLang(lang) {
 
     <ul class="dialog">
       <li v-for="(it,idx) in item.items" :key="idx" class="dialog-item">
-        <NavDropdownLinkItem v-if="it.lang"
-          :item="it" @click="switchLang(it.lang)"/>
-        <NavDropdownLinkItem v-else :item="it" />
+        <!-- <NavDropdownLinkItem v-if="it.lang" :item="it" @click="switchLang(it.lang)"/> -->
+        <NavDropdownLinkItem :item="it" @click="switchLang(it, props.lang)"/>
       </li>
     </ul>
   </div>
