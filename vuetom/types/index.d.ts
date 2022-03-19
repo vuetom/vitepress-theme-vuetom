@@ -4,10 +4,12 @@ declare const theme: Theme
 
 // vuetom ui
 
-declare const VuetomUI: {
+export declare const VuetomUI: {
   name: string,
   version: string,
 }
+
+// siderbar
 
 export type VtSiderbarItem = {
   text: string
@@ -29,7 +31,7 @@ export type VtNavItem = VtNavItemWithLink | VtNavItemWithChildren
 
 // theme config
 
-declare interface VuetomThemeConfig extends DefaultTheme.Config {
+export declare interface VuetomThemeConfig extends DefaultTheme.Config {
 
   sidebar?: VtSiderbarItem[] | any;
 
@@ -78,5 +80,4 @@ declare interface VuetomThemeConfig extends DefaultTheme.Config {
    featuresColor?: string | Array;
 }
 
-export { VuetomUI, VuetomThemeConfig }
 export default theme
