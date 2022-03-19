@@ -7,7 +7,8 @@
       { "text": "开始", "link": "/start" },
       { "text": "问题一览", "link": "/question" },
       { "text": "主题目录", "link": "/prodir" },
-      { "text": "主题配置", "link": "/config" }
+      { "text": "主题配置", "link": "/config" },
+      { "text": "国际化", "link": "/lang" }
     ]
   },
   {
