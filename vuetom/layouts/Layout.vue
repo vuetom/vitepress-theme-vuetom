@@ -3,7 +3,7 @@ import {
   ref, computed, watch, defineAsyncComponent
 } from 'vue'
 import { useRoute, useData } from 'vitepress'
-import { isSideBarEmpty, getSideBarConfig } from '../support/sideBar'
+import { isSideBarEmpty, getSideBarConfig } from '../composables/sideBar'
 
 // components
 import NavBar from '../components/NavBar.vue'
@@ -99,65 +99,66 @@ const pageClasses = computed(() => [
         </slot>
       </template>
     </NavBar>
+    <div class="page-body">
+      <SideBar :open="openSideBar">
+        <template #sidebar-top>
+          <slot name="sidebar-top" />
+        </template>
+        <template #sidebar-bottom>
+          <slot name="sidebar-bottom" />
+        </template>
+      </SideBar>
+      <!-- TODO: make this button accessible -->
+      <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
-    <SideBar :open="openSideBar">
-      <template #sidebar-top>
-        <slot name="sidebar-top" />
+      <Content v-if="isCustomLayout" />
+
+      <template v-else-if="enableHome">
+        <!-- A slot for customizing the entire homepage easily -->
+        <slot name="home">
+          <Home>
+            <template #hero>
+              <slot name="home-hero" />
+            </template>
+            <template #features>
+              <slot name="home-features" />
+            </template>
+            <template #footer>
+              <slot name="home-footer" />
+            </template>
+          </Home>
+        </slot>
       </template>
-      <template #sidebar-bottom>
-        <slot name="sidebar-bottom" />
-      </template>
-    </SideBar>
-    <!-- TODO: make this button accessible -->
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
 
-    <Content v-if="isCustomLayout" />
-
-    <template v-else-if="enableHome">
-      <!-- A slot for customizing the entire homepage easily -->
-      <slot name="home">
-        <Home>
-          <template #hero>
-            <slot name="home-hero" />
-          </template>
-          <template #features>
-            <slot name="home-features" />
-          </template>
-          <template #footer>
-            <slot name="home-footer" />
-          </template>
-        </Home>
-      </slot>
-    </template>
-
-    <Page v-else>
-      <template #top>
-        <slot name="page-top-ads">
-          <div
-            id="ads-container"
-            v-if="theme.carbonAds && theme.carbonAds.carbon"
-          >
-            <CarbonAds
-              :key="'carbon' + page.relativePath"
-              :code="theme.carbonAds.carbon"
+      <Page v-else>
+        <template #top>
+          <slot name="page-top-ads">
+            <div
+              id="ads-container"
+              v-if="theme.carbonAds && theme.carbonAds.carbon"
+            >
+              <CarbonAds
+                :key="'carbon' + page.relativePath"
+                :code="theme.carbonAds.carbon"
+                :placement="theme.carbonAds.placement"
+              />
+            </div>
+          </slot>
+          <slot name="page-top" />
+        </template>
+        <template #bottom>
+          <slot name="page-bottom" />
+          <slot name="page-bottom-ads">
+            <BuySellAds
+              v-if="theme.carbonAds && theme.carbonAds.custom"
+              :key="'custom' + page.relativePath"
+              :code="theme.carbonAds.custom"
               :placement="theme.carbonAds.placement"
             />
-          </div>
-        </slot>
-        <slot name="page-top" />
-      </template>
-      <template #bottom>
-        <slot name="page-bottom" />
-        <slot name="page-bottom-ads">
-          <BuySellAds
-            v-if="theme.carbonAds && theme.carbonAds.custom"
-            :key="'custom' + page.relativePath"
-            :code="theme.carbonAds.custom"
-            :placement="theme.carbonAds.placement"
-          />
-        </slot>
-      </template>
-    </Page>
+          </slot>
+        </template>
+      </Page>
+    </div>
   </div>
 
   <Debug />
@@ -165,6 +166,10 @@ const pageClasses = computed(() => [
 
 <style>
 #ads-container {
+  margin: 0 auto;
+}
+
+.page-body {
   margin: 0 auto;
 }
 

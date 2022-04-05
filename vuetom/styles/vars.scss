@@ -72,3 +72,10 @@
   --code-inline-bg-color: rgba(27, 31, 35, 0.05);
   --code-bg-color: #282c34;
 }
+
+// breakpoints
+$breakpoint-xxl: 1440px !default;
+$breakpoint-xlg: 1280px !default;
+$breakpoint-lg: 960px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-sm: 480px !default;
