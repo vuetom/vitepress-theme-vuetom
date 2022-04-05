@@ -52,3 +52,5 @@ function createBitbucketUrl(repo, docsRepo, docsDir, docsBranch, path) {
         }${path
         }?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`)
 }
+
+export default {}
