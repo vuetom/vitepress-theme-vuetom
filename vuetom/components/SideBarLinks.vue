@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSideBar } from '../composables/sideBar'
-import { SideBarLink } from './SideBarLink'
+import { SideBarLink } from '../composables/SideBarLink'
 
 const items = useSideBar()
 </script>

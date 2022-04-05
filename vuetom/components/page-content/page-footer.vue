@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import EditLink from './EditLink.vue'
-import LastUpdated from './LastUpdated.vue'
+import EditLink from './edit-link.vue'
+import LastUpdated from './last-updated.vue'
 </script>
 
 <template>

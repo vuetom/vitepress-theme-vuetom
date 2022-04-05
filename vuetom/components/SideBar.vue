@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import NavLinks from './NavLinks.vue'
 import SideBarLinks from './SideBarLinks.vue'
+
 defineProps<{ open: boolean }>()
 </script>
 
 <template>
-  <aside 
-    class="sidebar" 
+  <aside
+    class="sidebar"
     :class="{ open }">
     <NavLinks class="nav" />
 
@@ -23,7 +24,7 @@ defineProps<{ open: boolean }>()
   position: fixed;
   top: var(--header-height);
   bottom: 0;
-  left: 0;
+  /* left: 0; */
   z-index: var(--z-index-sidebar);
   border-right: 1px solid var(--c-divider);
   width: 16.4rem;

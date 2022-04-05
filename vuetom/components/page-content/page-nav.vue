@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { withBase } from 'vitepress'
-import { useNextAndPrevLinks } from '../composables/nextAndPrevLinks'
-import ArrowLeft from './icons/ArrowLeft.vue'
-import ArrowRight from './icons/ArrowRight.vue'
+import { useNextAndPrevLinks } from '../../composables/nextAndPrevLinks'
+import ArrowLeft from '../icons/ArrowLeft.vue'
+import ArrowRight from '../icons/ArrowRight.vue'
 
 const { hasLinks, prev, next } = useNextAndPrevLinks()
 </script>

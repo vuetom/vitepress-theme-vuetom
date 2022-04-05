@@ -12,6 +12,7 @@ const hasLastUpdated = computed(() => {
 
 const prefix = computed(() => {
   const p = theme.value.lastUpdated
+
   return p === true ? 'Last Updated' : p
 })
 
