@@ -8,7 +8,7 @@ import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 
-const distFolder = path.resolve(__dirname, 'dist/styles')
+const distFolder = path.resolve(__dirname, 'css/styles')
 
 /**
  * compile theme-chalk scss & minify

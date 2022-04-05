@@ -1,4 +1,4 @@
-import './dist/styles/index.css'
+import './css/styles/index.css'
 
 // import VuetomUI from '@lauset/vuetom-ui'
 import Layout from './layouts/Layout.vue'
@@ -67,7 +67,3 @@ const theme = {
 
 export default theme
 export { VuetomUI, VuetomThemeConfig }
-
-// export const components = [
-//   ['VtButton', VtButton],
-// ]
