@@ -1,0 +1,30 @@
+{
+  "basic": {
+    "text": "基础",
+    "children": [
+      { "text": "什么是Vitepress?", "link": "/guide/info" },
+      { "text": "快速开始", "link": "/guide/start" },
+      {
+        "text": "问题一览",
+        "link": "/guide/question"
+      },
+      {
+        "text": "主题目录",
+        "link": "/guide/prodir"
+      }
+    ]
+  },
+  "advanced": {
+    "text": "进阶",
+    "children": [
+      {
+        "text": "主题配置",
+        "link": "/guide/config"
+      },
+      {
+        "test": "国际化",
+        "link": "/guide/lang"
+      }
+    ]
+  }
+}

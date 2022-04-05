@@ -2,17 +2,12 @@
   {
     "text": "指引",
     "link": "/guide/info",
-    "activeMatch": "^/$|^/guide/info"
+    "activeMatch": "/guide/"
   },
   {
     "text": "组件",
-    "link": "/menu/",
+    "link": "/menu/alert",
     "activeMatch": "/menu/"
-  },
-  {
-    "text": "样式",
-    "link": "/styl/",
-    "activeMatch": "/styl/"
   },
   {
     "text": "链接",

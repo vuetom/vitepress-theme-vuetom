@@ -1,0 +1,108 @@
+{
+  "zh-CN": {
+    "menu": {
+      "text": "组件",
+      "children": [
+        {
+          "link": "/menu/alert",
+          "text": "Alert"
+        },
+        {
+          "link": "/menu/button",
+          "text": "Button"
+        },
+        {
+          "link": "/menu/card",
+          "text": "Card"
+        }
+      ]
+    },
+    "styl": {
+      "text": "样式",
+      "children": [
+        {
+          "link": "/styl/colors",
+          "text": "颜色"
+        },
+        {
+          "link": "/styl/spacing",
+          "text": "间距"
+        },
+        {
+          "link": "/styl/icons",
+          "text": "图标"
+        }
+      ]
+    },
+    "mdshow": {
+      "text": "语法",
+      "children": [
+        {
+          "link": "/mdshow/example",
+          "text": "MD语法示例"
+        },
+        {
+          "link": "/mdshow/custom",
+          "text": "自定义语法"
+        },
+        {
+          "link": "/menu/codeblock",
+          "text": "代码块展示"
+        }
+      ]
+    }
+  },
+  "en-US": {
+    "menu": {
+      "text": "Vuetom组件",
+      "children": [
+        {
+          "link": "/alert",
+          "text": "Alert"
+        },
+        {
+          "link": "/button",
+          "text": "Button"
+        },
+        {
+          "link": "/card",
+          "text": "Card"
+        }
+      ]
+    },
+    "styl": {
+      "text": "样式",
+      "children": [
+        {
+          "link": "/colors",
+          "text": "颜色"
+        },
+        {
+          "link": "/spacing",
+          "text": "间距"
+        },
+        {
+          "link": "/icons",
+          "text": "图标"
+        }
+      ]
+    },
+    "mdshow": {
+      "text": "语法",
+      "children": [
+        {
+          "link": "/example",
+          "text": "MD语法示例"
+        },
+        {
+          "link": "/custom",
+          "text": "自定义语法"
+        },
+        {
+          "link": "/codeblock",
+          "text": "代码块展示"
+        }
+      ]
+    }
+  }
+}

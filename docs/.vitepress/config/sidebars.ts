@@ -1,19 +1,19 @@
 import { changeLang } from '../utils/lang'
-import sidebarLocale from '../i18n/pages/sidebar.json'
+import guideLocale from '../i18n/pages/guide.json'
+import menuLocale from '../i18n/pages/menu.json'
 
-function getGuideSidebar() {
+function getGuideSidebar(locale) {
   return Object.fromEntries(
-    Object.entries(sidebarLocale).map(([lang, val]) => [
+    Object.entries(locale).map(([lang, val]) => [
       lang,
-      Object.values(val).map((item) => mapPrefix(item, lang, item.link))
+      Object.values(val).map((item) => mapPrefix(item, lang))
     ])
   )
 }
 
-// return sidebar with language configs.
-// this might create duplicated data but the overhead is ignorable
 const getSidebars = () => ({
-  '/': getGuideSidebar()
+  '/guide/': getGuideSidebar(guideLocale),
+  '/': getGuideSidebar(menuLocale)
 })
 
 type Item = {
@@ -26,7 +26,6 @@ function mapPrefix(item: Item, lang: string, prefix = '') {
   if (item.children && item.children.length > 0) {
     return {
       ...item,
-      link: `${changeLang(lang)}${item.link}/`,
       children: item.children.map((child) => mapPrefix(child, lang, prefix))
     }
   }
@@ -37,6 +36,4 @@ function mapPrefix(item: Item, lang: string, prefix = '') {
   }
 }
 
-const sidebar = getSidebars()
-
-export default sidebar
+export default getSidebars()
