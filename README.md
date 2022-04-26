@@ -31,24 +31,29 @@
 git clone https://github.com/lauset/vitepress-theme-vuetom.git
 
 cd vitepress-theme-vuetom
+```
 
-npm install
+- 安装依赖
+
+```bash
+pnpm install
 ```
 
 - 启动文档
 
 ```bash
-npm run docs
+pnpm run docs
 ```
+
 - 构建样式
 
 ```bash
-npm run build:theme
+pnpm run build:theme
 ```
 
 - 发布主题包
 ```bash
-npm run pub
+pnpm run pub
 ```
 
 ## 文档目录多语言
@@ -82,6 +87,16 @@ $ crowdin:us
 ```shell
 $ crowdin:tw
 ```
+
+## 简单展示
+
+![首页](/resources/pic01.png)
+
+![暗黑主题](/resources/pic02.png)
+
+![语法示例](/resources/pic03.png)
+
+![其他](/resources/pic04.png)
 
 ## 仓库地址
 
