@@ -22,8 +22,12 @@
         "link": "/guide/config"
       },
       {
-        "test": "国际化",
+        "text": "国际化",
         "link": "/guide/lang"
+      },
+      {
+        "text": "夜间模式",
+        "link": "/guide/dark"
       }
     ]
   }

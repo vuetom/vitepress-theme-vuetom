@@ -1,29 +1,33 @@
 {
   "basic": {
-    "text": "基础",
+    "text": "Basic",
     "children": [
-      { "text": "什么是Vitepress?", "link": "/guide/info" },
-      { "text": "快速开始", "link": "/guide/start" },
+      { "text": "Vitepress", "link": "/guide/info" },
+      { "text": "Quick Start", "link": "/guide/start" },
       {
-        "text": "问题一览",
+        "text": "Question",
         "link": "/guide/question"
       },
       {
-        "text": "主题目录",
+        "text": "Project Dir",
         "link": "/guide/prodir"
       }
     ]
   },
   "advanced": {
-    "text": "进阶",
+    "text": "Advanced",
     "children": [
       {
-        "text": "主题配置",
+        "text": "Theme Config",
         "link": "/guide/config"
       },
       {
-        "test": "国际化",
+        "text": "Language",
         "link": "/guide/lang"
+      },
+      {
+        "text": "Dark Mode",
+        "link": "/guide/dark"
       }
     ]
   }

@@ -36,8 +36,6 @@ const formatPathDemos = computed(() => {
   console.log(123, props.demos)
 
   Object.keys(props.demos).forEach((key) => {
-    console.log(234, key)
-
     demos[key.replace('../../.vitepress/views/', '').replace('.vue', '')] = props.demos[key].default
   })
 
@@ -98,7 +96,7 @@ const copyCode = async () => {
   opacity: 0;
 }
 .example {
-  background: #fcfcfc;
+  // background: #fcfcfc;
   border: 1px solid #dcdfe6;
   border-radius: 5px;
   overflow: hidden;

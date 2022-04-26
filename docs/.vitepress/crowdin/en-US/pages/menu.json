@@ -1,6 +1,6 @@
 {
   "menu": {
-    "text": "Vuetom组件",
+    "text": "Vuetom UI",
     "children": [
       {
         "link": "/alert",
@@ -17,36 +17,36 @@
     ]
   },
   "styl": {
-    "text": "样式",
+    "text": "Style",
     "children": [
       {
         "link": "/colors",
-        "text": "颜色"
+        "text": "Colors"
       },
       {
         "link": "/spacing",
-        "text": "间距"
+        "text": "Spacing"
       },
       {
         "link": "/icons",
-        "text": "图标"
+        "text": "Icons"
       }
     ]
   },
   "mdshow": {
-    "text": "语法",
+    "text": "Code",
     "children": [
       {
         "link": "/example",
-        "text": "MD语法示例"
+        "text": "MarkDown"
       },
       {
         "link": "/custom",
-        "text": "自定义语法"
+        "text": "Custom MD"
       },
       {
         "link": "/codeblock",
-        "text": "代码块展示"
+        "text": "Code Show"
       }
     ]
   }

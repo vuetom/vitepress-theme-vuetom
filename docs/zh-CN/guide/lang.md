@@ -12,6 +12,10 @@ lang: en-US
 
 需要在 config.ts 中配置 locales，注意 themeConfig 属性里也要配，两个 locales 内容是不一样的
 
+themeConfig 中的 locales 配置是为了展示下拉菜单的展示内容
+
+根Config 中的 locales 配置是为了展示头部标题内容，description属性可有可无
+
 ```js
 export default defineConfigWithTheme<VuetomThemeConfig>({
   // ...
@@ -53,7 +57,7 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 
 <b>label</b>: 语言选择时展示出来的文本内容（例如：中文或English）
 
-<b>selectText</b>: 语言选择时下拉菜单的文本（例如：多语言或者Languages）
+<b>selectText</b>: 语言选择时下拉菜单的文本（例如：多国语言或者Languages）
 
 
 
@@ -85,6 +89,11 @@ if (typeof window !== 'undefined') {
 
 </script>
 ```
+
+::: warning
+其实原理就是路径前加了一个语言标识，那么就在页面文件外加个语言文件夹就好了<br>
+需要处理的就是书写导航栏和菜单栏时记得要在 link 属性前加上语言标识
+:::
 
 下面试试访问一下：
 
