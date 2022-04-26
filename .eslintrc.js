@@ -56,7 +56,8 @@ module.exports = {
         allowArrayStart: true
       }
     ],
-    'newline-before-return': 'error',
+
+    // 'newline-before-return': 'error',
     'import/newline-after-import': ['error', { count: 1 }],
     'import/extensions': [
       'warn',

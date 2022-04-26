@@ -1,12 +1,12 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Vitepress Theme Vuetom",
   "main": "./vuetom/index.js",
   "typings": "./vuetom/types/index.d.ts",
   "scripts": {
     "pub": "npm publish",
-    "docs": "pnpm run -C docs dev",
+    "docs": "pnpm run build:theme && pnpm run -C docs dev",
     "clean": "rimraf vuetom/dist",
     "build:theme": "gulp --require sucrase/register/ts -f vuetom/gulpfile.ts"
   },
