@@ -1,8 +1,8 @@
 import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
-import { useLang } from './lang'
+import { useLang } from '../../support/lang'
 import { useActiveSidebarLinks } from '../composables/activeSidebarLink'
-import { isArray, ensureStartingSlash, removeExtention } from '../utils'
+import { isArray, ensureStartingSlash, removeExtention } from '../../support/utils'
 
 export function useSideBar() {
   const route = useRoute()

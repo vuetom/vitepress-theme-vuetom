@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
-import { useNavLink } from '../composables/navLink'
-import OutboundLink from './icons/OutboundLink.vue'
-import { VtNavItemWithLink } from '../types'
+import { useNavLink } from '../../composables/navLink'
+import OutboundLink from '../icons/OutboundLink.vue'
+import { VtNavItemWithLink } from '../../types'
 
 const props = defineProps<{
   item: VtNavItemWithLink

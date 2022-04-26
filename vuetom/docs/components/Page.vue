@@ -1,16 +1,20 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useData } from 'vitepress'
 import PageFooter from './page-content/page-footer.vue'
 import PageNav from './page-content/page-nav.vue'
 import PageRight from './page-content/page-right.vue'
+import { useToc } from '../composables/useToc'
 
 const { theme } = useData()
+const toc = useToc()
+const haveToc = computed(() => toc.value?.length > 0)
 let { pageBgEnable, pageBgOpacity, bgImg } = theme.value
 let pageBgStyle = ''
-if (pageBgOpacity == undefined) {
+if (pageBgOpacity === undefined) {
   pageBgOpacity = 1
 }
-if (pageBgEnable == undefined) {
+if (pageBgEnable === undefined) {
   pageBgEnable = false
 }
 if (pageBgEnable) {
@@ -31,8 +35,7 @@ if (pageBgEnable) {
 
 <template>
   <main
-    class="page"
-    :style="pageBgStyle">
+    class="page">
     <div class="container">
       <slot name="top" />
       <Content class="content" />
@@ -40,7 +43,7 @@ if (pageBgEnable) {
       <PageNav />
       <slot name="bottom" />
     </div>
-    <div class="container-right">
+    <div v-if="haveToc" class="container-right">
       <PageRight class="page-right"/>
     </div>
   </main>
@@ -49,6 +52,7 @@ if (pageBgEnable) {
 <style scoped>
 .page {
   padding-top: var(--header-height);
+  background-color: var(--vt-c-bg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center center;
@@ -56,16 +60,16 @@ if (pageBgEnable) {
 }
 
 .container {
-  flex: 4;
-  margin: 0 3rem 0 6rem;
-  padding: 0 1.5rem 4rem;
-  max-width: 52rem;
+  flex: 5;
+  padding: 3rem 5rem;
 }
 
 .container-right {
   flex: 1;
-  padding: 3rem;
+  padding: 3rem 0 0 3rem;
   display: none;
+  align-items: center;
+  background-color: var(--vt-c-bg);
 }
 
 .page-right {
@@ -73,7 +77,7 @@ if (pageBgEnable) {
 }
 
 .content {
-  padding-bottom: 1.5rem;
+  /* padding-bottom: 1.5rem; */
 }
 
 @media (min-width: 420px) {
@@ -84,20 +88,17 @@ if (pageBgEnable) {
 
 @media (min-width: 720px) {
   .page {
-    margin-left: 16rem;
+    margin-left: 12rem;
   }
 }
 
 @media (min-width: 960px) {
   .page {
-    margin-left: 18rem;
+    margin-left: 16rem;
   }
 }
 
 @media (min-width: 1280px) {
-  .page {
-    margin-left: 20rem;
-  }
   .container-right {
     display: block;
   }

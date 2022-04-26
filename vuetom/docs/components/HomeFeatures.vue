@@ -4,18 +4,14 @@ import { useData } from 'vitepress'
 
 const { frontmatter } = useData()
 
-const hasFeatures = computed(() => {
-  return frontmatter.value.features && frontmatter.value.features.length > 0
-})
+const hasFeatures = computed(() => frontmatter.value.features && frontmatter.value.features.length > 0)
 
 interface Feature {
   title?: string
   details?: string
 }
 
-const features = computed<Feature[]>(() => {
-  return frontmatter.value.features ? frontmatter.value.features : []
-})
+const features = computed<Feature[]>(() => (frontmatter.value.features ? frontmatter.value.features : []))
 </script>
 
 <template>

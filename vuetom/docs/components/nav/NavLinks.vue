@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-import { useLang } from '../composables/lang'
-import { useLanguageLinks } from '../composables/nav'
-import { useRepo } from '../composables/repo'
+import { useLang } from '../../../support/lang'
+import { useLanguageLinks } from '../../composables/nav'
+import { useRepo } from '../../composables/repo'
 import NavLink from './NavLink.vue'
 import NavDropdownLink from './NavDropdownLink.vue'
 
@@ -46,6 +46,8 @@ const navs = computed(() => theme.value.nav[lang.value])
     padding: 6px 0 0;
     align-items: center;
     border-bottom: 0;
+    color: var(--vt-c-text-1);
+    transition: color 0.5s;
   }
 
   .item + .item {

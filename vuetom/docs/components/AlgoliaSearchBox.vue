@@ -3,8 +3,8 @@ import '@docsearch/css'
 import docsearch from '@docsearch/js'
 import { useRoute, useRouter, useData } from 'vitepress'
 import { getCurrentInstance, onMounted, watch } from 'vue'
-import type { DefaultTheme } from '../config'
 import type { DocSearchHit } from '@docsearch/react/dist/esm/types'
+import type { DefaultTheme } from '../config'
 
 const props = defineProps<{
   options: DefaultTheme.AlgoliaSearchOptions
@@ -28,11 +28,11 @@ onMounted(() => {
 
 function isSpecialClick(event: MouseEvent) {
   return (
-    event.button === 1 ||
-    event.altKey ||
-    event.ctrlKey ||
-    event.metaKey ||
-    event.shiftKey
+    event.button === 1
+    || event.altKey
+    || event.ctrlKey
+    || event.metaKey
+    || event.shiftKey
   )
 }
 
@@ -44,8 +44,7 @@ function getRelativePath(absoluteUrl: string) {
 
 function update(options: any) {
   if (vm && vm.vnode.el) {
-    vm.vnode.el.innerHTML =
-      '<div class="algolia-search-box" id="docsearch"></div>'
+    vm.vnode.el.innerHTML = '<div class="algolia-search-box" id="docsearch"></div>'
     initialize(options)
   }
 }
@@ -55,7 +54,7 @@ const { lang } = useData()
 // if the user has multiple locales, the search results should be filtered
 // based on the language
 const facetFilters: string[] = props.multilang
-  ? ['language:' + lang.value]
+  ? [`language:${lang.value}`]
   : []
 
 if (props.options.searchParameters?.facetFilters) {
@@ -66,24 +65,25 @@ watch(
   lang,
   (newLang, oldLang) => {
     const index = facetFilters.findIndex(
-      (filter) => filter === 'language:' + oldLang
+      (filter) => filter === `language:${oldLang}`
     )
     if (index > -1) {
-      facetFilters.splice(index, 1, 'language:' + newLang)
+      facetFilters.splice(index, 1, `language:${newLang}`)
     }
   }
 )
 
 function initialize(userOptions: any) {
   docsearch(
-    Object.assign({}, userOptions, {
+    {
+      ...userOptions,
       container: '#docsearch',
 
-      searchParameters: Object.assign({}, userOptions.searchParameters, {
-        // pass a custom lang facetFilter to allow multiple language search
+      searchParameters: {
+        ...userOptions.searchParameters, // pass a custom lang facetFilter to allow multiple language search
         // https://github.com/algolia/docsearch-configs/pull/3942
         facetFilters
-      }),
+      },
 
       navigator: {
         navigate: ({ itemUrl }: { itemUrl: string }) => {
@@ -101,13 +101,7 @@ function initialize(userOptions: any) {
         }
       },
 
-      transformItems: (items: DocSearchHit[]) => {
-        return items.map((item) => {
-          return Object.assign({}, item, {
-            url: getRelativePath(item.url)
-          })
-        })
-      },
+      transformItems: (items: DocSearchHit[]) => items.map((item) => ({ ...item, url: getRelativePath(item.url) })),
 
       hitComponent: ({
         hit,
@@ -152,7 +146,7 @@ function initialize(userOptions: any) {
           __v: null
         }
       }
-    })
+    }
   )
 }
 </script>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withBase, useData } from 'vitepress'
+
 const { site, theme, localePath } = useData()
 </script>
 
@@ -23,7 +24,7 @@ const { site, theme, localePath } = useData()
 .nav-bar-title {
   font-size: 1.3rem;
   font-weight: 600;
-  color: var(--c-text);
+  color: var(--vt-c-text-1);
 }
 
 .nav-bar-title:hover {

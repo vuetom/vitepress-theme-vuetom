@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData, withBase } from 'vitepress'
-import NavLink from './NavLink.vue'
+import NavLink from './nav/NavLink.vue'
 
 const { site, frontmatter } = useData()
 
 const showHero = computed(() => {
-  const { heroImage, heroText, tagline, actionLink, actionText } =
-    frontmatter.value
+  const {
+    heroImage, heroText, tagline, actionLink, actionText
+  } = frontmatter.value
+
   return heroImage || heroText || tagline || (actionLink && actionText)
 })
 

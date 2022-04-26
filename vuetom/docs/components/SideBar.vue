@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavLinks from './NavLinks.vue'
+import NavLinks from './nav/NavLinks.vue'
 import SideBarLinks from './SideBarLinks.vue'
 
 defineProps<{ open: boolean }>()
@@ -27,11 +27,13 @@ defineProps<{ open: boolean }>()
   /* left: 0; */
   z-index: var(--z-index-sidebar);
   border-right: 1px solid var(--c-divider);
-  width: 16.4rem;
-  background-color: var(--c-bg);
+  width: 16rem;
+  color: var(--vt-c-text-1);
+  transition: color 0.5s;
+  background-color: var(--vt-c-bg);
   overflow-y: auto;
   transform: translateX(-100%);
-  transition: transform 0.25s ease;
+  /* transition: transform 0.25s ease; */
 }
 
 @media (min-width: 720px) {
@@ -42,7 +44,7 @@ defineProps<{ open: boolean }>()
 
 @media (min-width: 960px) {
   .sidebar {
-    width: 20rem;
+    width: 16rem;
   }
 }
 

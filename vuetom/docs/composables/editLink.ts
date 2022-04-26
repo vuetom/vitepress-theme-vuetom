@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-import { endingSlashRE, isExternal } from '../utils'
+import { endingSlashRE, isExternal } from '../../support/utils'
 
 const bitbucketRE = /bitbucket.org/
 export function useEditLink() {

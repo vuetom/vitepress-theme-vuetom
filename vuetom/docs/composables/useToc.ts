@@ -14,7 +14,6 @@ type Headers = EnhanceArrayElement<
 
 export const useToc = () => {
   const { page } = useData()
-
   return computed(() => resolveHeaders(page.value.headers))
 }
 
@@ -23,7 +22,6 @@ export const resolveHeaders = (headers: PageData['headers']) => mapHeaders(group
 export function groupHeaders(headers: PageData['headers']) {
   headers = headers.map((h) => ({ ...h }))
   let lastH2
-
   headers.forEach((h) => {
     if (h.level === 2) {
       lastH2 = h

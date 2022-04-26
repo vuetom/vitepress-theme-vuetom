@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vitepress'
-import { PREFERRED_LANG_KEY } from '../constant'
+import { PREFERRED_LANG_KEY } from '../../../constant'
 import NavDropdownLinkItem from './NavDropdownLinkItem.vue'
-import { VtNavItemWithChildren } from '../types'
+import { VtNavItemWithChildren } from '../../types'
 
 const props = defineProps<{
   item: VtNavItemWithChildren,
@@ -142,7 +142,7 @@ function switchLang(item, lang) {
     border-radius: 6px;
     padding: 12px 0;
     min-width: 128px;
-    background-color: var(--c-bg);
+    background-color: var(--vt-c-bg);
     box-shadow: var(--shadow-3);
   }
 }

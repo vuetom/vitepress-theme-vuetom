@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { toRefs } from 'vue'
-import { useNavLink } from '../composables/navLink'
-import OutboundLink from './icons/OutboundLink.vue'
-import { VtNavItemWithLink } from '../types'
+import { useNavLink } from '../../composables/navLink'
+import OutboundLink from '../icons/OutboundLink.vue'
+import { VtNavItemWithLink } from '../../types'
 
 const props = defineProps<{
   item: VtNavItemWithLink
@@ -26,7 +26,8 @@ const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
   line-height: 36px;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--c-text);
+  color: var(--vt-c-text-1);
+  transition: color 0.5s;
   white-space: nowrap;
 }
 
@@ -38,7 +39,7 @@ const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
 
 .item.external:hover {
   border-bottom-color: transparent;
-  color: var(--c-text);
+  color: var(--c-brand);
 }
 
 @media (min-width: 720px) {
@@ -53,7 +54,7 @@ const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
   .item:hover,
   .item.active {
     border-bottom-color: var(--c-brand);
-    color: var(--c-text);
+    color: var(--c-brand);
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     -o-transition: all .3s ease-in-out;
