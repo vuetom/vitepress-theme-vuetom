@@ -6,7 +6,7 @@ import { useRoute, useData } from 'vitepress'
 import { isSideBarEmpty, getSideBarConfig } from '../composables/sideBar'
 
 // components
-import NavBar from '../components/NavBar.vue'
+import NavBar from '../components/nav/NavBar.vue'
 import SideBar from '../components/SideBar.vue'
 import Page from '../components/Page.vue'
 
