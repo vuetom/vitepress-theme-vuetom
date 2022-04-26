@@ -1,23 +1,8 @@
-:root {
-  --c-brand: #1496ce;
-  --c-brand-light: #19aeee;
-  --color-main: var(--c-brand);
-  /* --color-border: #f56be38a; */
-  --color-border: #ad295c8a;
-  --color-block: #2a7f8a;
-  --color-strong: #c13e74;
-  --color-code: #7ea1c5;
-  --color-border-left: #1d8ab9;
-  --color-code-bg: rgba(77,208,225,0.08);
-  --color-block-bg: rgba(77,208,225,0.15);
-  --linear-title: linear-gradient(to right, #32defd, rgb(247 69 152));
-}
-
 .nav-bar a.nav-bar-title {
   color: var(--c-brand) !important;
 }
 .container {
-  color: #555 !important;
+  color: var(--vt-c-text-1) !important;
   background-image: linear-gradient(90deg, rgba(159,219,252,0.15) 3%, transparent 0), linear-gradient(1turn, rgba(159,219,252,0.15) 3%, transparent 0);
   background-size: 20px 20px;
   background-position: 50%;
@@ -59,7 +44,7 @@
 .container h4 .octicon-link,
 .container h5 .octicon-link,
 .container h6 .octicon-link {
-  color: var(--color-main);
+  color: var(--c-brand);
   vertical-align: middle;
   visibility: hidden;
 }
@@ -146,7 +131,7 @@
   line-height: inherit;
 }
 .container a {
-  color: var(--color-main);
+  color: var(--c-brand);
   text-decoration: underline;
 }
 .container a:hover {
@@ -198,7 +183,7 @@
 .container h6 {
   margin-top: 10px;
   margin-bottom: 10px;
-  color: var(--color-main);
+  color: var(--c-brand);
 }
 .container h1 {
   font-size: 32px;
@@ -262,7 +247,7 @@
   width: 400px;
   height: 10px;
   border-top-right-radius: 24px;
-  background: linear-gradient(90deg, #fff, var(--color-main));
+  background: linear-gradient(90deg, var(--vt-c-bg), var(--c-brand));
   max-width: 50vw;
 }
 @media (max-width: 768px) {
@@ -312,7 +297,7 @@
 .container p {
   margin-top: 0;
   margin-bottom: 10px;
-  color: #2b2b2b;
+  color: var(--vt-c-text-1);
 }
 .container blockquote {
   margin: 0;
@@ -627,7 +612,7 @@
 }
 .container ol,
 .container ul {
-  padding-left: 2em;
+  padding-left: 1em;
 }
 .container ol ol,
 .container ol ul,
@@ -637,7 +622,7 @@
   margin-bottom: 0;
 }
 .container li {
-  color: var(--color-main);
+  color: var(--c-brand);
   word-wrap: break-all;
 }
 .container li>p {

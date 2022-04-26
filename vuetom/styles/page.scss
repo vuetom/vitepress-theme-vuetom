@@ -1,3 +1,24 @@
+/* nav-bar */
+
+.nav-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: var(--z-index-navbar);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--c-divider);
+  padding: 0.7rem 1.5rem 0.7rem 4rem;
+  height: var(--header-height);
+  background-color: var(--vt-c-bg);
+  -webkit-box-shadow: var(--vt-shadow);
+  box-shadow: var(--vt-shadow);
+}
+
+/* .sidebar */
+
 .sidebar-links {
   margin: 0;
   padding: 0;
@@ -130,4 +151,12 @@ a.sidebar-link-item.active {
   box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
   background   : #ededed;
   border-radius: 10px;
+}
+
+.sidebar-mask {
+  position: fixed;
+  z-index: 2;
+  display: none;
+  width: 100vw;
+  height: 100vh;
 }

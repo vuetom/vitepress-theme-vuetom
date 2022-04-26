@@ -21,9 +21,21 @@ code .token.inserted {
 div[class*='language-'] {
   position: relative;
   margin: 1rem -1.5rem;
-  background-color: var(--code-bg-color);
+  background-color: var(--vt-c-black-soft);
   overflow-x: auto;
 }
+
+div[class*='language-']:hover {
+  box-shadow: var(--vt-code-shadow-h);
+}
+
+div[class*='language-']::after {
+  content: '';
+  height: 15px;
+  background: #df80a077;
+  display: block;
+}
+
 
 li > div[class*='language-'] {
   border-radius: 6px 0 0 6px;
@@ -307,13 +319,4 @@ div[class~='language-vue']:before {
   padding: 15px;
   margin-bottom: 0;
   overflow: auto;
-}
-div[class*='language-'] {
-  box-shadow: 0 5px 10px 0 rgba(144,164,174,0.4);
-}
-div[class*='language-']::after {
-  content: '';
-  height: 15px;
-  background: #df80a077;
-  display: block;
 }
