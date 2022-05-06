@@ -1,0 +1,40 @@
+{
+  "zh-CN": {
+    "mdshow": {
+      "text": "语法",
+      "children": [
+        {
+          "link": "/mdshow/example",
+          "text": "MD语法示例"
+        },
+        {
+          "link": "/mdshow/custom",
+          "text": "自定义语法"
+        },
+        {
+          "link": "/comp/codeblock",
+          "text": "代码块展示"
+        }
+      ]
+    }
+  },
+  "en-US": {
+    "mdshow": {
+      "text": "Code",
+      "children": [
+        {
+          "link": "/mdshow/example",
+          "text": "Markdown"
+        },
+        {
+          "link": "/mdshow/custom",
+          "text": "Custom Tag"
+        },
+        {
+          "link": "/comp/codeblock",
+          "text": "Code Block"
+        }
+      ]
+    }
+  }
+}

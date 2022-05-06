@@ -1,5 +1,5 @@
 // .vitepress/theme/index.js
-import VuetomTheme, { VuetomUI } from '../../../vuetom'
+import VuetomTheme from '../../../vuetom'
 import { globals } from '../views'
 
 export default {
@@ -8,7 +8,7 @@ export default {
   // NotFound,
   // Layout,
   enhanceApp({ app, router, siteData }) {
-    app.use(VuetomUI)
+    // app.use(VuetomUI)
 
     // 注册组件
     globals.forEach(([name, Comp]) => {

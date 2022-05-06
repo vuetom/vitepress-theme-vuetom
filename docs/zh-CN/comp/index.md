@@ -11,14 +11,10 @@ head:
 
 # {{ $frontmatter.title }}
 
-`Alert` : 提示框
+`Vuetom UI`
 
-`Button` : 按钮
-
-`Card` : 卡片
-
-`CodeBlock` : 代码块
+请移步至 [git](https://github.com/lauset/vuetom-ui)
 
 ::: tip
-UI组件主要该主题框架内置的一套以扁平化风格为主的UI组件库，也可以使用第三方UI组件库
+UI已重写，文档正在制作
 :::

@@ -6,8 +6,8 @@
   },
   {
     "text": "组件",
-    "link": "/menu/alert",
-    "activeMatch": "/menu/"
+    "link": "/comp/index",
+    "activeMatch": "/comp/"
   },
   {
     "text": "链接",

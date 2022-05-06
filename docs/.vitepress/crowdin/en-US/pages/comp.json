@@ -1,0 +1,19 @@
+{
+  "mdshow": {
+    "text": "Code",
+    "children": [
+      {
+        "link": "/mdshow/example",
+        "text": "Markdown"
+      },
+      {
+        "link": "/mdshow/custom",
+        "text": "Custom Tag"
+      },
+      {
+        "link": "/comp/codeblock",
+        "text": "Code Block"
+      }
+    ]
+  }
+}

@@ -1,4 +1,3 @@
-import CardBasic from './card/card-basic.vue'
 import ColorList from './styl/color-list.vue'
 import IconList from './styl/icon-list.vue'
 import LayRow from './styl/lay-row.vue'
@@ -7,7 +6,6 @@ import VtDemo from './vt/vt-demo.vue'
 
 // export default VtApp
 export const globals = [
-  ['CardBasic', CardBasic],
   ['ColorList', ColorList],
   ['IconList', IconList],
   ['LayRow', LayRow],

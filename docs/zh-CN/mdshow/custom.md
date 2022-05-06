@@ -41,9 +41,9 @@ INFO消息
 :::
 
 ::: warning
-WARNING消息
+WARNING消息 <a>a链接</a>
 :::
 
 ::: danger
-DANGER消息
+DANGER消息 [md链接]()
 :::

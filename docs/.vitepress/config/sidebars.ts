@@ -1,6 +1,6 @@
 import { changeLang } from '../utils/lang'
 import guideLocale from '../i18n/pages/guide.json'
-import menuLocale from '../i18n/pages/menu.json'
+import menuLocale from '../i18n/pages/comp.json'
 
 function getGuideSidebar(locale) {
   return Object.fromEntries(

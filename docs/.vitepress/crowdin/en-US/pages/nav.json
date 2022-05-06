@@ -6,8 +6,8 @@
   },
   {
     "text": "Components",
-    "link": "/menu/",
-    "activeMatch": "/menu/"
+    "link": "/comp/index",
+    "activeMatch": "/comp/"
   },
   {
     "text": "Style",
