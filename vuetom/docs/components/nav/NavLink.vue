@@ -3,9 +3,11 @@ import { toRefs } from 'vue'
 import { useNavLink } from '../../composables/navLink'
 import OutboundLink from '../icons/OutboundLink.vue'
 import { VtNavItemWithLink } from '../../types'
+import VTIconGithub from '../icons/VTIconGithub.vue'
 
 const props = defineProps<{
-  item: VtNavItemWithLink
+  item: VtNavItemWithLink,
+  icon: string
 }>()
 const propsRefs = toRefs(props)
 const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
@@ -14,7 +16,13 @@ const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
 <template>
   <div class="nav-link">
     <a class="item nav-a-link" v-bind="linkProps">
-      {{ item.text }} <OutboundLink v-if="isExternal" />
+      <template v-if="icon == 'github'">
+        <VTIconGithub />
+      </template>
+      <template v-else>
+        {{ item.text }}
+      </template>
+      <OutboundLink v-if="isExternal && !icon" />
     </a>
   </div>
 </template>
@@ -40,6 +48,15 @@ const { props: linkProps, isExternal } = useNavLink(propsRefs.item)
 .item.external:hover {
   border-bottom-color: transparent;
   color: var(--c-brand);
+}
+
+.nav-a-link svg {
+  position: relative;
+  top: 3px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  fill: var(--vt-c-text-1);
 }
 
 @media (min-width: 720px) {

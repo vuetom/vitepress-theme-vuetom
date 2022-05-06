@@ -50,17 +50,7 @@
   overflow: hidden;
 }
 
-.vt-switch-icon svg {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 12px;
-  height: 12px;
-  fill: var(--vt-c-text-2);
-}
-
-.dark .vt-switch-icon svg {
-  fill: var(--vt-c-text-1);
-  transition: opacity 0.25s;
+.dark .vt-switch-check {
+  transform: translateX(18px);
 }
 </style>

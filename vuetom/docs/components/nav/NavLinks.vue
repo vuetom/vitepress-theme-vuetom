@@ -17,19 +17,20 @@ const navs = computed(() => theme.value.nav[lang.value])
 
 <template>
   <nav v-if="show" class="nav-links">
+    <!-- nav link-->
     <template v-if="navs">
       <div v-for="item in navs" :key="item.text" class="item">
-        <NavDropdownLink v-if="item.items" :item="item"/>
+        <NavDropdownLink v-if="item.items" :item="item" />
         <NavLink v-else :item="item" />
       </div>
     </template>
-
+    <!-- language dropdown link -->
     <div v-if="localeLinks" class="item">
-      <NavDropdownLink :item="localeLinks" :lang="true"/>
+      <NavDropdownLink :item="localeLinks" :lang-val="lang" :lang="true" />
     </div>
-
+    <!-- git url -->
     <div v-if="repo" class="item">
-      <NavLink :item="repo" />
+      <NavLink :item="repo" icon="github"/>
     </div>
   </nav>
 </template>

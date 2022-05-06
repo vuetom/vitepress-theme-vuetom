@@ -3,22 +3,24 @@ import VTSwitch from './VTSwitch.vue'
 import VTIconSun from '../icons/VTIconSun.vue'
 import VTIconMoon from '../icons/VTIconMoon.vue'
 
-const storageKey = 'VUETOM_THEME'
+const storageKey = 'vuetom_dark'
 const toggle = typeof localStorage !== 'undefined' ? useAppearance() : () => {}
-
 function useAppearance() {
   let userPreference = localStorage.getItem(storageKey) || 'auto'
   const query = window.matchMedia('(prefers-color-scheme: dark)')
   const { classList } = document.documentElement
-  let isDark = userPreference === 'auto' ? query.matches : userPreference === 'dark'
   const setClass = (dark: boolean) => classList[dark ? 'add' : 'remove']('dark')
-
+  let isDark = userPreference === 'auto' ? query.matches : userPreference === 'dark'
   query.onchange = (e) => {
     if (userPreference === 'auto') {
       setClass((isDark = e.matches))
     }
   }
-
+  if (userPreference === 'auto') {
+    setClass(query.matches)
+  } else {
+    setClass(userPreference === 'dark')
+  }
   const toggle = () => {
     setClass((isDark = !isDark))
     localStorage.setItem(
@@ -32,7 +34,6 @@ function useAppearance() {
           : 'auto')
     )
   }
-
   return toggle
 }
 </script>
@@ -61,6 +62,20 @@ function useAppearance() {
 }
 .dark .vt-switch-appearance-moon {
   opacity: 1;
+}
+
+.vt-switch-icon svg {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 12px;
+  height: 12px;
+  fill: #222;
+}
+
+.dark .vt-switch-icon svg {
+  fill: #eee;
+  transition: opacity 0.25s;
 }
 
 .dark .vt-switch-appearance .vt-switch-check {
