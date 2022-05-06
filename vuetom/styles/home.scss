@@ -13,7 +13,7 @@
 .home {
   /* background: url("../imgs/homebg.jpg") no-repeat 50% 50%/cover; */
   /* background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2018-12-15%2F5c14b251e831a.jpg%3Fdown&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1644329038&t=8bd7fc67844966db6150373c19e17a29'); */
- 
+
   /* -webkit-filter: blur(10px);
   -moz-filter: blur(10px);
   -ms-filter: blur(10px);
@@ -29,7 +29,12 @@
   rgba(109,186,130,.1)); */
 }
 .home-hero {
-  background-image: linear-gradient(90deg, rgba(159,219,252,0.15) 3%, transparent 0), linear-gradient(1turn, rgba(159,219,252,0.15) 3%, transparent 0);
+  background-image: linear-gradient(
+      90deg,
+      rgba(159, 219, 252, 0.15) 3%,
+      transparent 0
+    ),
+    linear-gradient(1turn, rgba(159, 219, 252, 0.15) 3%, transparent 0);
   background-size: 20px 20px;
   background-position: 50%;
 }
@@ -47,17 +52,21 @@
 .home-hero .figure::after {
   /* background: url("../imgs/homebg.jpg") no-repeat 50% 50%/cover; */
   /* background-color: var(--blend-color-1); */
-  background-image: -webkit-linear-gradient(top,
-  rgba(0,0,0,0.1) 0%,
-  rgba(0,0,0,0) 20%,
-  rgba(0,0,0,0) 80%,
-  rgba(0,0,0,0.1) 100%),
-  -webkit-linear-gradient(left,
-  rgba(0,0,0,0.1) 0%,
-  rgba(0,0,0,0) 20%,
-  rgba(0,0,0,0) 80%,
-  rgba(0,0,0,0.1) 100%),
-  url("../imgs/homebg.jpg");
+  background-image: -webkit-linear-gradient(
+      top,
+      rgba(0, 0, 0, 0.1) 0%,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0) 80%,
+      rgba(0, 0, 0, 0.1) 100%
+    ),
+    -webkit-linear-gradient(left, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 20%, rgba(
+            0,
+            0,
+            0,
+            0
+          )
+          80%, rgba(0, 0, 0, 0.1) 100%),
+    url('../imgs/homebg.jpg');
   background-blend-mode: var(--blend-mode-1);
   animation-duration: var(--time-anim);
   animation-delay: var(--delay-anim);
@@ -71,21 +80,42 @@
     transform: translate3d(var(--gap-horizontal), 0, 0);
     clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%);
   }
-  2% { clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%); }
-  4% { clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%); }
-  6% { clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%); }
-  8% { clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%); }
-  10% { clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%); }
-  12% { clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%); }
-  14% { clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%); }
-  16% { clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%); }
-  18% { clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%); }
-  20% { clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%); }
+  2% {
+    clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%);
+  }
+  4% {
+    clip-path: polygon(0 10%, 100% 10%, 100% 20%, 0 20%);
+  }
+  6% {
+    clip-path: polygon(0 1%, 100% 1%, 100% 2%, 0 2%);
+  }
+  8% {
+    clip-path: polygon(0 33%, 100% 33%, 100% 33%, 0 33%);
+  }
+  10% {
+    clip-path: polygon(0 44%, 100% 44%, 100% 44%, 0 44%);
+  }
+  12% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 20%, 0 20%);
+  }
+  14% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 70%, 0 70%);
+  }
+  16% {
+    clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+  }
+  18% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+  }
+  20% {
+    clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
+  }
   21.9% {
     opacity: 1;
     transform: translate3d(var(--gap-horizontal), 0, 0);
   }
-  22%, 100% {
+  22%,
+  100% {
     opacity: 0;
     transform: translate3d(0, 0, 0);
     clip-path: polygon(0 0, 0 0, 0 0, 0 0);
@@ -209,18 +239,19 @@
 
 /* Features Start */
 @-webkit-keyframes hfhover-zoom {
-  50%{
-    -webkit-transform:scale(0.9);
-    transform:scale(0.9);
-    -webkit-filter:brightness(80%)
+  50% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-filter: brightness(80%);
   }
-  100%{
-    -webkit-transform:scale(1);
-    transform:scale(1);
-    -webkit-filter:brightness(100%)
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: brightness(100%);
   }
 }
-.home-features:hover,.home-features:focus {
+.home-features:hover,
+.home-features:focus {
   box-shadow: 3px 3px 10px rgb(20, 20, 20, 0.5);
   -webkit-transform: translateY(-0.25em);
   transform: translateY(-0.25em);
@@ -231,12 +262,13 @@
   .feature :hover {
     -webkit-animation-name: hfhover-zoom;
     animation-name: hfhover-zoom;
-    -webkit-animation-duration:.5s;
-    animation-duration:.5s;
-    -webkit-animation-timing-function:ease-in;
-    animation-timing-function:ease-in;
-    -webkit-animation-iteration-count:1;
-    animation-iteration-count:1
+    -webkit-animation-duration: 0.5s;
+    animation-duration: 0.5s;
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    color: var(--c-sub-brand-light);
   }
 }
 .home-features {
@@ -245,8 +277,9 @@
   backdrop-filter: saturate(180%) blur(5px);
   background: linear-gradient(to right, #06cdff30, rgba(223, 7, 107, 0.3));
 }
-.home-features p.details,.home-hero p.tagline {
-  color: rgba(248, 182, 237, 0.979) !important;
+.home-features p.details,
+.home-hero p.tagline {
+  color: var(--c-sub-brand);
 }
 .home-features .container h2 {
   line-height: 56px;
@@ -259,7 +292,7 @@
   top: 12px;
   width: 26px;
   height: 26px;
-  background-image: url("../imgs/vuetom-logo-s.png");
+  background-image: url('../imgs/vuetom-logo-s.png');
   background-position: 0 0;
   background-repeat: no-repeat;
   background-size: contain;

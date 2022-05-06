@@ -1,7 +1,8 @@
 /** Base Styles */
 :root {
+
   /**
-   * Colors
+   * Base Colors
    * --------------------------------------------------------------------- */
 
   --c-white: #ffffff;
@@ -10,13 +11,6 @@
 
   --c-divider-light: rgba(60, 60, 67, 0.12);
   --c-divider-dark: rgba(84, 84, 88, 0.48);
-
-  --c-text-light-1: #2c3e50;
-  --c-text-light-2: #476582;
-  --c-text-light-3: #90a4b7;
-
-  --c-brand: #3eaf7c;
-  --c-brand-light: #4abf8a;
 
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f9f9f9;
@@ -59,12 +53,6 @@
   --vt-c-text-dark-3: rgba(235, 235, 235, 0.38);
   --vt-c-text-dark-4: rgba(235, 235, 235, 0.18);
   --vt-c-text-dark-code: var(--vt-c-indigo-light);
-
-  --vt-c-green: #42b883;
-  --vt-c-green-light: #42d392;
-  --vt-c-green-lighter: #35eb9a;
-  --vt-c-green-dark: #33a06f;
-  --vt-c-green-darker: #155f3e;
 
   /**
    * Typography
@@ -126,10 +114,6 @@
   --vt-c-text-inverse-3: var(--vt-c-text-dark-3);
   --vt-c-text-inverse-4: var(--vt-c-text-dark-4);
 
-  --vt-c-brand: var(--vt-c-green);
-  --vt-c-brand-light: var(--vt-c-green-light);
-  --vt-c-brand-dark: var(--vt-c-green-dark);
-  --vt-c-brand-highlight: var(--vt-c-brand-dark);
 }
 
 .dark {
@@ -160,6 +144,8 @@
 :root {
   --c-brand: #1496ce;
   --c-brand-light: #19aeee;
+  --c-sub-brand: #f197bd;
+  --c-sub-brand-light: #f7adcb;
   --color-border: #ad295c8a;
   --color-block: #2a7f8a;
   --color-strong: #c13e74;
@@ -171,14 +157,16 @@
   --vt-shadow: 0 5px 6px -5px rgba(133,133,133,.6);
   --vt-code-shadow: 5px 5px 1px rgba(255, 255, 255, 0.4);
   --vt-code-shadow-h: 5px 5px 10px rgba(255, 255, 255, 0.4);
+  --vt-code-inline-color: #c13e74;
+  --vt-code-inline-bg: #c13e7408;
 }
 
 .dark {
   --c-brand: #18baff;
   --c-brand-light: #189bd3;
-  --color-border: #ad295c8a;
+  --color-border: #ff3a858a;
   --color-block: #2a7f8a;
-  --color-strong: #c13e74;
+  --color-strong: #e44a8a;
   --color-code: #7ea1c5;
   --color-border-left: #1d8ab9;
   --color-code-bg: rgba(77,208,225,0.08);
@@ -187,6 +175,8 @@
   --vt-shadow: 0 5px 6px -5px rgba(0, 0, 0, 0.6);
   --vt-code-shadow: 5px 5px 1px rgba(0, 0, 0, 0.4);
   --vt-code-shadow-h: 5px 5px 10px rgba(0, 0, 0, 0.4);
+  --vt-code-inline-color: #eee;
+  --vt-code-inline-bg: #c13e7450;
 }
 
 // breakpoints
