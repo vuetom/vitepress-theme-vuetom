@@ -5,6 +5,15 @@ import './css/styles/index.css'
 import ThemeDocs from './docs'
 import ThemeBlog from './blog'
 
-const VuetomTheme = ((type?: string) => (type === 'blog' ? ThemeBlog : ThemeDocs))()
+const ThemeType = ((type?: string) => (type === 'blog' ? ThemeBlog : ThemeDocs))
 
-export default VuetomTheme
+const DocsTheme = ThemeType('docs')
+
+const BlogTheme = ThemeType('blog')
+
+export default DocsTheme
+
+export {
+  DocsTheme,
+  BlogTheme
+}
