@@ -59,6 +59,27 @@ export declare interface VuetomThemeConfig extends DefaultTheme.Config {
   bgOpacity?: 0.1|0.2|0.3|0.4|0.5|0.6|0.7|0.8|0.9|1.0;
 
   /**
+   * Whether background flashing is on
+   *
+   * @example false
+   */
+  flashEnable?: boolean;
+
+  /**
+   * Background flashing top and right colors
+   *
+   * @example ['238,17,17', '0,98,255']
+   */
+  flashColor?: string | Array;
+
+  /**
+   * Whether to turn on poor visual effect
+   *
+   * @example true
+   */
+  parallaxEnable?: boolean;
+
+  /**
    * Page background image enable
    *
    * @example true
