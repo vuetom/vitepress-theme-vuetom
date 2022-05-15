@@ -18,7 +18,7 @@
 
 ## 主题风格
 
-* [文档风格](http://212.64.67.168:3010)
+* [文档风格](http://tomhub.cn)
 
 * 博客风格(Coming soon...)
 
@@ -34,26 +34,42 @@ cd vitepress-theme-vuetom
 ```
 
 - 安装依赖
-
 ```bash
 pnpm install
 ```
 
-- 启动文档
-
+- 构建主题
 ```bash
-pnpm run docs
+pnpm build
 ```
 
-- 构建样式
-
+- 分步构建
 ```bash
-pnpm run build:theme
+# 清除文件
+pnpm clean
+
+# 打包样式
+pnpm build:css
+
+# 打包主程序
+pnpm build:vt
 ```
 
 - 发布主题包
 ```bash
-pnpm run pub
+pnpm pub
+```
+
+- 启动文档示例
+```bash
+cd docs
+npm run dev
+```
+
+- 启动博客示例
+```bash
+cd blog
+npm run dev
 ```
 
 ## 文档目录多语言
@@ -107,6 +123,8 @@ $ crowdin:tw
 ## 感谢
 
 [Vite](https://vitejs.cn/)
+
+[Vitepress](https://vitepress.vuejs.org/)
 
 [ElementPlus](https://element-plus.gitee.io/zh-CN/)
 
