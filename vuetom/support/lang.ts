@@ -8,7 +8,7 @@ export const useLang = () => {
   return computed(() => {
     // the first part of the first slash
     const path = route.data?.relativePath
-    let lang = ''
+    let lang
 
     if (path?.includes('/')) {
       lang = path.split('/').shift()

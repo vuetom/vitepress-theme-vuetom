@@ -1,4 +1,4 @@
-import './css/styles/index.css'
+import '../dist/css/index.css'
 
 // dev
 // import './styles/index.scss'

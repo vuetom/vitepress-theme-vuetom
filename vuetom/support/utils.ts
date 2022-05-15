@@ -2,16 +2,16 @@ export const hashRE = /#.*$/
 export const extRE = /(index)?\.(md|html)$/
 export const endingSlashRE = /\/$/
 export const outboundRE = /^[a-z]+:/i
-export function isNullish(value) {
+export function isNullish(value: any) {
   return value === null || value === undefined
 }
-export function isArray(value) {
+export function isArray(value: any) {
   return Array.isArray(value)
 }
-export function isExternal(path) {
+export function isExternal(path: string) {
   return outboundRE.test(path)
 }
-export function isActive(route, path) {
+export function isActive(route: any, path: string) {
   if (path === undefined) {
     return false
   }
@@ -20,10 +20,10 @@ export function isActive(route, path) {
 
   return routePath === pagePath
 }
-export function normalize(path) {
+export function normalize(path: string) {
   return decodeURI(path).replace(hashRE, '').replace(extRE, '')
 }
-export function joinUrl(base, path) {
+export function joinUrl(base: string, path: string) {
   const baseEndsWithSlash = base.endsWith('/')
   const pathStartsWithSlash = path.startsWith('/')
   if (baseEndsWithSlash && pathStartsWithSlash) {
@@ -41,7 +41,7 @@ export function joinUrl(base, path) {
  * path is `/guide/getting-started.html`, this method will return `/guide/`.
  * Always with a trailing slash.
  */
-export function getPathDirName(path) {
+export function getPathDirName(path: string) {
   const segments = path.split('/')
   if (segments[segments.length - 1]) {
     segments.pop()
@@ -49,13 +49,13 @@ export function getPathDirName(path) {
 
   return ensureEndingSlash(segments.join('/'))
 }
-export function ensureSlash(path) {
+export function ensureSlash(path: string) {
   return ensureEndingSlash(ensureStartingSlash(path))
 }
-export function ensureStartingSlash(path) {
+export function ensureStartingSlash(path: string) {
   return /^\//.test(path) ? path : `/${path}`
 }
-export function ensureEndingSlash(path) {
+export function ensureEndingSlash(path: string) {
   return /(\.html|\/)$/.test(path) ? path : `${path}/`
 }
 
@@ -63,6 +63,6 @@ export function ensureEndingSlash(path) {
  * Remove `.md` or `.html` extention from the given path. It also converts
  * `index` to slush.
  */
-export function removeExtention(path) {
+export function removeExtention(path: string) {
   return path.replace(/(index)?(\.(md|html))?$/, '') || '/'
 }
