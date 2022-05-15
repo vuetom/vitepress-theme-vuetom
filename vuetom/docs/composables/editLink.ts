@@ -7,7 +7,11 @@ export function useEditLink() {
   const { page, theme, frontmatter } = useData()
   const url = computed(() => {
     const {
-      repo, docsDir = '', docsBranch = 'master', docsRepo = repo, editLinks
+      repo,
+      docsDir = '',
+      docsBranch = 'master',
+      docsRepo = repo,
+      editLinks
     } = theme.value
     const showEditLink = frontmatter.value.editLink != null
       ? frontmatter.value.editLink
@@ -26,31 +30,50 @@ export function useEditLink() {
     text
   }
 }
-function createUrl(repo, docsRepo, docsDir, docsBranch, path) {
+function createUrl(
+  repo: string,
+  docsRepo: string,
+  docsDir: string,
+  docsBranch: string,
+  path: string
+) {
   return bitbucketRE.test(repo)
     ? createBitbucketUrl(repo, docsRepo, docsDir, docsBranch, path)
     : createGitHubUrl(repo, docsRepo, docsDir, docsBranch, path)
 }
-function createGitHubUrl(repo, docsRepo, docsDir, docsBranch, path) {
+function createGitHubUrl(
+  repo: string,
+  docsRepo: string,
+  docsDir: string,
+  docsBranch: string,
+  path: string
+) {
   const base = isExternal(docsRepo)
     ? docsRepo
     : `https://github.com/${docsRepo}`
 
-  return (`${base.replace(endingSlashRE, '')
-  }/edit`
-        + `/${docsBranch}/${
-          docsDir ? `${docsDir.replace(endingSlashRE, '')}/` : ''
-        }${path}`)
+  return (
+    `${base.replace(endingSlashRE, '')}/edit`
+    + `/${docsBranch}/${
+      docsDir ? `${docsDir.replace(endingSlashRE, '')}/` : ''
+    }${path}`
+  )
 }
-function createBitbucketUrl(repo, docsRepo, docsDir, docsBranch, path) {
+function createBitbucketUrl(
+  repo: string,
+  docsRepo: string,
+  docsDir: string,
+  docsBranch: string,
+  path: string
+) {
   const base = isExternal(docsRepo) ? docsRepo : repo
 
-  return (`${base.replace(endingSlashRE, '')
-  }/src`
-        + `/${docsBranch}/${
-          docsDir ? `${docsDir.replace(endingSlashRE, '')}/` : ''
-        }${path
-        }?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`)
+  return (
+    `${base.replace(endingSlashRE, '')}/src`
+    + `/${docsBranch}/${
+      docsDir ? `${docsDir.replace(endingSlashRE, '')}/` : ''
+    }${path}?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
+  )
 }
 
 export default {}

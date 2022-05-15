@@ -7,7 +7,7 @@ import VTIconGithub from '../icons/VTIconGithub.vue'
 
 const props = defineProps<{
   item: VtNavItemWithLink,
-  icon: string
+  icon?: string
 }>()
 const propsRefs = toRefs(props)
 const { props: linkProps, isExternal } = useNavLink(propsRefs.item)

@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import { useRoute, withBase } from 'vitepress'
 import { isExternal as isExternalCheck } from '../../support/utils'
 
-export function useNavLink(item) {
+export function useNavLink(item: any) {
   const route = useRoute()
   const isExternal = isExternalCheck(item.value.link)
   const props = computed(() => {
@@ -35,7 +35,7 @@ export function useNavLink(item) {
     isExternal
   }
 }
-function normalizePath(path) {
+function normalizePath(path: string) {
   return path
     .replace(/#.*$/, '')
     .replace(/\?.*$/, '')

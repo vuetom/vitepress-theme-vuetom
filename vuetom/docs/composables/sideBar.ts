@@ -2,7 +2,11 @@ import { computed } from 'vue'
 import { useRoute, useData } from 'vitepress'
 import { useLang } from '../../support/lang'
 import { useActiveSidebarLinks } from '../composables/activeSidebarLink'
-import { isArray, ensureStartingSlash, removeExtention } from '../../support/utils'
+import {
+  isArray,
+  ensureStartingSlash,
+  removeExtention
+} from '../../support/utils'
 
 export function useSideBar() {
   const route = useRoute()
@@ -42,13 +46,13 @@ export function useSideBar() {
     return themeSidebar
   })
 }
-function resolveAutoSidebar(headers, depth) {
-  const ret = []
+function resolveAutoSidebar(headers: any, depth: number) {
+  const ret: any = []
   if (headers === undefined) {
     return []
   }
-  let lastH2
-  headers.forEach(({ level, title, slug }) => {
+  let lastH2: any
+  headers.forEach(({ level, title, slug }: any) => {
     if (level - 1 > depth) {
       return
     }
@@ -67,13 +71,13 @@ function resolveAutoSidebar(headers, depth) {
   return ret
 }
 
-export function isSideBarConfig(sidebar) {
+export function isSideBarConfig(sidebar: any) {
   return sidebar === false || sidebar === 'auto' || isArray(sidebar)
 }
-export function isSideBarGroup(item) {
+export function isSideBarGroup(item: any) {
   return item.children !== undefined
 }
-export function isSideBarEmpty(sidebar) {
+export function isSideBarEmpty(sidebar: any) {
   return isArray(sidebar) ? sidebar.length === 0 : !sidebar
 }
 
@@ -83,15 +87,21 @@ export function isSideBarEmpty(sidebar) {
  * combinations such as matching `guide/` and `/guide/`. If no matching config
  * was found, it will return `auto` as a fallback.
  */
-export function getSideBarConfig(sidebar, path, lang) {
+export function getSideBarConfig(
+  sidebar: any,
+  path: string,
+  lang: string | undefined
+) {
   if (isSideBarConfig(sidebar)) {
     return sidebar
   }
-  path = ensureStartingSlash(path)
+  const pathStr = ensureStartingSlash(path)
+
+  // eslint-disable-next-line no-restricted-syntax
   for (const dir in sidebar) {
     // make sure the multi sidebar key starts with slash too
-    if (path.startsWith(ensureStartingSlash(`${lang}${dir}`))) {
-      return sidebar[dir][lang]
+    if (pathStr.startsWith(ensureStartingSlash(`${lang}${dir}`))) {
+      return sidebar[dir][lang || '']
     }
   }
 
@@ -104,16 +114,16 @@ export function getSideBarConfig(sidebar, path, lang) {
  * don't have `link` property and removes `.md` or `.html` extension if a
  * link contains it.
  */
-export function getFlatSideBarLinks(sidebar) {
-  return sidebar.reduce((links, item) => {
+export function getFlatSideBarLinks(sidebar: any) {
+  return sidebar.reduce((links: any, item: any) => {
+    let lks = links
     if (item.link) {
-      links.push({ text: item.text, link: removeExtention(item.link) })
+      lks.push({ text: item.text, link: removeExtention(item.link) })
     }
     if (isSideBarGroup(item)) {
-      links = [...links, ...getFlatSideBarLinks(item.children)]
+      lks = [...lks, ...getFlatSideBarLinks(item.children)]
     }
-
-    return links
+    return lks
   }, [])
 }
 

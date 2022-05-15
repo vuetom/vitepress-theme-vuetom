@@ -1,6 +1,5 @@
 import { computed } from 'vue'
 import { useData } from 'vitepress'
-
 import type { PageData } from 'vitepress'
 
 type EnhanceArrayElement<T, P> = T extends Array<infer U> ? (U & P)[] : never
@@ -17,12 +16,15 @@ export const useToc = () => {
   return computed(() => resolveHeaders(page.value.headers))
 }
 
-export const resolveHeaders = (headers: PageData['headers']) => mapHeaders(groupHeaders(headers))
+export const resolveHeaders = (
+  headers: PageData['headers']
+) => mapHeaders(groupHeaders(headers))
 
 export function groupHeaders(headers: PageData['headers']) {
-  headers = headers.map((h) => ({ ...h }))
-  let lastH2
-  headers.forEach((h) => {
+  let hs = headers
+  let lastH2: any
+  hs = headers.map((h) => ({ ...h }))
+  hs.forEach((h) => {
     if (h.level === 2) {
       lastH2 = h
     } else if (lastH2) {
@@ -33,7 +35,7 @@ export function groupHeaders(headers: PageData['headers']) {
   return headers.filter((h) => h.level === 2)
 }
 
-export function mapHeaders(headers: Headers) {
+export function mapHeaders(headers: Headers): any {
   return headers.map((header) => ({
     text: header.title,
     link: `#${header.slug}`,

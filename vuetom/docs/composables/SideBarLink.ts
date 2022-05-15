@@ -1,8 +1,10 @@
 import { h } from 'vue'
 import { useRoute, useData } from 'vitepress'
+import type { PageData } from 'vitepress'
 import { joinUrl, isActive } from '../../support/utils'
+import { resolveHeaders } from './useToc'
 
-export const SideBarLink = (props) => {
+export const SideBarLink = (props: any) => {
   const route = useRoute()
   const { site, frontmatter } = useData()
   const depth = props.depth || 1
@@ -24,7 +26,7 @@ export const SideBarLink = (props) => {
     childItems
   ])
 }
-function resolveLink(base, path) {
+function resolveLink(base: any, path: string) {
   if (path === undefined) {
     return path
   }
@@ -36,37 +38,48 @@ function resolveLink(base, path) {
 
   return joinUrl(base, path)
 }
-function createChildren(active, children, headers, depth = 1) {
+function createChildren(
+  active: any,
+  children: any,
+  headers: PageData['headers'] | undefined,
+  depth = 1
+): any {
   if (children && children.length > 0) {
-    return h('ul', { class: 'sidebar-links' }, children.map((c) => h(SideBarLink, { item: c, depth })))
+    return h(
+      'ul',
+      { class: 'sidebar-links' },
+      children.map(
+        (c: any) => h(SideBarLink, { item: c, depth })
+      )
+    )
   }
-
   return active && headers
     ? createChildren(false, resolveHeaders(headers), undefined, depth)
     : null
 }
-function resolveHeaders(headers) {
-  return mapHeaders(groupHeaders(headers))
-}
-function groupHeaders(headers) {
-  headers = headers.map((h) => ({ ...h }))
-  let lastH2
-  headers.forEach((h) => {
-    if (h.level === 2) {
-      lastH2 = h
-    } else if (lastH2) {
-      (lastH2.children || (lastH2.children = [])).push(h)
-    }
-  })
 
-  return headers.filter((h) => h.level === 2)
-}
-function mapHeaders(headers) {
-  return headers.map((header) => ({
-    text: header.title,
-    link: `#${header.slug}`,
-    children: header.children ? mapHeaders(header.children) : undefined
-  }))
-}
+// function resolveHeaders(headers) {
+//   return mapHeaders(groupHeaders(headers))
+// }
+// function groupHeaders(headers) {
+//   headers = headers.map((h) => ({ ...h }))
+//   let lastH2
+//   headers.forEach((h) => {
+//     if (h.level === 2) {
+//       lastH2 = h
+//     } else if (lastH2) {
+//       (lastH2.children || (lastH2.children = [])).push(h)
+//     }
+//   })
+
+//   return headers.filter((h) => h.level === 2)
+// }
+// function mapHeaders(headers) {
+//   return headers.map((header) => ({
+//     text: header.title,
+//     link: `#${header.slug}`,
+//     children: header.children ? mapHeaders(header.children) : undefined
+//   }))
+// }
 
 export default {}

@@ -16,9 +16,9 @@ export function useLanguageLinks() {
 
     // intentionally remove the leading slash because each locale has one
     const currentPath = route.path.replace(localePath.value, '')
-    const candidates = localePaths.map((localePath) => ({
-      text: langs[localePath].label,
-      link: `${localePath}${currentPath}`
+    const candidates = localePaths.map((localeText) => ({
+      text: langs[localeText].label,
+      link: `${localeText}${currentPath}`
     }))
     const selectText = theme.value.selectText || 'Languages'
 
