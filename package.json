@@ -1,16 +1,22 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Vitepress Theme Vuetom",
-  "main": "./vuetom/index.js",
-  "typings": "./vuetom/types/index.d.ts",
+  "main": "dist/index.js",
+  "typings": "types/index.d.ts",
   "scripts": {
     "pub": "npm publish",
-    "docs": "pnpm run build:theme && pnpm run -C docs dev",
-    "clean": "rimraf vuetom/dist",
-    "build:theme": "gulp --require sucrase/register/ts -f vuetom/gulpfile.ts"
+    "clean": "rimraf ./dist",
+    "build": "pnpm clean && pnpm build:css && pnpm build:vt",
+    "build:vt": "tsc -p . && node scripts/build-vt",
+    "build:css": "gulp --require sucrase/register/ts -f vuetom/gulpfile.ts"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   },
   "files": [
+    "dist",
+    "types",
     "vuetom"
   ],
   "keywords": [
@@ -38,6 +44,8 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-vue": "^8.5.0",
+    "fs-extra": "^10.0.0",
+    "globby": "^11.0.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "8.0.0",
     "gulp-clean-css": "4.3.0",
@@ -50,5 +58,15 @@
   },
   "dependencies": {
     "dayjs": "^1.11.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "react",
+        "react-dom",
+        "@types/react"
+      ]
+    }
   }
 }

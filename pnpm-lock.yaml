@@ -12,6 +12,8 @@ specifiers:
   eslint-config-airbnb-base: ^15.0.0
   eslint-plugin-import: ^2.25.4
   eslint-plugin-vue: ^8.5.0
+  fs-extra: ^10.0.0
+  globby: ^11.0.3
   gulp: ^4.0.2
   gulp-autoprefixer: 8.0.0
   gulp-clean-css: 4.3.0
@@ -36,6 +38,8 @@ devDependencies:
   eslint-config-airbnb-base: 15.0.0_662e1b2e8ef3f6aa5d22c3f7cd670612
   eslint-plugin-import: 2.26.0_eslint@8.14.0
   eslint-plugin-vue: 8.7.1_eslint@8.14.0
+  fs-extra: 10.1.0
+  globby: 11.1.0
   gulp: 4.0.2
   gulp-autoprefixer: 8.0.0_gulp@4.0.2
   gulp-clean-css: 4.3.0
@@ -59,6 +63,9 @@ packages:
     peerDependencies:
       '@algolia/client-search': ^4.9.1
       algoliasearch: ^4.9.1
+    peerDependenciesMeta:
+      '@algolia/client-search':
+        optional: true
     dependencies:
       '@algolia/autocomplete-shared': 1.5.2
       algoliasearch: 4.13.0
@@ -186,6 +193,13 @@ packages:
       '@types/react': '>= 16.8.0 < 18.0.0'
       react: '>= 16.8.0 < 18.0.0'
       react-dom: '>= 16.8.0 < 18.0.0'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
     dependencies:
       '@algolia/autocomplete-core': 1.5.2
       '@algolia/autocomplete-preset-algolia': 1.5.2_algoliasearch@4.13.0
@@ -1977,6 +1991,15 @@ packages:
       map-cache: 0.2.2
     dev: true
 
+  /fs-extra/10.1.0:
+    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: true
+
   /fs-mkdirp-stream/1.0.0:
     resolution: {integrity: sha1-C3gV/DIBxqaeFNuYzgmMFpNSWes=}
     engines: {node: '>= 0.10'}
@@ -2677,6 +2700,14 @@ packages:
     hasBin: true
     dependencies:
       minimist: 1.2.6
+    dev: true
+
+  /jsonfile/6.1.0:
+    resolution: {integrity: sha512-5dgndWOriYSm5cnYaJNhalLNDKOqFwyDB/rr1E9ZsGciGvKPs8R2xYGCacuf3z6K1YKDz182fd+fY3cn3pMqXQ==}
+    dependencies:
+      universalify: 2.0.0
+    optionalDependencies:
+      graceful-fs: 4.2.10
     dev: true
 
   /just-debounce/1.1.0:
@@ -4048,6 +4079,11 @@ packages:
     dependencies:
       json-stable-stringify-without-jsonify: 1.0.1
       through2-filter: 3.0.0
+    dev: true
+
+  /universalify/2.0.0:
+    resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
+    engines: {node: '>= 10.0.0'}
     dev: true
 
   /unset-value/1.0.0:

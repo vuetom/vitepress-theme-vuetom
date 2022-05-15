@@ -8,7 +8,7 @@ import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 
-const distFolder = path.resolve(__dirname, 'css/styles')
+const distFolder = path.resolve(__dirname, '../dist/css')
 
 /**
  * compile theme-chalk scss & minify
@@ -33,8 +33,10 @@ function buildThemeChalk() {
     )
 
     .pipe(
+      // eslint-disable-next-line no-shadow
       rename((path) => {
         if (!noPrefixFile.test(path.basename)) {
+          // eslint-disable-next-line no-param-reassign
           path.basename = `vt-${path.basename}`
         }
       })
