@@ -1,5 +1,7 @@
 // .vitepress/theme/index.js
-import VuetomTheme from '../../../vuetom'
+// import VuetomTheme from '../../../vuetom'
+
+import VuetomTheme from 'vitepress-theme-vuetom'
 import { globals } from '../views'
 
 export default {

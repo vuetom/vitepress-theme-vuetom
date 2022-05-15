@@ -79,12 +79,13 @@ npm i -D vitepress-theme-vuetom
 
 ```javascript light
 // .vitepress/theme/index.ts
-import VuetomTheme, { VuetomUI } from 'vitepress-theme-vuetom' 
+// 默认导出文档类型的主题
+import VuetomTheme from 'vitepress-theme-vuetom' 
 
 export default {
   ...VuetomTheme,
   enhanceApp({ app, router, siteData }) {
-    app.use(VuetomUI)
+    // app.use(VuetomUI)
   }
 }
 ```

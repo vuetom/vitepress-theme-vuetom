@@ -36,6 +36,8 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
     bgImg: '/imgs/homg-bg01.jpg',
     bgColor: '0,0,0',
     bgOpacity: 0.6,
+    flashEnable: true,
+    flashColor: ['238,17,17', '0,98,255'],
     pageBgEnable: true,
     pageBgOpacity: 0.8,
     featuresColor: ['#06cdff30', 'rgba(223,7,107,.3)']
@@ -100,3 +102,24 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 - 默认值：`rgba(255,255,255,0.8)`
 
 首页功能面板背景色，可以是单个颜色字符串，也可以是两个字符串组成的数组
+
+**flashEnable**
+
+- 类型：`boolean`
+- 默认值：`false`
+  
+是否开启首页背景图闪烁功能，效果类似于朋克风故障
+
+**flashColor**
+
+- 类型：`string | Array`
+- 默认值：`['0,0,0','0,0,0']`
+
+首页背景闪烁时附加的色彩，0: Top位置的颜色，1: Right位置的颜色，默认都是黑色
+
+**parallaxEnable**
+
+- 类型：`boolean`
+- 默认值：`false`
+  
+是否开启首页部分元素视觉差效果

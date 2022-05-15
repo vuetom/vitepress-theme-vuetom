@@ -16,5 +16,5 @@ head:
 请移步至 [git](https://github.com/lauset/vuetom-ui)
 
 ::: tip
-UI已重写，文档正在制作
+UI已初步重写完成，文档正在制作中，请客观耐心等待一下吧T-T
 :::
