@@ -2,13 +2,6 @@ import { DefaultTheme, Theme } from 'vitepress'
 
 declare const theme: Theme
 
-// vuetom ui
-
-export declare const VuetomUI: {
-  name: string,
-  version: string,
-}
-
 // siderbar
 
 export type VtSiderbarItem = {

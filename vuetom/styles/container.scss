@@ -210,7 +210,7 @@
   border-bottom: 4px solid var(--color-border);
   position: relative;
   line-height: 50px;
-  padding-left: 50px;
+  padding-left: 25px;
 }
 @media (max-width: 768px) {
   .container h2 {
@@ -219,18 +219,19 @@
     padding-left: 30px;
   }
 }
-.container h2:before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 12px;
-  width: 26px;
-  height: 26px;
-  background-image: url("/logo/vuetom-logo-s.png");
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
+// small logo
+// .container h2:before {
+//   content: '|';
+//   position: absolute;
+//   left: 4px;
+//   top: 12px;
+//   width: 26px;
+//   height: 26px;
+//   background-image: url("");
+//   background-position: 0 0;
+//   background-repeat: no-repeat;
+//   background-size: contain;
+// }
 @media (max-width: 768px) {
   .container h2:before {
     left: 4px;

@@ -1,16 +1,16 @@
 <script lang="ts" setup>
+import { PREFERRED_THEME_KEY } from '../../../constant'
 import VTSwitch from './VTSwitch.vue'
 import VTIconSun from '../icons/VTIconSun.vue'
 import VTIconMoon from '../icons/VTIconMoon.vue'
 
-const storageKey = 'vuetom_dark'
-const toggle = typeof localStorage !== 'undefined' ? useAppearance() : () => {}
 function useAppearance() {
-  let userPreference = localStorage.getItem(storageKey) || 'auto'
+  let userPreference = localStorage.getItem(PREFERRED_THEME_KEY) || 'auto'
   const query = window.matchMedia('(prefers-color-scheme: dark)')
   const { classList } = document.documentElement
   const setClass = (dark: boolean) => classList[dark ? 'add' : 'remove']('dark')
-  let isDark = userPreference === 'auto' ? query.matches : userPreference === 'dark'
+  let isDark = userPreference === 'auto'
+    ? query.matches : userPreference === 'dark'
   query.onchange = (e) => {
     if (userPreference === 'auto') {
       setClass((isDark = e.matches))
@@ -21,10 +21,11 @@ function useAppearance() {
   } else {
     setClass(userPreference === 'dark')
   }
-  const toggle = () => {
+  return () => {
     setClass((isDark = !isDark))
     localStorage.setItem(
-      storageKey,
+      PREFERRED_THEME_KEY,
+      // eslint-disable-next-line no-nested-ternary
       (userPreference = isDark
         ? query.matches
           ? 'auto'
@@ -34,8 +35,8 @@ function useAppearance() {
           : 'auto')
     )
   }
-  return toggle
 }
+const toggle = typeof localStorage !== 'undefined' ? useAppearance() : () => {}
 </script>
 
 <template>

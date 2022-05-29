@@ -164,97 +164,6 @@
   border-radius: 10px;
 }
 
-/* Punk Button Start 
-.home-hero a.item,
-.home-hero a.item::after{
-  border-radius: 3px !important;
-  border: none !important;
-  background-color: #ffffff00 !important;
-  font-family: 'Do Hyeon', sans-serif;
-  width: 260px;
-  height: 66px;
-  text-align: center;
-  font-size: 25px;
-  line-height: 66px;
-  color: rgb(255, 251, 251);
-  background: linear-gradient(30deg,transparent 15%,rgb(0, 204, 255) 10% 85%,  rgb(0, 255, 149) 85%);
-  box-shadow: 5px 0 0 rgb(233, 53, 164);
-  cursor: pointer;
-  position: relative;
-}
-.home-hero a.item::after{
-  content: 'Vuetom Love You';
-  position: absolute;
-  top: 0;
-  left: 0;
-  text-shadow: -5px -2px 0 rgb(0, 183, 255),
-  5px 2px 0 rgb(0, 255, 115) ;
-  visibility: hidden;
-} 
-.home-hero a.item:hover::after{
-  animation: san 1s ; 
-  animation-timing-function: steps(1, end);
-}
-@keyframes san{
-  0%{
-    clip-path: inset(20% -5px  60%  0);
-    transform: translate(-6px,5px);
-    visibility: visible;
-  }
-  10%{
-    clip-path: inset(50% -5px  30%  0);
-    transform: translate(6px,-5px);
-  }
-  20%{
-    clip-path: inset(20% -5px  60%  0);
-    transform: translate(5px,0px);
-
-  }
-  30%{
-    clip-path: inset(80% -5px  5%  0);
-    transform: translate(-8px,5px);
-  }
-  40%{
-    clip-path: inset(0 -5px  80%  0);
-    transform: translate(-4px,-3px);
-
-  }
-  50%{
-    clip-path: inset(50% -5px  30%  0);
-    transform: translate(-6px,-5px);
-  }
-  60%{
-    clip-path: inset(80% -5px  5%  0);
-    transform: translate(-7px,5px);
-
-  }
-  70%{
-    clip-path: inset(0 -5px  80%  0);
-    transform: translate(3px,6px);
-  }
-  80%{
-    clip-path: inset(50% -5px  30%  0);
-    transform: translate(5px,5px);
-
-  }
-  90%{
-    clip-path: inset(20% -5px  60%  0);
-    transform: translate(6px,-5px);
-
-  }
-  100%{
-    clip-path: inset(0 -5px  80%  0);
-    transform: translate(1px,5px);
-
-  }
-}
-*/
-/* Punk Button End */
-
-/* Button Start */
-
-/* Button End */
-
 /* Features Start */
 @-webkit-keyframes hfhover-zoom {
   50% {
@@ -309,19 +218,6 @@
 .home-features .container h2 {
   line-height: 56px;
   padding-bottom: 0;
-}
-
-.home-features .container h2:before {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 12px;
-  width: 26px;
-  height: 26px;
-  background-image: url('../imgs/vuetom-logo-s.png');
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .home-features .container h2:after {
