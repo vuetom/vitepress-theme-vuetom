@@ -7,8 +7,7 @@ import { VtNavItemWithChildren } from '../../types'
 
 const props = defineProps<{
   item: VtNavItemWithChildren,
-  lang?: boolean,
-  langVal?: string
+  lang?: boolean
 }>()
 const route = useRoute()
 const router = useRouter()
@@ -25,11 +24,9 @@ function toggle() {
   open.value = !open.value
 }
 
-function switchLang(item, lang) {
-  if (lang) {
-    console.log(234, lang)
-
-    localStorage.setItem(PREFERRED_LANG_KEY, item.link.replaceAll('/', ''))
+function switchLang(item) {
+  if (item.value) {
+    localStorage.setItem(PREFERRED_LANG_KEY, item.value.replaceAll('/', ''))
   }
 
   // if (lang.value === lang) return
@@ -50,7 +47,7 @@ function switchLang(item, lang) {
     <ul class="dialog">
       <li v-for="(it,idx) in item.items" :key="idx" class="dialog-item">
         <!-- <NavDropdownLinkItem v-if="it.lang" :item="it" @click="switchLang(it.lang)"/> -->
-        <NavDropdownLinkItem :item="it" @click="switchLang(it, props.langVal)"/>
+        <NavDropdownLinkItem :item="it" @click="switchLang(it)"/>
       </li>
     </ul>
   </div>

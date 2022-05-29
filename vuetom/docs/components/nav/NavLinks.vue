@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useData } from 'vitepress'
+
 import { useLang } from '../../../support/lang'
 import { useLanguageLinks } from '../../composables/nav'
 import { useRepo } from '../../composables/repo'
 import NavLink from './NavLink.vue'
 import NavDropdownLink from './NavDropdownLink.vue'
 
-const { theme } = useData()
+// current lang
 const lang = useLang()
+const { theme } = useData()
 const localeLinks = useLanguageLinks()
 const repo = useRepo()
 const show = computed(() => theme.value.nav || repo.value || localeLinks.value)
@@ -26,7 +28,7 @@ const navs = computed(() => theme.value.nav[lang.value])
     </template>
     <!-- language dropdown link -->
     <div v-if="localeLinks" class="item">
-      <NavDropdownLink :item="localeLinks" :lang-val="lang" :lang="true" />
+      <NavDropdownLink :item="localeLinks" :lang="true" />
     </div>
     <!-- git url -->
     <div v-if="repo" class="item">

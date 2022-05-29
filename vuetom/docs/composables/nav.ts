@@ -8,7 +8,7 @@ export function useLanguageLinks() {
     const { langs } = site.value
     const localePaths = Object.keys(langs)
 
-    // one language
+    // one language juse use this
     if (localePaths.length < 2) {
       return null
     }
@@ -18,6 +18,7 @@ export function useLanguageLinks() {
     const currentPath = route.path.replace(localePath.value, '')
     const candidates = localePaths.map((localeText) => ({
       text: langs[localeText].label,
+      value: localeText,
       link: `${localeText}${currentPath}`
     }))
     const selectText = theme.value.selectText || 'Languages'
