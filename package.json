@@ -1,6 +1,6 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Vitepress Theme Vuetom",
   "main": "dist/index.js",
   "typings": "types/index.d.ts",
