@@ -6,7 +6,7 @@ import { useLang } from '../common/lang'
 
 // import { useSourceCode } from '../composables/source-code'
 // import { usePlayGround } from '../composables/use-playground'
-import demoBlockLocale from '../../i18n/views/demo-block.json'
+import demoBlockLocale from '../../i18n/demo-block.json'
 import Example from './demo/vp-example.vue'
 import SourceCode from './demo/vp-source-code.vue'
 

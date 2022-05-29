@@ -1,0 +1,132 @@
+{
+  "zh-CN": {
+    "guide": [
+      {
+        "basic": {
+          "text": "基础",
+          "children": [
+            {
+              "text": "什么是Vitepress?",
+              "link": "/guide/info"
+            },
+            {
+              "text": "快速开始",
+              "link": "/guide/start"
+            },
+            {
+              "text": "问题一览",
+              "link": "/guide/question"
+            },
+            {
+              "text": "主题目录",
+              "link": "/guide/prodir"
+            }
+          ]
+        },
+        "advanced": {
+          "text": "进阶",
+          "children": [
+            {
+              "text": "主题配置",
+              "link": "/guide/config"
+            },
+            {
+              "text": "国际化",
+              "link": "/guide/lang"
+            },
+            {
+              "text": "夜间模式",
+              "link": "/guide/dark"
+            }
+          ]
+        }
+      }
+    ],
+    "mdshow": [
+      {
+        "langshow": {
+          "text": "语法",
+          "children": [
+            {
+              "link": "/mdshow/example",
+              "text": "MD语法示例"
+            },
+            {
+              "link": "/mdshow/custom",
+              "text": "自定义语法"
+            },
+            {
+              "link": "/mdshow/codeblock",
+              "text": "代码块展示"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "en-US": {
+    "guide": [
+      {
+        "basic": {
+          "text": "Basic",
+          "children": [
+            {
+              "text": "What's the Vitepress?",
+              "link": "/guide/info"
+            },
+            {
+              "text": "Quick Start",
+              "link": "/guide/start"
+            },
+            {
+              "text": "Questions",
+              "link": "/guide/question"
+            },
+            {
+              "text": "Project Dir",
+              "link": "/guide/prodir"
+            }
+          ]
+        },
+        "advanced": {
+          "text": "Advanced",
+          "children": [
+            {
+              "text": "Theme Config",
+              "link": "/guide/config"
+            },
+            {
+              "text": "Languages",
+              "link": "/guide/lang"
+            },
+            {
+              "text": "Dark Mode",
+              "link": "/guide/dark"
+            }
+          ]
+        }
+      }
+    ],
+    "comp": [
+      {
+        "mdshow": {
+          "text": "MD Show",
+          "children": [
+            {
+              "link": "/mdshow/example",
+              "text": "Example"
+            },
+            {
+              "link": "/mdshow/custom",
+              "text": "Custom"
+            },
+            {
+              "link": "/comp/codeblock",
+              "text": "Code Block"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

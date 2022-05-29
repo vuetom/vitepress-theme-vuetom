@@ -1,5 +1,5 @@
 import { changeLang } from '../utils/lang'
-import navJson from '../i18n/pages/nav.json'
+import navJson from '../i18n/nav.json'
 
 function getNav() {
   return Object.fromEntries(
