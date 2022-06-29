@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a,a as o}from"./app.fcd151f8.js";const h='{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"README.md","lastUpdated":1647536815000}',s={},r=o("h1",{align:"center"},"Vuetom Theme Documents",-1),c=[r];function n(_,d,i,p,l,m){return a(),t("div",null,c)}var u=e(s,[["render",n]]);export{h as __pageData,u as default};

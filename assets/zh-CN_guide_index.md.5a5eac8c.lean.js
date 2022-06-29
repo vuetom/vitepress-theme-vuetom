@@ -1,0 +1,1 @@
+import{_ as e,c as o,o as t,g as c}from"./app.fcd151f8.js";const u='{"title":"\u6307\u5F15","description":"","frontmatter":{},"headers":[],"relativePath":"zh-CN/guide/index.md","lastUpdated":1647696942000}',d={},a=c("",8),s=[a];function p(i,r,_,n,l,h){return t(),o("div",null,s)}var m=e(d,[["render",p]]);export{u as __pageData,m as default};
