@@ -6,16 +6,23 @@ import HomeFeatures from './HomeFeatures.vue'
 import HomeFooter from './HomeFooter.vue'
 import type { VuetomThemeConfig } from '../types'
 
-const { theme } = useData<VuetomThemeConfig>()
+const { theme, site } = useData<VuetomThemeConfig>()
+const { base } = site.value
+
 const {
   bgImg, flashEnable, featuresColor, parallaxEnable
 } = theme.value
 let { bgColor, flashColor, bgOpacity } = theme.value
 
+let baseUrl = base
 let bgStyle = ''
 let lightStyle = ''
 let bgInnerOpacity = 0.3
 let ftStyle = 'background:rgba(255,255,255,0.8);'
+
+if (base === '/' || base.endsWith('/')) {
+  baseUrl = base.substring(0, base.length - 1)
+}
 
 // feat color check
 if (typeof featuresColor === 'string') {
@@ -52,7 +59,7 @@ if (bgImg) {
       rgba(${bgColor},${bgInnerOpacity}) 20%,
       rgba(${bgColor},${bgInnerOpacity}) 80%,
       rgba(${bgColor},${bgOpacity}) 100%),
-    url(${bgImg})
+    url(${baseUrl}/${bgImg})
   `
 }
 if (bgImg && flashEnable) {
@@ -68,7 +75,7 @@ if (bgImg && flashEnable) {
       rgba(${flashColor[1]}, 0) 20%, 
       rgba(${flashColor[1]}, 0.2) 80%, 
       rgba(${flashColor[1]}, 0.8) 100%),
-      url(${bgImg})
+      url(${baseUrl}/${bgImg})
   `
 }
 

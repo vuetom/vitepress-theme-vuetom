@@ -19,7 +19,7 @@ function buildThemeChalk() {
   const sass = gulpSass(dartSass)
   const noPrefixFile = /(index|main)/
 
-  return src(path.resolve(__dirname, 'styles/*.scss'))
+  return src(path.resolve(__dirname, 'styles/rewrite/*.scss'))
     .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
     .pipe(

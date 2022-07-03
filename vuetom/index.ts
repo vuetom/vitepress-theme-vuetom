@@ -1,8 +1,8 @@
-import '../dist/css/index.css'
+// import '../dist/css/index.css'
 
 // dev
 // import './styles/index.scss'
-import ThemeDocs from './docs'
+import ThemeDocs from './doc'
 import ThemeBlog from './blog'
 
 const ThemeType = ((type?: string) => (type === 'blog' ? ThemeBlog : ThemeDocs))

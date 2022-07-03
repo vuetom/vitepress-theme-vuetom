@@ -31,6 +31,13 @@ export declare interface VuetomThemeConfig extends DefaultTheme.Config {
   nav?: VtNavItem[] | any;
 
   /**
+   * Home Logo image
+   *
+   * @example '/logo/vuetom-logo-m.png'
+   */
+  logoImg?: string;
+
+  /**
    * Home background image
    *
    * @example '/imgs/homg-bg01.jpg'
