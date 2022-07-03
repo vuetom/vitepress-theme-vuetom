@@ -1,0 +1,1 @@
+import{_ as e,o,c as t,g as c}from"./app.1150a4b2.js";const f=JSON.parse('{"title":"\u6307\u5F15","description":"","frontmatter":{},"headers":[],"relativePath":"zh-CN/guide/index.md"}'),d={name:"zh-CN/guide/index.md"},a=c("",8),s=[a];function i(p,r,n,_,l,h){return o(),t("div",null,s)}var m=e(d,[["render",i]]);export{f as __pageData,m as default};
