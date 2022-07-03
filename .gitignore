@@ -1,4 +1,3 @@
 dist/
-node_modules/
 dist.zip
-docs/
+node_modules/
