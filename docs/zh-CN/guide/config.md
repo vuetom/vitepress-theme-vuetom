@@ -17,6 +17,54 @@ head:
 
 其中 head、sidebar、nav 对应的分别是 head脚本、侧边栏菜单、头部导航栏都可以默认为 []
 
+<br>
+
+以下是版本号满足 `vitepress >= 1.x.x` `vuetom-theme >= 2.x.x` 的配置
+
+```js
+// .vitepress/config.ts
+export default defineConfigWithTheme<VuetomThemeConfig>({
+  lang: 'en-US',
+  base: '/vt',
+  title: 'Vuetom Theme',
+  description: 'Theme For Vitepress',
+  // head,
+  themeConfig: {
+    nav: nav(),
+    sidebar: {
+      'zh-CN/guide/': sidebarGuide(),
+      'zh-CN/mdshow/': sidebarMdShow()
+    },
+    socialLinks: [
+      { icon: 'github', link: pkg.repository }
+    ],
+    footer: {
+      message: 'Released under the MIT License.',
+      copyright: 'Copyright © 2021-present Lauset'
+    },
+    logoImg: '/logo/vuetom-logo-m.png',
+    bgImg: '/imgs/homg-bg01.jpg',
+    bgColor: '0,0,0',
+    bgOpacity: 0.6,
+    flashEnable: true,
+    flashColor: ['238,17,17', '0,98,255'],
+    parallaxEnable: true,
+    pageBgEnable: true,
+    pageBgOpacity: 0.8,
+    featuresColor: ['#06cdff30', 'rgba(223,7,107,.3)']
+
+  },
+  markdown: {
+    lineNumbers: false,
+    config: (md) => mdPlugin(md)
+  },
+  lastUpdated: false
+})
+```
+
+<br>
+
+以下是版本号满足 `vitepress = 0.x.x` `vuetom-theme = 1.x.x` 的配置
 
 ```js light
 import { defineConfigWithTheme } from 'vitepress'
@@ -50,6 +98,17 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 
 以下是对配置项的简要说明
 
+## 首页LOGO
+
+**logoImg**
+
+- 类型：`string`
+- 默认值：`''`
+
+首页上方LOGO，路径中的首个 `/` 表示 `public` 目录
+
+例如：`'/logo/homg-logo.jpg'` 
+
 ## 首页背景图
 
 **bgImg**
@@ -57,7 +116,7 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 - 类型：`string`
 - 默认值：`undefined`
 
-首页全屏背景图，图片路径中的首个 `/` 表示 `public` 目录
+首页全屏背景图，路径中的首个 `/` 表示 `public` 目录
 
 例如：`'/imgs/homg-bg01.jpg'` 等同于 `/public/imgs/home-bg01.jpg`
 

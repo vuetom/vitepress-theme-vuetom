@@ -6,6 +6,10 @@ lang: en-US
 
 # {{ $frontmatter.title }}
 
+:::warning
+适配于 vitepress 1.x.x 版本的功能正在制作，下面是 0.x.x 版本的国际化方案
+:::
+
 默认的话夜间模式切换按钮是一直有的，右上角那个太阳图标
 
 

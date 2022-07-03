@@ -1,6 +1,6 @@
 {
   "name": "vuetom-doc",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "repository": "https://github.com/lauset/vitepress-theme-vuetom",
   "scripts": {
     "dev": "pnpm gen:lang && vitepress dev .",
@@ -21,7 +21,8 @@
     "element-plus": "^2.1.4",
     "marked": "^4.0.12",
     "normalize.css": "8.0.1",
-    "nprogress": "0.2.0"
+    "nprogress": "0.2.0",
+    "vitepress": "^1.0.0-alpha.4"
   },
   "devDependencies": {
     "@crowdin/cli": "^3.7.8",
@@ -40,7 +41,6 @@
     "rimraf": "^3.0.2",
     "sass": "^1.49.9",
     "sucrase": "3.20.3",
-    "vitepress": "^0.22.3",
     "vitepress-theme-vuetom": "file:../"
   }
 }

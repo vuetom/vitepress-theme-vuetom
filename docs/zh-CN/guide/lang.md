@@ -5,6 +5,10 @@ lang: en-US
 
 # {{ $frontmatter.title }}
 
+:::warning
+适配于 vitepress 1.x.x 版本的功能正在制作，下面是 0.x.x 版本的国际化方案
+:::
+
 你也可以配置多国语言，以首页为例，先在配置文件里配置下 locales，然后创建对应的语言文件夹与文件
 
 
@@ -17,6 +21,7 @@ themeConfig 中的 locales 配置是为了展示下拉菜单的展示内容
 根Config 中的 locales 配置是为了展示头部标题内容，description属性可有可无
 
 ```js
+// .vitepress/config.ts
 export default defineConfigWithTheme<VuetomThemeConfig>({
   // ...
   themeConfig: {

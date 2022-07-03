@@ -1,24 +1,28 @@
 ---
-home: true
-heroImage: /logo/vuetom-logo-m.png
-heroAlt: VUETOM
-heroText: Vuetom
-tagline: vitepress flat theme
-actionText: Quick Start
-actionLink: /en-US/guide/info
-altActionText: Inventory
-altActionLink: /en-US/guide/
+layout: home
+
+title: Vuetom
+titleTemplate: Vite & Vue Powered Static Site Generator
+
+hero:
+  name: Vuetom
+  text: 
+  tagline: vitepress flat theme 
+  actions:
+    - theme: brand big
+      text: Quick Start
+      link: /en-US/guide/info
+    - theme: alt big
+      text: Config
+      link: /en-US/guide/config
+
 features:
-  - 
-    title: '📦 Optimized build'
-    details: Optional multi-page application or library mode for Rollup build
-  - 
-    title: '🔩 Generic Plugins'
-    details: Share Rollup-superset plugin interface between development and build.
-  - 
-    title: '🔑 Fully Typeized API'
-    details: Flexible API and full TypeScript type.
-footer: MIT Licensed
+  - title: 📦 优化的构建
+    details: 可选 “多页应用” 或 “库” 模式的预配置 Rollup 构建
+  - title: 🔩 通用的插件
+    details: 在开发和构建之间共享 Rollup-superset 插件接口。
+  - title: 🔑 完全类型化的API
+    details: 灵活的 API 和完整 TypeScript 类型。
 ---
 
 <div class="frontpage sponsors">

@@ -17,7 +17,8 @@ head:
 vuetom
   ├─ blog              博客主题Vue组件      文件夹
   ├─ core              共用核心Vue组件      文件夹
-  ├─ docs              文档主题Vue组件      文件夹
+  ├─ doc               新版文档，适配vp1.x  文件夹 
+  ├─ docs              旧版文档主题组件      文件夹
   │   ├─ components        主题Vue组件      文件夹
   │   ├─ composables       组件脚本         文件夹
   │   ├─ layouts           布局组件         文件夹

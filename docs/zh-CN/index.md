@@ -1,15 +1,20 @@
 ---
-home: true
-heroImage: /logo/vuetom-logo-m.png
-heroAlt: VUETOM
-heroText: Vuetom
-tagline: vitepress flat theme 
+layout: home
 
-actionText: 快 速 开 始
-actionLink: /zh-CN/guide/info
+title: Vuetom
+titleTemplate: Vite & Vue Powered Static Site Generator
 
-altActionText: 配 置
-altActionLink: /zh-CN/guide/config
+hero:
+  name: Vuetom
+  text: 
+  tagline: vitepress flat theme 
+  actions:
+    - theme: brand big
+      text: 快 速 开 始
+      link: /zh-CN/guide/info
+    - theme: alt big
+      text: 配 置
+      link: /zh-CN/guide/config
 
 features:
   - title: 📦 优化的构建
@@ -18,8 +23,6 @@ features:
     details: 在开发和构建之间共享 Rollup-superset 插件接口。
   - title: 🔑 完全类型化的API
     details: 灵活的 API 和完整 TypeScript 类型。
-
-footer: MIT Licensed
 ---
 
 <div class="frontpage sponsors">
@@ -73,7 +76,7 @@ const sponsors = [
 
 function fetchReleaseTag() {
   onMounted(() => {
-    const mainTitle = document.getElementById('main-title')
+    const mainTitle = document.getElementsByClassName('name')[0]
     mainTitle.style.position = 'relative'
     const docsReleaseTag = document.createElement('span')
     docsReleaseTag.classList.add('release-tag')
