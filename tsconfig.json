@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "target": "esnext",
+    "module": "ESNext",
+    "target": "ESNext",
     "moduleResolution": "node",
     "strict": true,
     "noUnusedLocals": true,
@@ -9,9 +9,6 @@
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "baseUrl": ".",
-    "rootDir": "./vuetom",
     "outDir": "./dist"
-  },
-  "include": ["./vuetom"], 
-  "exclude": ["./vuetom/gulpfile.ts"]
+  }
 }

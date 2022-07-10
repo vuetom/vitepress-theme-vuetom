@@ -1,49 +1,33 @@
 {
-  "name": "vitepress-theme-vuetom",
-  "version": "2.0.0",
-  "description": "Vitepress Theme Vuetom",
-  "main": "dist/index.js",
-  "typings": "types/index.d.ts",
+  "name": "@lauset/root",
+  "private": true,
   "scripts": {
-    "pub": "npm publish",
-    "clean": "rimraf ./dist",
-    "build": "pnpm clean && pnpm build:css && pnpm build:vt",
-    "build:vt": "tsc -p . && node scripts/build-vt",
-    "build:css": "gulp --require sucrase/register/ts -f vuetom/gulpfile.ts"
+    "dev:blog": "pnpm run -C packages/blog dev",
+    "dev:docs": "pnpm run -C packages/docs dev",
+    "build:blog": "pnpm run -C packages/blog build",
+    "build:docs": "pnpm run -C packages/docs build",
+    "serve:blog": "pnpm run -C packages/blog serve",
+    "serve:docs": "pnpm run -C packages/docs serve",
+    "build:theme": "pnpm run -C packages/vuetom build",
+    "clean:all": "pnpm -r --filter=./packages/* run clean"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "files": [
-    "dist",
-    "types",
-    "vuetom"
-  ],
-  "keywords": [
-    "vitepress",
-    "theme"
-  ],
-  "author": "lauset",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lauset/vitepress-theme-vuetom.git"
-  },
-  "bugs": {
-    "url": "https://github.com/lauset/vitepress-theme-vuetom/issues"
-  },
-  "homepage": "https://github.com/lauset/vitepress-theme-vuetom#readme",
   "devDependencies": {
     "@types/gulp-autoprefixer": "0.0.33",
     "@types/gulp-clean-css": "4.3.0",
     "@types/gulp-rename": "2.0.1",
     "@types/gulp-sass": "5.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.30.0",
-    "@typescript-eslint/parser": "^5.30.0",
-    "eslint": "^8.18.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "chalk": "^4.1.2",
+    "cross-env": "7.0.3",
+    "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-define-config": "1.5.1",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vue": "^9.1.1",
+    "eslint-plugin-vue": "^9.2.0",
     "fs-extra": "^10.1.0",
     "globby": "^11.1.0",
     "gulp": "^4.0.2",
@@ -51,13 +35,16 @@
     "gulp-clean-css": "4.3.0",
     "gulp-rename": "2.0.0",
     "gulp-sass": "5.1.0",
+    "prettier": "2.7.1",
+    "rimraf": "^3.0.2",
     "sass": "^1.53.0",
-    "sucrase": "3.22.0",
-    "typescript": "^4.7.4"
+    "sucrase": "3.23.0",
+    "typescript": "^4.7.4",
+    "vitepress": "1.0.0-alpha.4",
+    "vue": "^3.2.37"
   },
   "dependencies": {
-    "dayjs": "^1.11.3",
-    "vitepress": "1.0.0-alpha.4"
+    "dayjs": "^1.11.3"
   },
   "pnpm": {
     "peerDependencyRules": {
