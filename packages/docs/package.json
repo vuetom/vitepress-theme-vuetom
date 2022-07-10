@@ -33,6 +33,6 @@
     "markdown-it": "13.0.1",
     "markdown-it-container": "3.0.0",
     "vitepress": "^1.0.0-alpha.4",
-    "vitepress-theme-vuetom": "^2.0.0"
+    "vitepress-theme-vuetom": "^2.0.1"
   }
 }
