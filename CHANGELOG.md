@@ -1,5 +1,11 @@
 # 更新日志
 
+### v2.0.1 (2022-07-10)
+
+重构：
+- 项目改为 pnpm + workspace
+- packages 分为 vuetom docs blog 模块
+
 ### v2.0.0 (2022-07-03)
 
 重构：
