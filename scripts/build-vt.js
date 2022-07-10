@@ -1,11 +1,15 @@
 const fs = require('fs-extra')
 const glob = require('globby')
 
-function toDest(file) {
-  return file.replace(/^vuetom\//, 'dist/')
+function toDist(file) {
+  return file.replace(/vuetom\//, 'vuetom/dist/')
 }
 
-glob.sync('vuetom/**').forEach((file) => {
+glob.sync('../vuetom/**').forEach((file) => {
   if (/(\.ts|tsconfig\.json)$/.test(file)) return
-  fs.copy(file, toDest(file))
+  if (/(\.ts|package\.json)$/.test(file)) return
+  if (/dist\//.test(file)) return
+  if (/node_modules\//.test(file)) return
+  const target = toDist(file)
+  if (file !== target) fs.copy(file, target)
 })
