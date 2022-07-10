@@ -1,0 +1,67 @@
+{
+  "zh-CN": [
+    {
+      "text": "指引",
+      "link": "/guide/info",
+      "activeMatch": "/guide/"
+    },
+    {
+      "text": "组件",
+      "link": "/mdshow/index",
+      "activeMatch": "/mdshow/"
+    },
+    {
+      "text": "链接",
+      "items": [
+        {
+          "text": "反馈",
+          "link": "/zh-CN/feedback/",
+          "activeMatch": "/feedback/"
+        },
+        {
+          "text": "码云",
+          "link": "https://gitee.com/lauset/vitepress-theme-vuetom"
+        },
+        {
+          "text": "Vitepress官网",
+          "link": "https://vitepress.vuejs.org/"
+        }
+      ]
+    }
+  ],
+  "en-US": [
+    {
+      "text": "Guide",
+      "link": "/guide/info",
+      "activeMatch": "^/$|^/guide/info"
+    },
+    {
+      "text": "Components",
+      "link": "/comp/index",
+      "activeMatch": "/comp/"
+    },
+    {
+      "text": "Style",
+      "link": "/styl/",
+      "activeMatch": "/styl/"
+    },
+    {
+      "text": "Links",
+      "items": [
+        {
+          "text": "FeedBack",
+          "link": "/en-US/feedback/",
+          "activeMatch": "/feedback/"
+        },
+        {
+          "text": "Gitee",
+          "link": "https://gitee.com/lauset/vitepress-theme-vuetom"
+        },
+        {
+          "text": "Vitepress",
+          "link": "https://vitepress.vuejs.org/"
+        }
+      ]
+    }
+  ]
+}

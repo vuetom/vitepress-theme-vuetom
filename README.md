@@ -11,16 +11,18 @@
 
 ## 简要说明
 
-1. 基于 vitepress 打造的主题
-2. 提供文档与博客两种风格的主题，更多的选择。
+1. 为 vitepress 1.x 提供的主题
+2. 提供文档与博客两种风格的主题
 
 [**更新日志**](CHANGELOG.md)
 
-## 主题风格
+## 主题预览
 
-* [文档风格](http://212.64.67.168:3010)
+* [**文档**风格 ( *github.io* )](https://lauset.github.io/vitepress-theme-vuetom/)
 
-* 博客风格(Coming soon...)
+* [**文档**风格 ( *vercel.app* )](https://vitepress-theme-vuetom.vercel.app)
+
+* **博客**风格 ( *Coming soon* )
 
 
 ## 快速上手
@@ -34,27 +36,63 @@ cd vitepress-theme-vuetom
 ```
 
 - 安装依赖
-
 ```bash
 pnpm install
 ```
 
-- 启动文档
-
+- 启动文档示例
 ```bash
-pnpm run docs
+# 根目录运行
+pnpm dev:docs
+
+# 文档目录运行
+cd packages/docs
+pnpm dev
 ```
 
-- 构建样式
-
+- 启动博客示例
 ```bash
-pnpm run build:theme
+# 根目录运行
+pnpm dev:blog
+
+# 博客目录运行
+cd packages/blog
+pnpm dev
+```
+
+- 根目录构建操作
+```bash
+# 清理文件
+pnpm clean:all
+
+# 构建主题
+pnpm build:theme
+
+# 构建文档
+pnpm build:docs
+
+# 构建博客
+pnpm build:blog
+```
+
+- vuetom 主题分步操作
+```bash
+# 清除文件
+pnpm clean
+
+# 打包样式
+pnpm build:css
+
+# 打包主程序
+pnpm build:vt
 ```
 
 - 发布主题包
 ```bash
-pnpm run pub
+cd packages/vuetom
+pnpm pub
 ```
+
 
 ## 文档目录多语言
 
@@ -106,7 +144,13 @@ $ crowdin:tw
 
 ## 感谢
 
+[Vue](staging-cn.vuejs.org/)
+
 [Vite](https://vitejs.cn/)
+
+[Vitepress](https://vitepress.vuejs.org/)
+
+[Vercel](https://vercel.com/docs)
 
 [ElementPlus](https://element-plus.gitee.io/zh-CN/)
 

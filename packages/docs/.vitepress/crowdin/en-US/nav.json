@@ -1,0 +1,35 @@
+[
+  {
+    "text": "Guide",
+    "link": "/guide/info",
+    "activeMatch": "^/$|^/guide/info"
+  },
+  {
+    "text": "Components",
+    "link": "/comp/index",
+    "activeMatch": "/comp/"
+  },
+  {
+    "text": "Style",
+    "link": "/styl/",
+    "activeMatch": "/styl/"
+  },
+  {
+    "text": "Links",
+    "items": [
+      {
+        "text": "FeedBack",
+        "link": "/en-US/feedback/",
+        "activeMatch": "/feedback/"
+      },
+      {
+        "text": "Gitee",
+        "link": "https://gitee.com/lauset/vitepress-theme-vuetom"
+      },
+      {
+        "text": "Vitepress",
+        "link": "https://vitepress.vuejs.org/"
+      }
+    ]
+  }
+]

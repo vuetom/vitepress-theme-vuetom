@@ -1,54 +1,59 @@
 {
-  "name": "vitepress-theme-vuetom",
-  "version": "1.0.5",
-  "description": "Vitepress Theme Vuetom",
-  "main": "./vuetom/index.js",
-  "typings": "./vuetom/types/index.d.ts",
+  "name": "@lauset/root",
+  "private": true,
   "scripts": {
-    "pub": "npm publish",
-    "docs": "pnpm run build:theme && pnpm run -C docs dev",
-    "clean": "rimraf vuetom/dist",
-    "build:theme": "gulp --require sucrase/register/ts -f vuetom/gulpfile.ts"
+    "dev:blog": "pnpm run -C packages/blog dev",
+    "dev:docs": "pnpm run -C packages/docs dev",
+    "build:blog": "pnpm run -C packages/blog build",
+    "build:docs": "pnpm run -C packages/docs build",
+    "serve:blog": "pnpm run -C packages/blog serve",
+    "serve:docs": "pnpm run -C packages/docs serve",
+    "build:theme": "pnpm run -C packages/vuetom build",
+    "clean:all": "pnpm -r --filter=./packages/* run clean"
   },
-  "files": [
-    "vuetom"
-  ],
-  "keywords": [
-    "vitepress",
-    "theme"
-  ],
-  "author": "lauset",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lauset/vitepress-theme-vuetom.git"
+  "engines": {
+    "node": ">=14.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/lauset/vitepress-theme-vuetom/issues"
-  },
-  "homepage": "https://github.com/lauset/vitepress-theme-vuetom#readme",
   "devDependencies": {
     "@types/gulp-autoprefixer": "0.0.33",
     "@types/gulp-clean-css": "4.3.0",
     "@types/gulp-rename": "2.0.1",
     "@types/gulp-sass": "5.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.15.0",
-    "@typescript-eslint/parser": "^5.15.0",
-    "eslint": "^8.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.5",
+    "@typescript-eslint/parser": "^5.30.5",
+    "chalk": "^4.1.2",
+    "cross-env": "7.0.3",
+    "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-vue": "^8.5.0",
+    "eslint-define-config": "1.5.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^9.2.0",
+    "fs-extra": "^10.1.0",
+    "globby": "^11.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "8.0.0",
     "gulp-clean-css": "4.3.0",
     "gulp-rename": "2.0.0",
     "gulp-sass": "5.1.0",
-    "sass": "^1.49.9",
-    "sucrase": "3.20.3",
-    "typescript": "^4.6.2",
-    "vitepress": "^0.22.3"
+    "prettier": "2.7.1",
+    "rimraf": "^3.0.2",
+    "sass": "^1.53.0",
+    "sucrase": "3.23.0",
+    "typescript": "^4.7.4",
+    "vitepress": "1.0.0-alpha.4",
+    "vue": "^3.2.37"
   },
   "dependencies": {
-    "dayjs": "^1.11.0"
+    "dayjs": "^1.11.3"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "react",
+        "react-dom",
+        "@types/react"
+      ]
+    }
   }
 }

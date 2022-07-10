@@ -1,0 +1,59 @@
+{
+  "guide": [
+    {
+      "basic": {
+        "text": "Basic",
+        "children": [
+          { "text": "What's the Vitepress?", "link": "/guide/info" },
+          { "text": "Quick Start", "link": "/guide/start" },
+          {
+            "text": "Questions",
+            "link": "/guide/question"
+          },
+          {
+            "text": "Project Dir",
+            "link": "/guide/prodir"
+          }
+        ]
+      },
+      "advanced": {
+        "text": "Advanced",
+        "children": [
+          {
+            "text": "Theme Config",
+            "link": "/guide/config"
+          },
+          {
+            "text": "Languages",
+            "link": "/guide/lang"
+          },
+          {
+            "text": "Dark Mode",
+            "link": "/guide/dark"
+          }
+        ]
+      }
+    }
+  ],
+  "comp": [
+    {
+      "mdshow": {
+        "text": "MD Show",
+        "children": [
+          {
+            "link": "/mdshow/example",
+            "text": "Example"
+          },
+          {
+            "link": "/mdshow/custom",
+            "text": "Custom"
+          },
+          {
+            "link": "/comp/codeblock",
+            "text": "Code Block"
+          }
+        ]
+      }
+    }
+  ]
+}
