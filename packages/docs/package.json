@@ -4,7 +4,7 @@
   "repository": "https://github.com/lauset/vitepress-theme-vuetom",
   "scripts": {
     "dev": "pnpm gen:lang && vitepress dev .",
-    "build": "vitepress build .",
+    "build": "pnpm gen:lang && vitepress build .",
     "serve": "vitepress serve .",
     "clean": "rimraf .vitepress/i18n && rimraf .vitepress/dist",
     "gen:lang": "rimraf .vitepress/i18n && sucrase-node .vitepress/utils/crowdin-generate.ts",

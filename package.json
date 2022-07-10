@@ -4,11 +4,12 @@
   "scripts": {
     "dev:blog": "pnpm run -C packages/blog dev",
     "dev:docs": "pnpm run -C packages/docs dev",
+    "build:all": "pnpm build:theme && pnpm build:docs && pnpm build:blog",
+    "build:theme": "pnpm run -C packages/vuetom build",
     "build:blog": "pnpm run -C packages/blog build",
     "build:docs": "pnpm run -C packages/docs build",
     "serve:blog": "pnpm run -C packages/blog serve",
     "serve:docs": "pnpm run -C packages/docs serve",
-    "build:theme": "pnpm run -C packages/vuetom build",
     "clean:all": "pnpm -r --filter=./packages/* run clean"
   },
   "engines": {
