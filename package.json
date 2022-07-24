@@ -10,6 +10,7 @@
     "build:docs": "pnpm run -C packages/docs build",
     "serve:blog": "pnpm run -C packages/blog serve",
     "serve:docs": "pnpm run -C packages/docs serve",
+    "post:css": "pnpm run -C packages/vuetom post:css",
     "clean:all": "pnpm -r --filter=./packages/* run clean"
   },
   "engines": {
