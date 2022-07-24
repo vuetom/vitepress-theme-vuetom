@@ -1,8 +1,14 @@
+---
+title: 欢迎
+layout: home
+---
+
+# {{ $frontmatter.title }}
+
 <script setup>
 
-if (typeof window !== 'undefined') {
-  const preferredLang = localStorage.getItem('vuetom_lang') || 'zh-CN'
-  window.location.pathname = `/${preferredLang}/`
-}
+import { useData } from 'vitepress'
+const d = useData()
+console.log(d)
 
 </script>

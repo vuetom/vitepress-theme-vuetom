@@ -1,197 +1,146 @@
 <script setup lang="ts">
-import {
-  ref, computed, watch, defineAsyncComponent
-} from 'vue'
-import { useRoute, useData } from 'vitepress'
+import { provide, onMounted, ref } from 'vue'
+import { useData } from 'vitepress'
+import { useSidebar, useCloseSidebarOnEscape } from '../composables/sidebar'
+import VPNav from '../components/nav/VPNav.vue'
+import VPFooter from '../components/VPFooter.vue'
+import VTFloat from '../components/VTFloat.vue'
+import VPContent from '../components/VPContent.vue'
 
-// import { isSideBarEmpty, getSideBarConfig } from '../../support/sideBar'
-
-// components
-import Home from '../components/Home.vue'
-import NavBar from '../components/nav/NavBar.vue'
-
-// import SideBar from './components/SideBar.vue'
-import Page from '../components/Page.vue'
-
-const NoopComponent = () => null
-
-// const CarbonAds = __CARBON__
-//   ? defineAsyncComponent(() => import('./components/CarbonAds.vue'))
-//   : NoopComponent
-// const BuySellAds = __BSA__
-//   ? defineAsyncComponent(() => import('./components/BuySellAds.vue'))
-//   : NoopComponent
-// const AlgoliaSearchBox = __ALGOLIA__
-//   ? defineAsyncComponent(() => import('./components/AlgoliaSearchBox.vue'))
-//   : NoopComponent
-
-// generic state
-const route = useRoute()
+const { site, theme } = useData()
+const { base } = site.value
 const {
-  site, page, theme, frontmatter
-} = useData()
+  logoImg, bgImg, flashEnable, featuresColor, parallaxEnable
+} = theme.value
+let { bgColor, flashColor, bgOpacity } = theme.value
 
-// custom layout
-const isCustomLayout = computed(() => !!frontmatter.value.customLayout)
+let baseUrl = base
+let bgStyle = ''
+const lightStyle = ''
+let bgInnerOpacity = 0.3
+let ftStyle = 'rgba(255,255,255,0.8)'
 
-// home
-const enableHome = computed(() => !!frontmatter.value.home)
-
-// automatic multilang check for AlgoliaSearchBox
-const isMultiLang = computed(() => Object.keys(site.value.langs).length > 1)
-
-// navbar
-const showNavbar = computed(() => {
-  const themeConfig = theme.value
-  if (frontmatter.value.navbar === false || themeConfig.navbar === false) {
-    return false
-  }
-  return (
-    site.value.title || themeConfig.logo || themeConfig.repo || themeConfig.nav
-  )
-})
-
-// sidebar
-const openSideBar = ref(false)
-
-const showSidebar = computed(() => {
-  if (frontmatter.value.home || frontmatter.value.sidebar === false) {
-    return false
-  }
-
-  // return !isSideBarEmpty(
-  //   getSideBarConfig(theme.value.sidebar, route.data.relativePath)
-  // )
-})
-
-const toggleSidebar = (to?: boolean) => {
-  openSideBar.value = typeof to === 'boolean' ? to : !openSideBar.value
+if (base === '/' || base.endsWith('/')) {
+  baseUrl = base.substring(0, base.length - 1)
 }
 
-const hideSidebar = toggleSidebar.bind(null, false)
+// hero logo
+const vpHeroLogoSrc = (`${baseUrl}/${logoImg}`).replaceAll('//', '/')
 
-// close the sidebar when navigating to a different location
-watch(route, hideSidebar)
-
-// TODO: route only changes when the pathname changes
-// listening to hashchange does nothing because it's prevented in router
-
-// page classes
-const pageClasses = computed(() => [
-  {
-    'no-navbar': !showNavbar.value,
-    'sidebar-open': openSideBar.value,
-    'no-sidebar': !showSidebar.value
+// feat color check
+if (typeof featuresColor === 'string') {
+  ftStyle = featuresColor
+} else if (typeof featuresColor === 'object') {
+  if (featuresColor.length >= 2) {
+    ftStyle = `
+      linear-gradient(to right,
+        ${featuresColor[0]},
+        ${featuresColor[1]}
+      )
+    `
   }
-])
+}
+
+// bg check
+if (bgColor === undefined) bgColor = '0,0,0'
+if (bgOpacity === undefined) bgOpacity = 0
+if (flashColor === undefined) flashColor = ['0,0,0', '0,0,0']
+if (typeof flashColor === 'string') flashColor = [flashColor, flashColor]
+bgInnerOpacity = bgOpacity - 0.3 <= 0 ? 0 : bgOpacity - 0.3
+
+if (bgImg) {
+  const bgImgSrc = (`${baseUrl}/${bgImg}`).replaceAll('//', '/')
+  bgStyle = `
+    -webkit-linear-gradient(top,
+      rgba(${bgColor},${bgOpacity}) 0%,
+      rgba(${bgColor},${bgInnerOpacity}) 20%,
+      rgba(${bgColor},${bgInnerOpacity}) 80%,
+      rgba(${bgColor},${bgOpacity}) 100%
+    ),
+    -webkit-linear-gradient(left,
+      rgba(${bgColor},${bgOpacity}) 0%,
+      rgba(${bgColor},${bgInnerOpacity}) 20%,
+      rgba(${bgColor},${bgInnerOpacity}) 80%,
+      rgba(${bgColor},${bgOpacity}) 100%),
+    url(${bgImgSrc})
+  `
+}
+
+const {
+  isOpen: isSidebarOpen,
+
+  // open: openSidebar,
+  close: closeSidebar
+} = useSidebar()
+
+useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
+
+provide('close-sidebar', closeSidebar)
+
+const renderHome = () => {
+  const ds = document.documentElement.style
+  ds.setProperty('--vt-bg-light', lightStyle)
+
+  const vpHome = document.getElementsByClassName('VPContent')[0]
+  const hs = vpHome.style
+  hs.backgroundSize = 'cover'
+  hs.backgroundAttachment = 'fixed'
+  hs.backgroundPosition = 'center center'
+  hs.backgroundImage = bgStyle
+}
+
+const navOpacity = ref(0)
+
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset
+    || document.documentElement.scrollTop
+    || document.body.scrollTop
+  if (scrollTop <= 100) navOpacity.value = scrollTop / 100
+}
+
+onMounted(() => {
+  renderHome()
+  window.addEventListener('scroll', handleScroll)
+})
 </script>
 
 <template>
-  <div class="theme" :class="pageClasses">
-    <!-- <NavBar v-if="showNavbar" @toggle="toggleSidebar">
-      <template #search>
-        <slot name="navbar-search">
-          <AlgoliaSearchBox
-            v-if="theme.algolia"
-            :options="theme.algolia"
-            :multilang="isMultiLang"
-          />
-        </slot>
-      </template>
-    </NavBar> -->
+  <div class="Layout">
+    <slot name="layout-top" />
+    <!-- <VPSkipLink /> -->
+    <!-- <VPBackdrop class="backdrop" :show="isSidebarOpen" @click="closeSidebar" /> -->
+    <VPNav class="ss" :style="[{opacity: navOpacity}]"/>
+    <!-- <VPLocalNav :open="isSidebarOpen" @open-menu="openSidebar" /> -->
+    <!-- <VPSidebar :open="isSidebarOpen" /> -->
 
-    <!-- <SideBar :open="openSideBar">
-      <template #sidebar-top>
-        <slot name="sidebar-top" />
-      </template>
-      <template #sidebar-bottom>
-        <slot name="sidebar-bottom" />
-      </template>
-    </SideBar> -->
-    <!-- TODO: make this button accessible -->
-    <div class="sidebar-mask" @click="toggleSidebar(false)" />
+    <VPContent class="h-full min-h-screen" />
+    <!-- <VPContent>
+      <template #home-hero-before><slot name="home-hero-before" /></template>
+      <template #home-hero-after><slot name="home-hero-after" /></template>
+      <template #home-features-before><slot name="home-features-before" /></template>
+      <template #home-features-after><slot name="home-features-after" /></template>
 
-    <Content v-if="isCustomLayout" />
+      <template #doc-before><slot name="doc-before" /></template>
+      <template #doc-after><slot name="doc-after" /></template>
 
-    <template v-else-if="enableHome">
-      <!-- A slot for customizing the entire homepage easily -->
-      <NavBar />
-      <slot name="home">
-        <Home>
-          <template #hero>
-            <slot name="home-hero" />
-          </template>
-          <template #features>
-            <slot name="home-features" />
-          </template>
-          <template #footer>
-            <slot name="home-footer" />
-          </template>
-        </Home>
-      </slot>
-    </template>
-
-    <Page v-else>
-      <template #top>
-        <!-- <slot name="page-top-ads">
-          <div
-            id="ads-container"
-            v-if="theme.carbonAds && theme.carbonAds.carbon"
-          >
-            <CarbonAds
-              :key="'carbon' + page.relativePath"
-              :code="theme.carbonAds.carbon"
-              :placement="theme.carbonAds.placement"
-            />
-          </div>
-        </slot>
-        <slot name="page-top" /> -->
-      </template>
-      <!-- <template #bottom>
-        <slot name="page-bottom" />
-        <slot name="page-bottom-ads">
-          <BuySellAds
-            v-if="theme.carbonAds && theme.carbonAds.custom"
-            :key="'custom' + page.relativePath"
-            :code="theme.carbonAds.custom"
-            :placement="theme.carbonAds.placement"
-          />
-        </slot>
-      </template> -->
-    </Page>
+      <template #aside-top><slot name="aside-top" /></template>
+      <template #aside-bottom><slot name="aside-bottom" /></template>
+      <template #aside-outline-before><slot name="aside-outline-before" /></template>
+      <template #aside-outline-after><slot name="aside-outline-after" /></template>
+      <template #aside-ads-before><slot name="aside-ads-before" /></template>
+      <template #aside-ads-after><slot name="aside-ads-after" /></template>
+    </VPContent> -->
+    <VTFloat />
+    <VPFooter />
+    <slot name="layout-bottom" />
   </div>
-
-  <Debug />
 </template>
 
-<style>
-#ads-container {
-  margin: 0 auto;
-}
-
-@media (min-width: 420px) {
-  #ads-container {
-    position: relative;
-    right: 0;
-    float: right;
-    margin: -8px -8px 24px 24px;
-    width: 146px;
-  }
-}
-
-@media (max-width: 420px) {
-  #ads-container {
-    /* Avoid layout shift */
-    height: 105px;
-    margin: 1.75rem 0;
-  }
-}
-
-@media (min-width: 1400px) {
-  #ads-container {
-    position: fixed;
-    right: 8px;
-    bottom: 8px;
-  }
+<style scoped>
+.Layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
 }
 </style>

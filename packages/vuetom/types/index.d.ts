@@ -26,9 +26,11 @@ export type VtNavItem = VtNavItemWithLink | VtNavItemWithChildren
 
 export declare interface VuetomThemeConfig extends DefaultTheme.Config {
 
-  sidebar?: VtSiderbarItem[] | any;
+  sidebar?: VtSiderbarItem[] | {};
 
-  nav?: VtNavItem[] | any;
+  nav?: VtNavItem[] | {};
+
+  pages? : VtSiderbarItem[] | {};
 
   /**
    * Home Logo image
@@ -98,7 +100,22 @@ export declare interface VuetomThemeConfig extends DefaultTheme.Config {
    *
    * @example ['#06cdff30', 'rgba(223,7,107,.3)']
    */
-   featuresColor?: string | Array;
+  featuresColor?: string | Array;
+
+  /**
+   * Blog Avatar Image Url
+   *
+   * @example '/imgs/avatar.jpg'
+   */
+  avtar?: string;
+
+  /**
+   * Blog Author Name
+   *
+   * @example 'Vuetom'
+   */
+  author?: string;
+
 }
 
 export default theme
