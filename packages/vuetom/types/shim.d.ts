@@ -8,3 +8,7 @@ declare module '*.vue' {
   const comp: ComponentOptions
   export default comp
 }
+
+declare interface Window {
+  __VP_HASH_MAP__: any
+}

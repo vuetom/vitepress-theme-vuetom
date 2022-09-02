@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import Layout from 'vitepress/client/theme-default/Layout.vue'
+import Layout from 'vitepress/dist/client/theme-default/Layout.vue'
 import { useData } from 'vitepress'
 
 const { site, theme } = useData()

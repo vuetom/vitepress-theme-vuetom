@@ -1,5 +1,7 @@
-import ThemeDocs from './doc'
-import ThemeBlog from './blog'
+import ThemeDocs from './doc/index.js'
+import ThemeBlog from './blog/index.js'
+import './styles/fa/font-awesome.min.css'
+import './styles/tailwind/d.css'
 
 const ThemeType = ((type?: string) => (type === 'blog' ? ThemeBlog : ThemeDocs))
 

@@ -1,6 +1,8 @@
 // .vitepress/theme/index.js
+// import { BlogTheme } from '../../../vuetom/index'
+
 import { BlogTheme } from 'vitepress-theme-vuetom'
-import './custom.css'
+import './custom.scss'
 
 export default {
   ...BlogTheme,

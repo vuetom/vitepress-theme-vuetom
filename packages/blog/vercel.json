@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/myblog/(.*)",
+      "destination": "/api/proxy"
+    }
+  ]
+}

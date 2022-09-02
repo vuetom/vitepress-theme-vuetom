@@ -18,16 +18,15 @@
 
 ## 主题预览
 
-* [**文档**风格 ( *github.io* )](https://lauset.github.io/vitepress-theme-vuetom/)
+* [**文档**风格 (*github.io*)](https://lauset.github.io/vitepress-theme-vuetom/)
 
-* [**文档**风格 ( *vercel.app* )](https://vitepress-theme-vuetom.vercel.app)
+* [**文档**风格 (*vercel.app*)](https://vitepress-theme-vuetom.vercel.app/vt/)
 
-* **博客**风格 ( *Coming soon* )
-
+* [**博客**风格 (*开发中*)](https://vitepress-theme-vuetom.vercel.app/blog/)
 
 ## 快速上手
 
-- 拉取项目
+* 拉取项目
 
 ```bash
 git clone https://github.com/lauset/vitepress-theme-vuetom.git
@@ -35,12 +34,14 @@ git clone https://github.com/lauset/vitepress-theme-vuetom.git
 cd vitepress-theme-vuetom
 ```
 
-- 安装依赖
+* 安装依赖
+
 ```bash
 pnpm install
 ```
 
-- 启动文档示例
+* 启动文档示例
+
 ```bash
 # 根目录运行
 pnpm dev:docs
@@ -50,7 +51,8 @@ cd packages/docs
 pnpm dev
 ```
 
-- 启动博客示例
+* 启动博客示例
+
 ```bash
 # 根目录运行
 pnpm dev:blog
@@ -60,7 +62,8 @@ cd packages/blog
 pnpm dev
 ```
 
-- 根目录构建操作
+* 根目录构建操作
+
 ```bash
 # 清理文件
 pnpm clean:all
@@ -75,7 +78,8 @@ pnpm build:docs
 pnpm build:blog
 ```
 
-- vuetom 主题分步操作
+* vuetom 主题分步操作
+
 ```bash
 # 清除文件
 pnpm clean
@@ -87,43 +91,43 @@ pnpm build:css
 pnpm build:vt
 ```
 
-- 发布主题包
+* 发布主题包
+
 ```bash
 cd packages/vuetom
 pnpm pub
 ```
-
 
 ## 文档目录多语言
 
 查看项目文件列表
 
 ```shell
-$ crowdin:list
+crowdin:list
 ```
 
 上传待翻译的源文件
 
 ```shell
-$ crowdin:upload
+crowdin:upload
 ```
 
 查看预下载文件列表
 
 ```shell
-$ crowdin:dryrun
+crowdin:dryrun
 ```
 
 下载en-US翻译文件
 
 ```shell
-$ crowdin:us
+crowdin:us
 ```
 
 下载zh-TW翻译文件
 
 ```shell
-$ crowdin:tw
+crowdin:tw
 ```
 
 ## 简单展示
