@@ -13,10 +13,15 @@ head:
 
 请确保你已经用过 Vitepress 框架，因为主题是建立在框架的基础上使用的。
 
-请确保你使用的 vue 版本是 3+ 哦。
+请确保你使用的 vue 版本是 3+ 且 vitepress 是 1.x 哦。
 
+## 最方便的方式
 
-## **1.** 脚手架初始化带有主题的项目模版
+直接拉取本项目至本地，packages/docs 和 packages/blog 目录下分别是文档和博客示例，修改内容打包编译即可
+
+## 其他方式
+
+### **1.** 脚手架初始化带有主题的项目模版
 
 可以使用脚手架 vuetom-cli 脚手架来进行主题的初始化，会在你本地初始化一个项目，当然里面的 vitepress-theme-vuetom 可能不是最新的，当然你也可以手动更新下，或者直接拉取 [本网站](https://github.com/lauset/vitepress-theme-vuetom) 的代码进行修改也可以
 
@@ -27,6 +32,7 @@ npm i -g vuetom-cli
 ```
 
 2. 查看是否安装成功，黑窗口运行一下命令，返回版本号 x.x.x 则表示安装成功
+
 ```js light
 vuetom-cli -V
 ```
@@ -46,12 +52,12 @@ npm run dev
 
 ::: warning
 模版是从 github 上拉取的，可能有时候会有网速的困惑，也可手动前往拉取
-https://github.com/lauset/vuetom-cli/tree/temp-docs
+<https://github.com/lauset/vuetom-cli/tree/temp-docs>
 :::
 
 <br/>
 
-## **2.** 通过NPM方式下载安装主题
+### **2.** 通过NPM下载安装主题
 
 使用这个方式首先你要搭建一个 vitepress 项目，主题只是会覆盖默认样式而已，所以项目还是得搭起来的，可以前往下面 vitepress 官网链接查看并开始搭建
 
@@ -89,6 +95,7 @@ export default {
   }
 }
 ```
+
 引入了主题，然后你的 index.md 里写上一些内容应该就可以看出效果了
 
 ```html light

@@ -1,13 +1,14 @@
 {
   "name": "@lauset/vuetom-blog",
-  "version": "0.0.1",
+  "version": "2.1.5",
   "scripts": {
     "dev": "vitepress dev .",
     "build": "vitepress build .",
     "serve": "vitepress serve ."
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.4",
-    "vitepress-theme-vuetom": "workspace:^2.0.1"
+    "vite": "^3.0.9",
+    "vitepress": "^1.0.0-alpha.13",
+    "vitepress-theme-vuetom": "workspace:^2.1.6"
   }
 }
