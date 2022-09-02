@@ -22,7 +22,7 @@
 
 * [**文档**风格 (*vercel.app*)](https://vitepress-theme-vuetom.vercel.app/vt/)
 
-* [**博客**风格 (*开发中*)](https://vitepress-theme-vuetom.vercel.app/blog/)
+* [**博客**风格 (*开发中*)](https://vitepress-theme-vuetom-blog.vercel.app/myblog/)
 
 ## 快速上手
 
