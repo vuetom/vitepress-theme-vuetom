@@ -51,7 +51,7 @@ const d = defineProps<{
           </div>
         </div>
       </div>
-      <div class="friend-links">
+      <!-- <div class="friend-links">
         <div class="py-6 border-t-2 border-gray-100 border-opacity-50 text-center">
           <div>
             <a
@@ -68,7 +68,7 @@ const d = defineProps<{
             >
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

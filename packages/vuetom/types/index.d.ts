@@ -2,6 +2,8 @@ import { DefaultTheme, Theme } from 'vitepress'
 
 declare const theme: Theme
 
+export const BlogTheme: Theme
+
 // siderbar
 
 export type VtSiderbarItem = {

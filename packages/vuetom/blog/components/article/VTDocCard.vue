@@ -1,16 +1,19 @@
 <script setup lang="ts">
+import { normalizeLink, fmt } from '../../support/utils.js'
+
 const props = defineProps<{
   data: any
 }>()
 
 const f = props.data.data.frontmatter
-console.log(f)
 
-console.log(f.tag)
+const tags = f.tags.split(',')
 
-const tags = f.tag.split(',')
-const togo = (url) => {
-  window.location.href = url
+const timeStr = fmt(f.time)
+
+const togo = (url: string) => {
+  if (!url) url = ''
+  window.location.href = normalizeLink(url)
 }
 </script>
 
@@ -20,7 +23,7 @@ const togo = (url) => {
       <div class="pic h-1/2 text-white relative text-center">
         <div class="title absolute w-4/5 bottom-2 left-0 right-0 mx-auto">
           <h1 class="font-black text-xl antialiased tracking-wide">{{f.title}}</h1>
-          <p class="m-1">other</p>
+          <p class="m-1">{{timeStr}}</p>
         </div>
       </div>
       <div class="text h-1/2 bg-cbg rounded-vt px-10 py-6">

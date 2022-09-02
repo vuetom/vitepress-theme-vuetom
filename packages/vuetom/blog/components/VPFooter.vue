@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useData } from 'vitepress'
-import { useSidebar } from '../composables/sidebar'
+import { useSidebar } from '../composables/sidebar.js'
 import VTLeftButton from './VTLeftButton.vue'
 
 const { theme } = useData()

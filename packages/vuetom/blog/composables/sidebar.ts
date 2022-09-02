@@ -2,7 +2,7 @@ import {
   computed, onMounted, onUnmounted, Ref, ref, watchEffect
 } from 'vue'
 import { useData, useRoute } from 'vitepress'
-import { getSidebar } from '../support/sidebar'
+import { getSidebar } from '../support/sidebar.js'
 
 export function useSidebar() {
   const route = useRoute()
@@ -19,6 +19,7 @@ export function useSidebar() {
     frontmatter.value.sidebar !== false
       && sidebar.value.length > 0
       && frontmatter.value.layout !== 'home'
+      && frontmatter.value.layout !== 'doc'
   ))
 
   function open() {

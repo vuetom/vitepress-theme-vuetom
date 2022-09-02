@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { normalizeLink } from '../support/utils'
+import { normalizeLink } from '../support/utils.js'
 import VPIconExternalLink from './icons/VPIconExternalLink.vue'
 
 const props = defineProps<{

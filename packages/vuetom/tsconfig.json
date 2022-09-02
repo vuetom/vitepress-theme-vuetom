@@ -3,7 +3,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "rootDir": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "lib": ["ESNext", "DOM"],
   },
   "include": ["."], 
   "exclude": ["./gulpfile.ts"]

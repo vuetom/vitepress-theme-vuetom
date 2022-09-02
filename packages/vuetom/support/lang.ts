@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 import { useRoute } from 'vitepress'
-import { defaultLang } from '../constant'
+import { defaultLang } from '../constant.js'
 
 export const useLang = () => {
   const route = useRoute()

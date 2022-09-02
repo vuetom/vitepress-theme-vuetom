@@ -1,11 +1,14 @@
 import {
-  reactive, ref, markRaw, nextTick, readonly
+  reactive, ref, markRaw, shallowRef
 } from 'vue'
-import {
-  inBrowser, withBase, useData, useRouter
-} from 'vitepress'
+import { inBrowser, withBase, useData } from 'vitepress'
 
-const routes = ref([])
+// @ts-ignore
+import siteData from '@siteData'
+
+export const siteDataRef = shallowRef(siteData)
+
+const routes: any = ref([])
 
 const NotFound = () => '404 Not Found'
 
@@ -24,14 +27,22 @@ const getDefaultRoute = () => ({
   data: notFoundPageData
 })
 
-const createRouterRoutes = (loadPageModule: Function, fallback: any) => {
-  const router = useRouter()
-  const { theme, frontmatter } = useData()
+const createRouterRoutes = (
+  loadPageModule: Function,
+  fallbackComponent: any
+) => {
+  // const router = useRouter()
+  const { theme } = useData()
   const { pages } = theme.value
-  async function loadPage(href = '/index') {
+  let latestPendingPath = ''
+  async function loadPage(
+    href = '/index',
+    scrollPosition = 0,
+    isRetry = false
+  ) {
     const route = reactive(getDefaultRoute())
+    const pendingPath = `/_pages${href}`
     try {
-      const pendingPath = `/blog/_pages${href}.md`
       let page = loadPageModule(pendingPath)
       if ('then' in page && typeof page.then === 'function') {
         page = await page
@@ -40,15 +51,33 @@ const createRouterRoutes = (loadPageModule: Function, fallback: any) => {
       if (!comp) {
         throw new Error(`Invalid route component: ${comp}`)
       }
-      route.path = inBrowser ? pendingPath : withBase(pendingPath)
+      route.path = inBrowser ? pendingPath : pendingPath
       route.component = markRaw(comp)
       route.data = markRaw(__pageData)
     } catch (err) {
-      console.warn(err)
+      // @ts-ignore
+      if (!/fetch/.test(err.message) && !/^\/404(\.html|\/)?$/.test(href)) {
+        console.error(err)
+      }
+      if (!isRetry) {
+        try {
+          const res = await fetch(`${siteDataRef.value.base}hashmap.json`)
+          // eslint-disable-next-line no-underscore-dangle
+          window.__VP_HASH_MAP__ = await res.json()
+          await loadPage(href, scrollPosition, true)
+          return
+        } catch (e) {}
+      }
+      if (latestPendingPath === pendingPath) {
+        latestPendingPath = ''
+        route.path = inBrowser ? pendingPath : withBase(pendingPath)
+        route.component = fallbackComponent ? markRaw(fallbackComponent) : null
+        route.data = notFoundPageData
+      }
     }
     return route
   }
-  pages.forEach(async (p) => {
+  pages.forEach(async (p: { link: string }) => {
     const r = await loadPage(p.link)
     routes.value.push(r)
   })
@@ -60,10 +89,8 @@ const createRouterRoutes = (loadPageModule: Function, fallback: any) => {
 const getRoutes = () => {
   let isInitialPageLoad = inBrowser
   let initialPath = ''
-  return createRouterRoutes((path) => {
-    let pagePath = path.replace(/\.html$/, '')
-    pagePath = decodeURIComponent(pagePath)
-    let pageFilePath = pagePath
+  return createRouterRoutes((path: string) => {
+    let pageFilePath = pathToFile(path)
     if (isInitialPageLoad) {
       initialPath = pageFilePath
     }
@@ -77,8 +104,34 @@ const getRoutes = () => {
   }, NotFound)
 }
 
-export {
-  getRoutes
+function pathToFile(path: string) {
+  let pagePath = path.replace(/\.html$/, '')
+  pagePath = decodeURIComponent(pagePath)
+  if (pagePath.endsWith('/')) {
+    pagePath += 'index'
+  }
+
+  // @ts-ignore
+  if (import.meta.env.DEV) {
+    pagePath += `.md?t=${Date.now()}`
+  } else {
+    // /foo/bar.html -> ./foo_bar.md
+    if (inBrowser) {
+      // @ts-ignore
+      const base = import.meta.env.BASE_URL
+      pagePath = `${
+        pagePath.slice(base.length).replace(/\//g, '_') || 'index'
+      }.md`
+      const pageHash = __VP_HASH_MAP__[`_pages_${pagePath.toLowerCase()}`]
+      pagePath = `${base}assets/_pages_${pagePath}.${pageHash}.js`
+    } else {
+      // ssr
+      pagePath = `./${pagePath.slice(1).replace(/\//g, '_')}.md.js`
+    }
+  }
+  return pagePath
 }
+
+export { getRoutes }
 
 export default {}

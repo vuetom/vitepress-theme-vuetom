@@ -1,10 +1,11 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "2.0.1",
-  "description": "Vitepress Theme Vuetom",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "typings": "types/index.d.ts",
+  "version": "2.1.6",
+  "description": "A Vitepress Theme, Have blog and document styles",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "typings": "./types/index.d.ts",
   "exports": {
     ".": {
       "node": {
@@ -15,26 +16,28 @@
           "default": "./dist/index.js"
         }
       },
+      "types": "./types/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./dist/*": "./dist/*",
     "./package.json": "./package.json"
   },
   "scripts": {
     "pub": "npm publish",
     "clean": "rimraf ./dist",
     "build": "pnpm clean && pnpm build:vt && pnpm build:scss && pnpm build:css",
-    "build:vt": "tsc -p . && node ../../scripts/build-vt",
+    "build:vt": "tsc -p . && cross-env NODE_ENV=build node ../../scripts/build-vt",
     "build:scss": "gulp --require sucrase/register/ts -f gulpfile.ts",
     "build:css": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css",
     "post:css": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css --watch"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "files": [
     "dist",
     "types",
-    "vuetom"
+    "package.json"
   ],
   "keywords": [
     "vitepress",
@@ -51,15 +54,17 @@
   },
   "homepage": "https://github.com/lauset/vitepress-theme-vuetom#readme",
   "devDependencies": {
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.6",
-    "vitepress": "1.0.0-alpha.4"
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
   },
   "dependencies": {
-    "@docsearch/css": "^3.0.0",
-    "@docsearch/js": "^3.0.0",
+    "@docsearch/css": "^3.2.1",
+    "@docsearch/js": "^3.2.1",
     "body-scroll-lock": "^4.0.0-beta.0",
-    "shiki": "^0.10.1"
+    "shiki": "^0.11.1"
+  },
+  "peerDependencies": {
+    "vitepress": "1.0.0-alpha.13"
   }
 }

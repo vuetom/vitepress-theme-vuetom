@@ -1,6 +1,8 @@
+/** @format */
+
 import { ref } from 'vue'
 import { withBase } from 'vitepress'
-import { EXTERNAL_URL_RE } from '../shared'
+import { EXTERNAL_URL_RE } from '../shared.js'
 
 export const HASH_RE = /#.*$/
 export const EXT_RE = /(index)?\.(md|html)$/
@@ -13,7 +15,7 @@ export function isExternal(path: string): boolean {
 }
 
 export function throttleAndDebounce(fn: () => void, delay: number): () => void {
-  let timeout: number
+  let timeout: any
   let called = false
 
   return () => {
@@ -81,4 +83,8 @@ export function normalizeLink(url: string): string {
     : `${pathname.replace(/(\.md)?$/, '.html')}${search}${hash}`
 
   return withBase(normalizedPath)
+}
+
+export function fmt(inputTime: string) {
+  return inputTime.replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
 }

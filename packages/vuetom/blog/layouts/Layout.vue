@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { provide, onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
-import { useSidebar, useCloseSidebarOnEscape } from '../composables/sidebar'
+import { useSidebar, useCloseSidebarOnEscape } from '../composables/sidebar.js'
 import VPNav from '../components/nav/VPNav.vue'
 import VPFooter from '../components/VPFooter.vue'
 import VTFloat from '../components/VTFloat.vue'

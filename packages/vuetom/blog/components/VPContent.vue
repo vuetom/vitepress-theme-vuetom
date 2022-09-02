@@ -1,13 +1,19 @@
+<!-- @format -->
+
 <script setup lang="ts">
 import { useRoute, useData } from 'vitepress'
-import { useSidebar } from '../composables/sidebar'
+import { useSidebar } from '../composables/sidebar.js'
 import NotFound from '../layouts/NotFound.vue'
 import VTHome from './VTHome.vue'
+import VTDoc from './article/VTDoc.vue'
+import VTDocList from './article/VTDocList.vue'
+import VTSidebar from './sidebar/VTSidebar.vue'
 
 const route = useRoute()
 const { frontmatter } = useData()
 const { hasSidebar } = useSidebar()
 
+const { layout } = frontmatter
 </script>
 
 <template>
@@ -16,19 +22,27 @@ const { hasSidebar } = useSidebar()
     id="VPContent"
     :class="{
       'has-sidebar': hasSidebar,
-      'is-home': frontmatter.layout === 'home'
+      'is-home': frontmatter.layout === 'home',
     }"
   >
     <NotFound v-if="route.component === NotFound" />
-
-    <VTHome v-else-if="frontmatter.layout === 'home'">
-      HOME
+    <VTHome
+      v-else-if="frontmatter.layout === 'home' || frontmatter.layout === 'doc'"
+    >
+      <template #sidebar><VTSidebar /></template>
+      <template #doclist>
+        <VTDocList v-if="frontmatter.layout === 'home'" />
+      </template>
+      <template #docone>
+        <VTDoc v-if="frontmatter.layout === 'doc'">
+          <Content />
+        </VTDoc>
+      </template>
     </VTHome>
 
     <div v-else>
       <Content></Content>
     </div>
-
   </div>
 </template>
 
@@ -59,7 +73,9 @@ const { hasSidebar } = useSidebar()
 @media (min-width: 1440px) {
   .VPContent.has-sidebar {
     padding-right: calc((100vw - var(--vp-layout-max-width)) / 2);
-    padding-left: calc((100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width));
+    padding-left: calc(
+      (100vw - var(--vp-layout-max-width)) / 2 + var(--vp-sidebar-width)
+    );
   }
 }
 </style>

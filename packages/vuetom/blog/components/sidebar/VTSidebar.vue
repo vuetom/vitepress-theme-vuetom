@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useData } from 'vitepress'
-import { useSidebar } from '../../composables/sidebar'
+import { useSidebar } from '../../composables/sidebar.js'
 import VTSidebarTop from './VTSidebarTop.vue'
 import VTSidebarBottom from './VTSidebarBottom.vue'
 
-const { theme } = useData()
+const { site, theme } = useData()
 const { hasSidebar } = useSidebar()
+const { base } = site.value
+let { avatar, author } = theme.value
+let baseUrl = base
 
-const { avatar, author } = theme.value
+if (base === '/' || base.endsWith('/')) {
+  baseUrl = base.substring(0, base.length - 1)
+}
+
+avatar = `${baseUrl}${avatar}`
+author += ' '
 
 </script>
 
