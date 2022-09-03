@@ -13,7 +13,7 @@ import './styles/vars.css'
 
 // vuetom blog docs scss
 // dev : '../styles/rewrite/index.scss'
-// prod: '../css/index.css'
+// prod: '../css/rewrite/index.css'
 import '../styles/rewrite/index.scss'
 
 import { Theme } from 'vitepress'

@@ -21,9 +21,11 @@ head:
 
 ## 其他方式
 
-### **1.** 脚手架初始化带有主题的项目模版
+### **1.** 脚手架初始化
 
-可以使用脚手架 vuetom-cli 脚手架来进行主题的初始化，会在你本地初始化一个项目，当然里面的 vitepress-theme-vuetom 可能不是最新的，当然你也可以手动更新下，或者直接拉取 [本网站](https://github.com/lauset/vitepress-theme-vuetom) 的代码进行修改也可以
+可以使用脚手架 vuetom-cli 脚手架来进行主题的初始化，会在你本地初始化一个项目
+
+网速慢可以再次尝试或者直接前往模版仓库拉取 [模版仓库](https://github.com/lauset/vuetom-cli)
 
 1. 首先安装脚手架，NPM安装前请确保开启管理员身份运行保证有权限
 
@@ -34,30 +36,41 @@ npm i -g vuetom-cli
 2. 查看是否安装成功，黑窗口运行一下命令，返回版本号 x.x.x 则表示安装成功
 
 ```js light
-vuetom-cli -V
+vuetom-cli -v
 ```
 
-3. 新建个项目文件夹，也就是说在一个空目录进行下面的初始化操作
+1. 初始化模版，可以选择是否新建目录、仓息、作者、模版仓库等
 
 ```js light
 vuetom-cli init
 ```
 
-1. 然后便会下载模版，下载完成后，执行以下命令安装以来并运行文档网站
+1. 然后便会下载模版，下载完成后，执行以下命令安装依赖并运行文档网站
 
 ```js light
-npm i
-npm run dev
+pnpm i
+pnpm dev
 ```
 
 ::: warning
-模版是从 github 上拉取的，可能有时候会有网速的困惑，也可手动前往拉取
-<https://github.com/lauset/vuetom-cli/tree/temp-docs>
+模版是从 github 上拉取的，可能有时候会有网速的困惑，也可手动前往拉取下载本地启用
+
+文档模版：<https://github.com/lauset/vuetom-cli/tree/temp-docs>
+
+博客模版：<https://github.com/lauset/vuetom-cli/tree/temp-blog>
 :::
 
 <br/>
 
-### **2.** 通过NPM下载安装主题
+### **2.** 通过NPM下载安装主题（已弃用）
+
+:::danger  ⚠️ 已弃用
+
+上传至远程仓库，作为三方依赖使用打包时会出现样式引入问题，暂时放弃使用
+
+从 vitepress-theme-vuetom v2.2.x 开始不再上传远程仓库而是作为目录加至模版项目中
+
+:::
 
 使用这个方式首先你要搭建一个 vitepress 项目，主题只是会覆盖默认样式而已，所以项目还是得搭起来的，可以前往下面 vitepress 官网链接查看并开始搭建
 

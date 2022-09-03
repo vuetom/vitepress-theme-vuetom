@@ -30,6 +30,7 @@ head:
 危险消息
 :::
 ```
+
 效果如下：
 
 ::: tip 使用TIPS代替
@@ -45,5 +46,7 @@ WARNING消息 <a>a链接</a>
 :::
 
 ::: danger
-DANGER消息 [md链接]()
+DANGER消息 [md链接](./example.md)
 :::
+
+**tip** 边框与字体颜色来自于主题主色 (--vp-c-brand light dark)

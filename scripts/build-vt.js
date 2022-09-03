@@ -9,8 +9,18 @@ function rewrite(file) {
   if (process.env.NODE_ENV !== 'build') return
   const content = fs.readFileSync(file, 'utf-8')
   const res = content.replace(
+    /import '\.\/styles\/index.scss'/,
+    'import \'./css/index.css\''
+  )
+  fs.writeFileSync(file, res, 'utf-8')
+}
+
+function rewriteDoc(file) {
+  if (process.env.NODE_ENV !== 'build') return
+  const content = fs.readFileSync(file, 'utf-8')
+  const res = content.replace(
     /import '\.\.\/styles\/rewrite\/index.scss'/,
-    'import \'../css/index.css\''
+    'import \'../css/rewrite/index.css\''
   )
 
   // let res = content.replace(
@@ -37,5 +47,6 @@ glob.sync('../vuetom/**').forEach((file) => {
 })
 
 glob.sync('../vuetom/dist/**').forEach((file) => {
-  if (/doc\/index.js$/.test(file)) rewrite(file)
+  if (/index.js$/.test(file)) rewrite(file)
+  if (/doc\/index.js$/.test(file)) rewriteDoc(file)
 })

@@ -21,7 +21,7 @@ head:
 
 以下是版本号满足 `vitepress >= 1.x.x` `vuetom-theme >= 2.x.x` 的配置
 
-```js
+```js macos
 // .vitepress/config.ts
 export default defineConfigWithTheme<VuetomThemeConfig>({
   lang: 'en-US',
@@ -66,7 +66,7 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 
 以下是版本号满足 `vitepress = 0.x.x` `vuetom-theme = 1.x.x` 的配置
 
-```js light
+```js macos
 import { defineConfigWithTheme } from 'vitepress'
 import type { VuetomThemeConfig } from 'vitepress-theme-vuetom'
 
@@ -95,7 +95,6 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 })
 ```
 
-
 以下是对配置项的简要说明
 
 ## 首页LOGO
@@ -107,7 +106,7 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 
 首页上方LOGO，路径中的首个 `/` 表示 `public` 目录
 
-例如：`'/logo/homg-logo.jpg'` 
+例如：`'/logo/homg-logo.jpg'`
 
 ## 首页背景图
 
@@ -135,7 +134,6 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 覆盖颜色的透明度，搭配上面的覆盖颜色使用，图片中间透明度要比图片边缘透明度要小
 
 图片中间透明度为 `当前bgOpacity - 0.3`，也就是说默认为 `0.3`
-
 
 ## 文章页背景图
 

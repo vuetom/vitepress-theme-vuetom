@@ -41,7 +41,7 @@ const createRouterRoutes = (
     isRetry = false
   ) {
     const route = reactive(getDefaultRoute())
-    const pendingPath = `/_pages${href}`
+    const pendingPath = `/posts${href}`
     try {
       let page = loadPageModule(pendingPath)
       if ('then' in page && typeof page.then === 'function') {
@@ -120,10 +120,10 @@ function pathToFile(path: string) {
       // @ts-ignore
       const base = import.meta.env.BASE_URL
       pagePath = `${
-        pagePath.slice(base.length).replace(/\//g, '_') || 'index'
+        pagePath.slice(base.length - 1).replace(/\//g, '_') || 'index'
       }.md`
-      const pageHash = __VP_HASH_MAP__[`_pages_${pagePath.toLowerCase()}`]
-      pagePath = `${base}assets/_pages_${pagePath}.${pageHash}.js`
+      const pageHash = __VP_HASH_MAP__[`posts_${pagePath.toLowerCase()}`]
+      pagePath = `${base}assets/posts_${pagePath}.${pageHash}.js`
     } else {
       // ssr
       pagePath = `./${pagePath.slice(1).replace(/\//g, '_')}.md.js`

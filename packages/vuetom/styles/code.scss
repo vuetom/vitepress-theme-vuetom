@@ -1,4 +1,4 @@
-
+/** code default */
 
 code {
   margin: 0;
@@ -21,18 +21,36 @@ code .token.inserted {
 div[class*='language-'] {
   position: relative;
   margin: 1rem -1.5rem;
-  background-color: var(--vt-c-black-soft);
+  background-color: var(--vp-c-bg-soft);
+  transition: color 0.5s;
+  border: 2px solid transparent;
   overflow-x: auto;
 }
 
+div[class*='language-'] .lang {
+  padding: 0.1rem 0.5rem;
+  color: var(--vp-c-brand);
+  font-weight: bold;
+  opacity: 0;
+  display: inline-block;
+}
+
 div[class*='language-']:hover {
-  box-shadow: var(--vt-code-shadow-h);
+  border: 2px solid var(--vp-c-brand);
+  & .lang {
+    opacity: 0.8;
+  }
+  &::after {
+    opacity: 1;
+  }
 }
 
 div[class*='language-']::after {
   content: '';
   height: 15px;
-  background: #df80a077;
+  background: var(--vp-c-brand);
+  transition: opacity 0.5s;
+  opacity: 0.2;
   display: block;
 }
 
@@ -138,6 +156,12 @@ div[class*='language-']:before {
   z-index: 2;
   font-size: 0.8rem;
   color: #888;
+}
+
+.dark {
+  div[class*='language-'] {
+    background-color: var(--vp-c-bg-alt);
+  } 
 }
 
 div[class~='language-html']:before,

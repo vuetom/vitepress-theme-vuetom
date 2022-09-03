@@ -11,38 +11,41 @@ head:
 
 # {{ $frontmatter.title }}
 
-
 ## MD语法展示
 
-使用三个 ` 符号将代码包裹其中
+使用三个 ` 符号将代码包裹其中便是展示代码块
 
 <br/>
 
-**亮色主题**
+**亮/暗主题切换**
 
-可以在 language_key(语言标识) 后加入  `light` 
+根据文档主题模式切换
+
+**代码块主题 macos**
+
+可以在 language_key(语言标识) 后加入  `macos`
 
 输入内容：
 
 <div>
-```java light
+```java macos
 </div>
 String language = "Java";
 <div>
 ```
 </div>
 
-输出内容：
+展示效果：
 
-```java light
+```java macos
 String language = "Java";
 ```
 
 <br/>
 
-**暗色主题**
+**默认主题**
 
-默认的话就是暗色系
+默认主题是以暗色系为主的
 
 输入内容：
 
@@ -64,32 +67,36 @@ String language = "JS";
 
 **示例展示**
   
-- javascript ( js )
+- javascript ( js macos )
 
-```js 
+```js macos
 function fun(){
-	echo "Hello, World!";
+ echo "Hello, World!";
 }
 fun();
 ```
 
 - Java ( java )
+
 ```java
 System.out.print(1);
 ```
-- Python ( py )
 
-```py
+- Python ( py macos )
+
+```py macos
 #!/usr/bin/env python3
 print("Hello, World!");
 ```
 
 - SQL ( sql )
+
 ```sql
 select user_name from user_info
 ```
 
 - Shell ( bash, shell )
+
 ```bash
 echo '1'
 ```

@@ -1,35 +1,36 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "2.1.6",
+  "version": "2.2.0",
   "description": "A Vitepress Theme, Have blog and document styles",
   "type": "module",
+  "packageManager": "pnpm@7.9.0",
+  "publishConfig": {
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
-  "typings": "./types/index.d.ts",
+  "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "node": {
-        "import": {
-          "default": "./dist/index.js"
-        },
-        "require": {
-          "default": "./dist/index.js"
-        }
-      },
       "types": "./types/index.d.ts",
       "import": "./dist/index.js"
     },
     "./dist/*": "./dist/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./docs": {
+      "default": "./dist/doc/index.js"
+    },
+    "./blog": {
+      "default": "./dist/blog/index.js"
+    }
   },
   "scripts": {
     "pub": "npm publish",
     "clean": "rimraf ./dist",
-    "build": "pnpm clean && pnpm build:vt && pnpm build:scss && pnpm build:css",
+    "build": "pnpm clean && pnpm tailwind:css && pnpm build:scss && pnpm build:vt",
     "build:vt": "tsc -p . && cross-env NODE_ENV=build node ../../scripts/build-vt",
     "build:scss": "gulp --require sucrase/register/ts -f gulpfile.ts",
-    "build:css": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css",
-    "post:css": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css --watch"
+    "tailwind:css": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css",
+    "tailwind:watch": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css --watch"
   },
   "engines": {
     "node": ">=16.0.0"
@@ -54,6 +55,7 @@
   },
   "homepage": "https://github.com/lauset/vitepress-theme-vuetom#readme",
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
@@ -61,8 +63,15 @@
   "dependencies": {
     "@docsearch/css": "^3.2.1",
     "@docsearch/js": "^3.2.1",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "@vue/devtools-api": "^6.2.1",
+    "@vueuse/core": "^9.1.1",
     "body-scroll-lock": "^4.0.0-beta.0",
-    "shiki": "^0.11.1"
+    "nprogress": "^0.2.0",
+    "shiki": "^0.11.1",
+    "vite": "^3.0.9",
+    "vitepress": "1.0.0-alpha.13",
+    "vue": "^3.2.38"
   },
   "peerDependencies": {
     "vitepress": "1.0.0-alpha.13"

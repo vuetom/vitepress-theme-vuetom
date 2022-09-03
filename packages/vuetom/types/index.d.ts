@@ -109,7 +109,7 @@ export declare interface VuetomThemeConfig extends DefaultTheme.Config {
    *
    * @example '/imgs/avatar.jpg'
    */
-  avtar?: string;
+  avatar?: string;
 
   /**
    * Blog Author Name
@@ -119,5 +119,7 @@ export declare interface VuetomThemeConfig extends DefaultTheme.Config {
   author?: string;
 
 }
+
+export * from './shim.d.ts'
 
 export default theme

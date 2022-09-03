@@ -9,16 +9,11 @@ import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 
 const distFolder = path.resolve(__dirname, './dist/css')
+const distRewriteFolder = path.resolve(__dirname, './dist/css/rewrite')
 
-/**
- * compile theme-chalk scss & minify
- * not use sass.sync().on('error', sass.logError) to throw exception
- * @returns
- */
 function buildThemeChalk() {
   const sass = gulpSass(dartSass)
   const noPrefixFile = /(index|main)/
-
   return src(path.resolve(__dirname, 'styles/rewrite/*.scss'))
     .pipe(sass.sync())
     .pipe(autoprefixer({ cascade: false }))
@@ -31,7 +26,33 @@ function buildThemeChalk() {
         )
       })
     )
+    .pipe(
+      // eslint-disable-next-line no-shadow
+      rename((path) => {
+        if (!noPrefixFile.test(path.basename)) {
+          // eslint-disable-next-line no-param-reassign
+          path.basename = `vt-${path.basename}`
+        }
+      })
+    )
+    .pipe(dest(distRewriteFolder))
+}
 
+function buildCommonStyles() {
+  const sass = gulpSass(dartSass)
+  const noPrefixFile = /(index|main)/
+  return src(path.resolve(__dirname, 'styles/*.scss'))
+    .pipe(sass.sync())
+    .pipe(autoprefixer({ cascade: false }))
+    .pipe(
+      cleanCSS({}, (details) => {
+        console.log(
+          `${details.name}: ${
+            details.stats.originalSize / 1000
+          } KB -> ${details.stats.minifiedSize / 1000} KB`
+        )
+      })
+    )
     .pipe(
       // eslint-disable-next-line no-shadow
       rename((path) => {
@@ -45,7 +66,8 @@ function buildThemeChalk() {
 }
 
 export const build = parallel(
-  buildThemeChalk
+  buildThemeChalk,
+  buildCommonStyles
 )
 
 export default build

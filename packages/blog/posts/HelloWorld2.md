@@ -8,7 +8,7 @@ layout: doc
 
 # {{ $frontmatter.title }}
 
-This is a word in _pages/HelloWorld2.md
+This is a word in posts/HelloWorld2.md
 
 <script setup>
 </script>

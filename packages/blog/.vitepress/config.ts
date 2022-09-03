@@ -1,6 +1,6 @@
 import { defineConfigWithTheme } from 'vitepress'
 import { VuetomThemeConfig } from 'vitepress-theme-vuetom'
-import pages from './conf/pages'
+import pages from './conf/posts'
 
 export default defineConfigWithTheme<VuetomThemeConfig>({
   lang: 'en-US',
@@ -13,12 +13,12 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
   lastUpdated: true,
   themeConfig: {
     nav: [
-      { text: 'Guide', link: '/guide' },
+      { text: 'Guide', link: '/pages/guide' },
       {
         text: 'More',
         items: [
-          { text: '分类', link: '/more/cate' },
-          { text: '标签', link: '/more/tag' }
+          { text: '分类', link: '/categories/index' },
+          { text: '标签', link: '/tags/index' }
         ]
       }
     ],
@@ -29,7 +29,7 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
       },
       {
         text: '指导',
-        link: '/guide'
+        link: '/pages/guide'
       },
       {
         text: '更多',

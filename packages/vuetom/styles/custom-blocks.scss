@@ -1,26 +1,30 @@
-
-
-
-
 .custom-block.tip,
 .custom-block.info,
 .custom-block.warning,
 .custom-block.danger {
   margin: 1rem 0;
   border-left: 0.5rem solid;
-  border-radius: 0.3rem;
-  padding: 0.1rem 1.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.3rem;
   overflow-x: auto;
+  &:hover {
+    transition: all 0.5s;
+    box-shadow: var(--vp-shadow-4);
+    border-color: #ffffff10;
+  }
 }
 
 .custom-block-title {
-  margin-bottom: -0.3rem;
   font-weight: 600;
 }
 
 .custom-block.tip {
   background-color: #e9e9e980;
-  border-color: var(--c-brand);
+  border-color: var(--vp-c-brand-light);
+  color: var(--vp-c-brand-dark);
+  .custom-block-title {
+    color: var(--vp-c-brand); 
+  }
 }
 
 .custom-block.info {
@@ -43,7 +47,7 @@
   border-color: #c00;
   background-color: #cc000020;
   .custom-block-title {
-    color: #900;
+    color: #d00;
   }
 }
 
@@ -70,6 +74,5 @@
 .dark {
   .custom-block.tip {
     background-color: #373b4480;
-    border-color: var(--c-brand);
   } 
 }
