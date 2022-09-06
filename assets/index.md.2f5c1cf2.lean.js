@@ -1,0 +1,1 @@
+import{o as e,c as t}from"./app.7b65c7ad.js";const c=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"index.md"}'),a={name:"index.md"},i=Object.assign(a,{setup(o){return typeof window<"u"&&(localStorage.getItem("vuetom_lang"),location.pathname="/vitepress-theme-vuetom/zh-CN/"),(n,r)=>(e(),t("div"))}});export{c as __pageData,i as default};
