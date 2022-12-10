@@ -1,0 +1,17 @@
+// 文档顶部导航栏样式重写
+
+.VPNav {
+  box-shadow: var(--vp-shadow-2);
+  .VPNavBarTitle {
+    .title {
+      color: var(--vp-c-brand);
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+  .VPNavBar {
+    .VPNavBarMenuLink {
+      font-weight: bold;
+    }
+  }
+}

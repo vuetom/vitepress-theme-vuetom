@@ -1,0 +1,78 @@
+:root {
+
+  /**
+   * Base Colors
+   * --------------------------------------------------------------------- */
+
+  --c-white-rgb: 255,255,255;
+  --c-black-rgb: 0,0,0;
+
+  --c-white: #ffffff;
+  --c-white-dark: #f8f8f8;
+  --c-black: #000000;
+
+  --c-divider-light: rgba(60, 60, 67, 0.12);
+  --c-divider-dark: rgba(84, 84, 88, 0.48);
+
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f9f9f9;
+  --vt-c-white-mute: #f1f1f1;
+
+  --vt-c-black: #1a1a1a;
+  --vt-c-black-pure: #000000;
+  --vt-c-black-soft: #242424;
+  --vt-c-black-mute: #2f2f2f;
+
+  --vt-c-indigo: #213547;
+  --vt-c-indigo-soft: #476582;
+  --vt-c-indigo-light: #aac8e4;
+
+  --vt-c-gray: #8e8e8e;
+  --vt-c-gray-light-1: #aeaeae;
+  --vt-c-gray-light-2: #c7c7c7;
+  --vt-c-gray-light-3: #d1d1d1;
+  --vt-c-gray-light-4: #e5e5e5;
+  --vt-c-gray-light-5: #f2f2f2;
+  --vt-c-gray-dark-1: #636363;
+  --vt-c-gray-dark-2: #484848;
+  --vt-c-gray-dark-3: #3a3a3a;
+  --vt-c-gray-dark-4: #282828;
+  --vt-c-gray-dark-5: #202020;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.70);
+  --vt-c-text-light-3: rgba(60, 60, 60, 0.33);
+  --vt-c-text-light-4: rgba(60, 60, 60, 0.18);
+  --vt-c-text-light-code: var(--vt-c-indigo-soft);
+
+  --vt-c-text-dark-1: rgba(255, 255, 255, 0.87);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.60);
+  --vt-c-text-dark-3: rgba(235, 235, 235, 0.38);
+  --vt-c-text-dark-4: rgba(235, 235, 235, 0.18);
+  --vt-c-text-dark-code: var(--vt-c-indigo-light);
+
+  --vp-c-blue: #16a0db;
+  --vp-c-blue-light: #25beff;
+  --vp-c-blue-lighter: #5cceff;
+  --vp-c-blue-dark: #198aba;
+  --vp-c-blue-darker: #13678a;
+  --vp-c-blue-dimm-1: rgba(66, 145, 184, 0.5);
+  --vp-c-blue-dimm-2: rgba(66, 145, 184, 0.4);
+  --vp-c-blue-dimm-3: rgba(66, 145, 184, 0.3);
+  --vp-c-blue-dimm-4: rgba(66, 147, 184, 0.2);
+  --vp-c-blue-dimm-5: rgba(66, 139, 184, 0.1);
+
+  --vp-c-pink: #e44a8a;
+  --vp-c-pink-light: #f962a1;
+  --vp-c-pink-lighter: #ff91bf;
+  --vp-c-pink-dark: #b31858;
+  --vp-c-pink-darker: #720e37;
+  --vp-c-pink-dimm-1: rgba(184, 66, 127, 0.5);
+  --vp-c-pink-dimm-2: rgba(184, 66, 100, 0.25);
+  --vp-c-pink-dimm-3: rgba(184, 66, 113, 0.05);
+}

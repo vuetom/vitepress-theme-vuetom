@@ -1,106 +1,98 @@
-
-.VPNav {
-  box-shadow: var(--vp-shadow-2);
-  .VPNavBarTitle {
-    .title {
-      color: var(--vp-c-brand);
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-  }
-  .VPNavBar {
-    .VPNavBarMenuLink {
-      font-weight: bold;
-    }
-  }
+// 文档MD语法样式重写
+.NotFound {
+  padding: 0;
+  margin: 60px;
+  border-radius: 10px;
+  background-color: var(--vt-bg-doc); 
 }
-
-.container {
-  .content {
-    main {
-    background-image: linear-gradient(90deg,rgba(159,219,252,.08) 3%,transparent 0),linear-gradient(1turn,rgba(159,219,252,.08) 3%,transparent 0);
-    background-size: 30px 30px;
-    background-position: 50%;
+.VPDoc {
+  background-color: var(--vt-bg-doc);
+  .container {
+    .content {
+      main {
+        background-image: linear-gradient(90deg,rgba(159,219,252,.08) 3%,transparent 0),linear-gradient(1turn,rgba(159,219,252,.08) 3%,transparent 0);
+        background-size: 30px 30px;
+        background-position: 50%;
+      }
+    }
+    .vp-doc {
+      h1, 
+      h2, 
+      h3, 
+      h4, 
+      h5, 
+      h6 {
+        margin: 20px 0;
+        font-weight: 600;
+        color: var(--vp-c-brand);
+      }
+      h1 {
+        font-size: 25px;
+      }
+      h2 {
+        font-size: 20px;
+        border-bottom: 4px solid var(--vp-c-pink-dimm-1);
+        line-height: 35px;
+        padding-left: 20px;
+        margin: 0;
+        border-top: 0;
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 400px;
+          height: 10px;
+          border-top-right-radius: 22px;
+          background: linear-gradient(90deg,transparent,var(--vp-c-brand));
+          max-width: 50vw;
+        }
+      }
+      h3 {
+        font-size: 18px;
+      }
+      h4 {
+        font-size: 16px;
+      }
+      h5 {
+        font-size: 14px;
+      }
+      h6 {
+        font-size: 12px;
+      }
+      table {
+        th, td {
+          border: 1px solid var(--vp-c-divider-light);
+        }
+      }
+      a {
+        text-decoration: underline;
+      }
+      strong {
+        color: var(--vp-c-second);
+        &::before {
+          content: "[ ";
+        }
+        &::after {
+          content: " ]";
+        }
+      }
+      blockquote {
+        margin: 0;
+        padding: 1rem;
+        border-left: 6px solid var(--vp-c-brand-dark);
+        border-radius: 5px;
+        background: var(--vp-c-blue-dimm-5);
+      }
+      :not(pre) > code {
+        color: var(--vp-c-second);
+        border: 1px solid var(--vp-c-pink-dimm-2);
+        background-color: var(--vp-c-pink-dimm-3);
+      }
+      :not(pre) > code:hover {
+        border: 1px solid var(--vp-c-pink-dimm-1);
+      }
     }
   }
-  .vp-doc {
-    h1, 
-    h2, 
-    h3, 
-    h4, 
-    h5, 
-    h6 {
-      margin-top: 20px;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: var(--vp-c-brand);
-    }
-    h1 {
-      color: var(--vp-c-brand-light);
-    }
-    h2 {
-      color: var(--vp-c-brand-light);
-      font-size: 22px;
-      border-bottom: 4px solid var(--vp-c-pink-dimm-1);
-      line-height: 50px;
-      padding-left: 25px;
-      margin: 0;
-      border-top: 0;
-      &::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 400px;
-        height: 10px;
-        border-top-right-radius: 22px;
-        background: linear-gradient(90deg,var(--vp-c-bg),var(--vp-c-brand));
-        max-width: 50vw;
-      }
-    }
-    h3 { }
-    h4 {
-      font-size: 16px;
-    }
-    h5 {
-      font-size: 14px;
-    }
-    h6 {
-      font-size: 12px;
-    }
-    table {
-      th, td {
-        border: 1px solid var(--vp-c-divider-light);
-      }
-    }
-    a {
-      text-decoration: underline;
-    }
-    strong {
-      color: var(--vp-c-second);
-      &::before {
-        content: "[ ";
-      }
-      &::after {
-        content: " ]";
-      }
-    }
-    blockquote {
-      margin: 0;
-      padding: 1rem;
-      border-left: 6px solid var(--vp-c-brand-dark);
-      background: var(--vp-c-blue-dimm-3);
-    }
-    .custom-block {
-      border-width: 2px;
-    }
-    :not(pre) > code {
-      color: var(--vp-c-second);
-      border: 1px solid var(--vp-c-pink-dimm-2);
-      background-color: var(--vp-c-pink-dimm-3);
-    }
-    :not(pre) > code:hover {
-      border: 1px solid var(--vp-c-pink-dimm-1);
-    }
-  }
+  
 }

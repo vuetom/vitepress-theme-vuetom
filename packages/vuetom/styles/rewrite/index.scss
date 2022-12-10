@@ -1,2 +1,12 @@
-@import './home.scss';
-@import './doc.scss';
+// rewrite nav
+@use './nav.scss';
+// rewrite aside button
+@use './aside.scss';
+// rewrite content bg
+@use './content.scss';
+// rewrite main content
+@use './doc.scss';
+// rewrite search box
+@use './docsearch.scss';
+// rewrite custom home
+@use './home.scss';

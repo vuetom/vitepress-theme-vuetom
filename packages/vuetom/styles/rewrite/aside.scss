@@ -1,0 +1,18 @@
+// 文档侧边栏样式重写
+
+.VPSidebarGroup {
+  .link {
+    &:hover {
+      color: var(--vp-c-brand);
+      // background: var(--vt-c-button-hover-bg); 
+    }
+    &.active {
+      background: var(--vt-c-button-active-bg);
+    }
+    border-radius: 6px;
+    padding: 6px 0;
+    .link-text {
+      padding-left: 12px;
+    }
+  }
+}

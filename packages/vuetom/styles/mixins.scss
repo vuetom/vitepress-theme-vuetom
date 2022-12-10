@@ -2,15 +2,8 @@
 
 @use './vars' as *;
 
-@mixin with-bg {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: border-color var(--el-transition-duration),
-    background-color var(--el-transition-duration);
-}
-
 @mixin with-border {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid transparent;
 }
 
 $breakpoints: (
