@@ -48,6 +48,7 @@
               </li>
             </ul>
             <div class="nolist" v-if="list.length === 0">暂无留言~</div>
+            <br/>
             <button class="more btn" @click="getList" :disabled="isDown">
               加载更多
             </button>
@@ -83,22 +84,21 @@ const reset = () => {
   email.value = ''
 }
 const goFeeback = () => {
+  alert('开发中!')
+  return
   if (!txt.value || !email.value) {
     alert("你还未填写内容");
-    return null
+    return 
   }
   axios
     .post(postUrl, { text: txt.value.trim(), email: email.value })
     .then((res) => {
       const { status, msg } = res.data
       if (status === 0) {
-        alert('留言成功！')
         reset()
       }
-      console.log(msg);
     })
     .catch((err) => {
-      console.log(err)
     })
 }
 
@@ -110,13 +110,12 @@ const getExtBoxClasses = () => {
   if (isFullScreen) {
     str += 'isFullScreen '
   }
-
   return str
 }
 
 const getList = (tip = false) => {
   if (isDown.value) {
-    // alert("没有更多数据了");
+    alert("没有更多数据了");
     return null
   }
   axios
@@ -131,14 +130,11 @@ const getList = (tip = false) => {
         if (data.length < pagesize.value) {
           isDown.value = true
         }
-
         return
       }
       isDown.value = true
     })
     .catch((err) => {
-      console.log(err);
-      
     })
 }
 onMounted(getList)

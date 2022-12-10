@@ -1,0 +1,34 @@
+[
+  {
+    "text": "Basic",
+    "items": [
+      { "text": "What's the Vitepress?", "link": "/guide/info" },
+      { "text": "Quick Start", "link": "/guide/start" },
+      {
+        "text": "Questions",
+        "link": "/guide/question"
+      },
+      {
+        "text": "Project Dir",
+        "link": "/guide/prodir"
+      }
+    ]
+  },
+  {
+    "text": "Advanced",
+    "items": [
+      {
+        "text": "Theme Config",
+        "link": "/guide/config"
+      },
+      {
+        "text": "Languages",
+        "link": "/guide/lang"
+      },
+      {
+        "text": "Dark Mode",
+        "link": "/guide/dark"
+      }
+    ]
+  }
+]

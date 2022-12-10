@@ -1,0 +1,19 @@
+{
+  "langshow": {
+    "text": "MD Show",
+    "items": [
+      {
+        "link": "/mdshow/example",
+        "text": "Example"
+      },
+      {
+        "link": "/mdshow/custom",
+        "text": "Custom"
+      },
+      {
+        "link": "/comp/codeblock",
+        "text": "Code Block"
+      }
+    ]
+  }
+}

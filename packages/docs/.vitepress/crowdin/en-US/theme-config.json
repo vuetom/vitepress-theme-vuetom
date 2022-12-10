@@ -1,0 +1,20 @@
+{
+  "label": "English",
+  "selectText": "Languages",
+  "editLinkText": "Suggest changes to this page",
+  "lastUpdatedText": "Last Updated",
+  "localeLinks": {
+    "text": "",
+    "items": [
+      {
+        "text": "Chinese",
+        "link": "/zh-CN/"
+      },
+      {
+        "text": "English",
+        "link": "/en-US/"
+      }
+    ]
+  },
+  "socialLinks": [{ "icon": "github", "link": "" }]
+}

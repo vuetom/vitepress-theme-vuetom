@@ -1,0 +1,12 @@
+{
+  "en-US": {
+    "title": "Vuetom Theme",
+    "lang": "en-US",
+    "description": "Theme for Vitepress"
+  },
+  "zh-CN": {
+    "title": "Vuetom 主题",
+    "lang": "zh-CN",
+    "description": "一款为 Vitepress 而生的主题"
+  }
+}

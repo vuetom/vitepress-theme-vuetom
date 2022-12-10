@@ -1,12 +1,13 @@
 {
   "name": "@lauset/vuetom-doc",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "scripts": {
     "dev": "pnpm gen:lang && vitepress dev .",
     "build": "pnpm gen:lang && vitepress build .",
+    "preview": "vitepress preview .",
     "serve": "vitepress serve .",
-    "clean": "rimraf .vitepress/i18n && rimraf .vitepress/dist",
-    "gen:lang": "rimraf .vitepress/i18n && sucrase-node .vitepress/utils/crowdin-generate.ts",
+    "clean": "rimraf .vitepress/dist",
+    "gen:lang": "rimraf .vitepress/i18n && tsx .vitepress/build/crowdin-generate.ts",
     "crowdin:list": "crowdin list project",
     "crowdin:upload": "crowdin upload sources",
     "crowdin:us": "crowdin download -l en-US",
@@ -14,28 +15,27 @@
     "crowdin:dryrun": "crowdin download --dryrun"
   },
   "dependencies": {
-    "@vueuse/core": "^9.1.1",
-    "axios": "0.27.2",
+    "@vueuse/core": "^9.6.0",
+    "axios": "1.2.1",
     "clipboard-copy": "4.0.1",
-    "element-plus": "^2.2.15",
-    "marked": "^4.1.0",
+    "element-plus": "^2.2.26",
+    "marked": "^4.2.4",
     "normalize.css": "8.0.1",
     "nprogress": "0.2.0",
     "prismjs": "^1.29.0",
-    "vue": "^3.2.38"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
-    "@crowdin/cli": "^3.7.10",
+    "@crowdin/cli": "^3.9.1",
     "@types/markdown-it": "12.2.3",
-    "chalk": "^4.1.2",
+    "chalk": "4.1.2",
     "escape-html": "1.0.3",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.20",
     "markdown-it": "13.0.1",
     "markdown-it-container": "3.0.0",
     "rimraf": "^3.0.2",
-    "sass": "^1.54.8",
-    "sucrase": "3.25.0",
-    "vitepress": "^1.0.0-alpha.13",
-    "vitepress-theme-vuetom": "workspace:^2.2.0"
+    "sass": "^1.56.2",
+    "vitepress": "^1.0.0-alpha.30",
+    "vitepress-theme-vuetom": "^2.3.0"
   }
 }

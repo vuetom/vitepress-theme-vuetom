@@ -1,0 +1,34 @@
+[
+  {
+    "text": "基础",
+    "items": [
+      { "text": "什么是Vitepress?", "link": "/guide/info" },
+      { "text": "快速开始", "link": "/guide/start" },
+      {
+        "text": "问题一览",
+        "link": "/guide/question"
+      },
+      {
+        "text": "主题目录",
+        "link": "/guide/prodir"
+      }
+    ]
+  },
+  {
+    "text": "进阶",
+    "items": [
+      {
+        "text": "主题配置",
+        "link": "/guide/config"
+      },
+      {
+        "text": "国际化",
+        "link": "/guide/lang"
+      },
+      {
+        "text": "夜间模式",
+        "link": "/guide/dark"
+      }
+    ]
+  }
+]

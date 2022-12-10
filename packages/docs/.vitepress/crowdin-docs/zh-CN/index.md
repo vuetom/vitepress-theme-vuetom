@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand big
       text: 快 速 开 始
-      link: /guide/info
+      link: /zh-CN/guide/info
     - theme: alt big
       text: 配 置
-      link: /guide/config
+      link: /zh-CN/guide/config
 
 features:
   - title: 📦 优化的构建

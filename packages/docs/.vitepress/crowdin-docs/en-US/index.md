@@ -10,11 +10,11 @@ hero:
   tagline: vitepress flat theme 
   actions:
     - theme: brand big
-      text: 快 速 开 始
-      link: /guide/info
+      text: Quick Start
+      link: /en-US/guide/info
     - theme: alt big
-      text: 配 置
-      link: /guide/config
+      text: Config
+      link: /en-US/guide/config
 
 features:
   - title: 📦 优化的构建
@@ -26,7 +26,7 @@ features:
 ---
 
 <div class="frontpage sponsors">
-  <h2>感 谢</h2>
+  <h2>Thanks</h2>
   <div class="platinum-sponsors">
     <a v-for="{ href, src, name, id } of sponsors.filter(s => s.tier === 'platinum')" :href="href" target="_blank" rel="noopener" aria-label="sponsor-img">
       <img :src="src" :alt="name" :id="`sponsor-${id}`">
@@ -43,7 +43,6 @@ features:
 
 <script setup>
 import { onMounted } from 'vue'
-import pk from 'vitepress-theme-vuetom/package.json'
 
 const sponsors = [
   {
@@ -75,30 +74,20 @@ const sponsors = [
 
 function fetchReleaseTag() {
   onMounted(() => {
-    const dom = document.getElementsByClassName('name')
-    const mainTitle = dom[0]
-    const docsReleaseTag = document.createElement('span')
-    docsReleaseTag.classList.add('release-tag')
-    const releaseTagName = `v${pk.version}`
-    docsReleaseTag.innerText = releaseTagName
-    if (releaseTagName !== undefined) {
-      mainTitle.appendChild(docsReleaseTag)
-    }
-    // fetch('https://api.github.com/repos/vitejs/docs-cn/releases/latest')
-    //   .then((res) => res.json())
-    //   .then((json) => {
-    //     const mainTitle = document.getElementById('main-title')
-    //     mainTitle.style.position = 'relative'
-
-    //     const docsReleaseTag = document.createElement('span')
-    //     docsReleaseTag.classList.add('release-tag')
-    //     const releaseTagName = json.tag_name
-    //     docsReleaseTag.innerText = releaseTagName
-
-    //     if (releaseTagName !== undefined) {
-    //       mainTitle.appendChild(docsReleaseTag)
-    //     }
-    //   })
+    fetch('https://api.github.com/repos/vitejs/docs-cn/releases/latest')
+      .then((res) => res.json())
+      .then((json) => {
+        const dom = document.getElementsByClassName('name')
+        const mainTitle = dom[0]
+        mainTitle.style.position = 'relative'
+        const docsReleaseTag = document.createElement('span')
+        docsReleaseTag.classList.add('release-tag')
+        const releaseTagName = json.tag_name
+        docsReleaseTag.innerText = releaseTagName
+        if (releaseTagName !== undefined) {
+          mainTitle.appendChild(docsReleaseTag)
+        }
+      })
   })
 }
 

@@ -1,23 +1,32 @@
-import { defineConfigWithTheme } from 'vitepress'
+import { build, defineConfigWithTheme, useData } from 'vitepress'
 import { VuetomThemeConfig } from 'vitepress-theme-vuetom'
-import { mdPlugin } from './utils/plugins'
-
-// import head from './config/head'
 import pkg from '../package.json'
-import { nav, sidebarGuide, sidebarMdShow } from './menus'
+import { getNav, getSidebar, head, locales } from './menus'
+
+const nav = getNav('zh-CN')
+const sidebar = getSidebar('zh-CN')
 
 export default defineConfigWithTheme<VuetomThemeConfig>({
-  lang: 'en-US',
-  base: '/vt',
-  title: 'Vuetom Theme',
-  description: 'Theme For Vitepress',
-
-  // head,
+  base: `/vt/`,
+  ignoreDeadLinks: true,
+  lastUpdated: true,
+  head,
+  locales: locales.vitepressConfig,
   themeConfig: {
-    nav: nav(),
-    sidebar: {
-      'zh-CN/guide/': sidebarGuide(),
-      'zh-CN/mdshow/': sidebarMdShow()
+    nav,
+    sidebar,
+    localeLinks: {
+      text: '',
+      items: [
+          {
+            text: '中文',
+            link: '/lang/zhcn'
+          },
+          {
+            text: 'English',
+            link: '/lang/enus'
+          }
+      ]
     },
     socialLinks: [
       { icon: 'github', link: pkg.repository }
@@ -26,8 +35,12 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
       message: 'Released under the MIT License.',
       copyright: 'Copyright © 2021-present Lauset'
     },
+    algolia: {
+      appId: '8Q3CNX0EF2',
+      apiKey: 'd44e3c8ec76aff9c758ef34f2cefe24d',
+      indexName: 'dev_vuetom'
+    },
 
-    // docsDir: 'docs',
     logoImg: '/logo/vuetom-logo-m.png',
     bgImg: '/imgs/homg-bg01.jpg',
     bgColor: '0,0,0',
@@ -41,21 +54,13 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
 
   },
 
-  // locales: {
-  //   '/zh-CN/': {
-  //     lang: 'zh-CN',
-  //     title: 'Vuetom 主题',
-  //     description: '为 Vitepress 提供的一款主题'
-  //   },
-  //   '/en-US/': {
-  //     lang: 'en-US',
-  //     title: 'Vuetom Theme',
-  //     description: 'Theme For Vitepress'
-  //   }
-  // },
   markdown: {
-    lineNumbers: false,
-    config: (md) => mdPlugin(md)
+    lineNumbers: true
   },
-  lastUpdated: false
+  appearance: true,
+  vite: {
+    ssr: {
+      noExternal: ["vitepress-theme-vuetom"]
+    }
+  }
 })

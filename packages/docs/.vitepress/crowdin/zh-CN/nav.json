@@ -6,7 +6,7 @@
   },
   {
     "text": "组件",
-    "link": "/mdshow/index",
+    "link": "/mdshow/",
     "activeMatch": "/mdshow/"
   },
   {
@@ -14,7 +14,7 @@
     "items": [
       {
         "text": "反馈",
-        "link": "/zh-CN/feedback/",
+        "link": "/feedback/",
         "activeMatch": "/feedback/"
       },
       {

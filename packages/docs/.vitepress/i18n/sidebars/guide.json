@@ -1,0 +1,82 @@
+{
+  "en-US": [
+    {
+      "text": "Basic",
+      "items": [
+        {
+          "text": "What's the Vitepress?",
+          "link": "/guide/info"
+        },
+        {
+          "text": "Quick Start",
+          "link": "/guide/start"
+        },
+        {
+          "text": "Questions",
+          "link": "/guide/question"
+        },
+        {
+          "text": "Project Dir",
+          "link": "/guide/prodir"
+        }
+      ]
+    },
+    {
+      "text": "Advanced",
+      "items": [
+        {
+          "text": "Theme Config",
+          "link": "/guide/config"
+        },
+        {
+          "text": "Languages",
+          "link": "/guide/lang"
+        },
+        {
+          "text": "Dark Mode",
+          "link": "/guide/dark"
+        }
+      ]
+    }
+  ],
+  "zh-CN": [
+    {
+      "text": "基础",
+      "items": [
+        {
+          "text": "什么是Vitepress?",
+          "link": "/guide/info"
+        },
+        {
+          "text": "快速开始",
+          "link": "/guide/start"
+        },
+        {
+          "text": "问题一览",
+          "link": "/guide/question"
+        },
+        {
+          "text": "主题目录",
+          "link": "/guide/prodir"
+        }
+      ]
+    },
+    {
+      "text": "进阶",
+      "items": [
+        {
+          "text": "主题配置",
+          "link": "/guide/config"
+        },
+        {
+          "text": "国际化",
+          "link": "/guide/lang"
+        },
+        {
+          "text": "夜间模式",
+          "link": "/guide/dark"
+        }
+      ]
+    }
+  ]
+}

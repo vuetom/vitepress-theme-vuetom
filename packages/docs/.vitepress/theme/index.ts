@@ -1,8 +1,12 @@
-// .vitepress/theme/index.js
-// import VuetomTheme from '../../../vuetom/index'
+// .vitepress/theme/index.ts
 
-import VuetomTheme from 'vitepress-theme-vuetom'
+// theme
+import VuetomTheme from 'vitepress-theme-vuetom/docs'
+
+// components
 import { globals } from '../views'
+
+// rewrite css
 import './custom.scss'
 
 export default {
@@ -13,13 +17,8 @@ export default {
   enhanceApp({ app, router, siteData }) {
     // app.use(VuetomUI)
 
-    // 注册组件
     globals.forEach(([name, Comp]) => {
       app.component(name, Comp)
     })
-
-    // components.forEach(([name, Comp]) => {
-    //   app.component(name, Comp)
-    // })
-  }
+  },
 }
