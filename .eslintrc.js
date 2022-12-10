@@ -43,6 +43,7 @@ module.exports = {
     'vue/html-self-closing': 'off',
     'vue/no-multiple-template-root': 1,
     'max-len': ['warn', 80],
+    'no-param-reassign': ['error', { props: false }],
     'no-use-before-define': 1,
     'no-unused-expressions': 0,
 

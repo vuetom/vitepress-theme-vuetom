@@ -1,6 +1,7 @@
 {
   "name": "@lauset/root",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev:blog": "pnpm run -C packages/blog dev",
     "dev:docs": "pnpm run -C packages/docs dev",
@@ -8,45 +9,44 @@
     "build:theme": "pnpm run -C packages/vuetom build",
     "build:blog": "pnpm run -C packages/blog build",
     "build:docs": "pnpm run -C packages/docs build",
+    "preview:blog": "pnpm run -C packages/blog preview",
+    "preview:docs": "pnpm run -C packages/docs preview",
     "serve:blog": "pnpm run -C packages/blog serve",
     "serve:docs": "pnpm run -C packages/docs serve",
     "clean:all": "pnpm -r --filter=./packages/* run clean"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   },
   "devDependencies": {
+    "@types/gulp": "^4.0.10",
     "@types/gulp-autoprefixer": "0.0.33",
     "@types/gulp-clean-css": "4.3.0",
     "@types/gulp-rename": "2.0.1",
     "@types/gulp-sass": "5.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
-    "chalk": "^4.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.46.0",
+    "@typescript-eslint/parser": "^5.46.0",
+    "chalk": "^5.2.0",
+    "consola": "^2.15.3",
     "cross-env": "7.0.3",
-    "eslint": "^8.23.0",
+    "eslint": "^8.29.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-define-config": "1.7.0",
+    "eslint-define-config": "1.12.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-vue": "^9.4.0",
-    "fs-extra": "^10.1.0",
-    "globby": "^11.1.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "fast-glob": "^3.2.12",
+    "fs-extra": "^11.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "8.0.0",
     "gulp-clean-css": "4.3.0",
     "gulp-rename": "2.0.0",
     "gulp-sass": "5.1.0",
     "http-proxy-middleware": "^2.0.6",
-    "prettier": "2.7.1",
+    "prettier": "2.8.1",
     "rimraf": "^3.0.2",
-    "sass": "^1.54.8",
-    "sucrase": "3.25.0",
-    "typescript": "^4.8.2",
-    "vitepress": "1.0.0-alpha.13",
-    "vue": "^3.2.38"
-  },
-  "dependencies": {
-    "dayjs": "^1.11.5"
+    "sass": "^1.56.2",
+    "tsx": "^3.12.1",
+    "typescript": "^4.9.4"
   },
   "pnpm": {
     "peerDependencyRules": {
