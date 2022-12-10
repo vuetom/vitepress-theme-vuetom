@@ -95,6 +95,10 @@ cd packages/vuetom
 pnpm pub
 ```
 
+* 部署
+
+github.io 部署需将 base 改为仓库名称
+
 ## 文档目录多语言
 
 查看项目文件列表
@@ -136,6 +140,12 @@ crowdin:tw
 ![语法示例](/resources/pic03.png)
 
 ![其他](/resources/pic04.png)
+
+## 博客示例
+
+![home](/resources/blog-home-01.png)
+
+![post](/resources/blog-post-01.png)
 
 ## 仓库地址
 
