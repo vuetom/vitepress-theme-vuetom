@@ -1,5 +1,5 @@
 
-<p align="center"><a href="https://gitee.com/lauset/vitepress-theme-vuetom" target="_blank" rel="noopener noreferrer"><img width="180" src="https://gitee.com/lauset/vitepress-theme-vuetom/raw/main/docs/public/logo/vuetom-logo.png" alt="logo"></a></p>
+<p align="center"><a href="https://gitee.com/lauset/vitepress-theme-vuetom" target="_blank" rel="noopener noreferrer"><img width="180" src="https://cdn.jsdelivr.net/gh/lauset/vitepress-theme-vuetom/packages/docs/public/logo/vuetom-logo.png" alt="logo"></a></p>
 
 <p align="center">
   <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE"><img src="https://img.shields.io/github/license/xugaoyi/vuepress-theme-vdoing
@@ -65,7 +65,7 @@ pnpm dev
 * 根目录构建操作
 
 ```bash
-# 清理文件
+# 清理已打包的文件
 pnpm clean:all
 
 # 构建主题
@@ -78,17 +78,14 @@ pnpm build:docs
 pnpm build:blog
 ```
 
-* vuetom 主题分步操作
+* 根目录预览操作
 
 ```bash
-# 清除文件
-pnpm clean
+# 预览文档
+pnpm preview:docs
 
-# 打包样式
-pnpm build:css
-
-# 打包主程序
-pnpm build:vt
+# 预览博客
+pnpm preview:blog
 ```
 
 * 发布主题包
@@ -148,9 +145,9 @@ crowdin:tw
 
 ## 感谢
 
-[Vue](staging-cn.vuejs.org/)
+[Vue](https://vuejs.org/)
 
-[Vite](https://vitejs.cn/)
+[Vite](https://cn.vitejs.dev/)
 
 [Vitepress](https://vitepress.vuejs.org/)
 
