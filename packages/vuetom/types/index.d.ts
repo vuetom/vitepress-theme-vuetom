@@ -1,5 +1,7 @@
 import { DefaultTheme, Theme } from 'vitepress'
 
+import type { DefineComponent } from 'vue'
+
 declare const theme: Theme
 
 export const BlogTheme: Theme

@@ -1,11 +1,9 @@
 {
   "name": "vitepress-theme-vuetom",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "A Vitepress Theme, Have blog and document styles",
   "type": "module",
   "packageManager": "pnpm@7.9.0",
-  "publishConfig": {
-  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./types/index.d.ts",
@@ -17,9 +15,11 @@
     "./dist/*": "./dist/*",
     "./package.json": "./package.json",
     "./docs": {
+      "types": "./docs.d.ts",
       "default": "./dist/doc/index.js"
     },
     "./blog": {
+      "types": "./blog.d.ts",
       "default": "./dist/blog/index.js"
     }
   },
@@ -28,7 +28,7 @@
     "clean": "rimraf ./dist",
     "build": "pnpm clean && pnpm tailwind:css && pnpm build:scss && pnpm build:vt",
     "build:vt": "tsc -p . && cross-env NODE_ENV=build node ../../scripts/build-vt",
-    "build:scss": "gulp --require sucrase/register/ts -f gulpfile.ts",
+    "build:scss": "gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts",
     "tailwind:css": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css",
     "tailwind:watch": "npx tailwindcss -i ./styles/tailwind/s.css -o ./styles/tailwind/d.css --watch"
   },
@@ -38,7 +38,10 @@
   "files": [
     "dist",
     "types",
-    "package.json"
+    "blog.d.ts",
+    "docs.d.ts",
+    "package.json",
+    "README.md"
   ],
   "keywords": [
     "vitepress",
@@ -55,25 +58,25 @@
   },
   "homepage": "https://github.com/lauset/vitepress-theme-vuetom#readme",
   "devDependencies": {
+    "@esbuild-kit/cjs-loader": "^2.2.1",
     "@types/nprogress": "^0.2.0",
-    "autoprefixer": "^10.4.8",
-    "postcss": "^8.4.16",
-    "tailwindcss": "^3.1.8"
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.19",
+    "tailwindcss": "^3.2.4"
   },
   "dependencies": {
-    "@docsearch/css": "^3.2.1",
-    "@docsearch/js": "^3.2.1",
-    "@vitejs/plugin-vue": "^3.0.3",
-    "@vue/devtools-api": "^6.2.1",
-    "@vueuse/core": "^9.1.1",
+    "@docsearch/css": "^3.3.0",
+    "@docsearch/js": "^3.3.0",
+    "@vueuse/components": "^9.6.0",
+    "@vueuse/core": "^9.6.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "nprogress": "^0.2.0",
     "shiki": "^0.11.1",
-    "vite": "^3.0.9",
-    "vitepress": "1.0.0-alpha.13",
-    "vue": "^3.2.38"
+    "vite": "^3.2.5",
+    "vitepress": "1.0.0-alpha.30",
+    "vue": "^3.2.45"
   },
   "peerDependencies": {
-    "vitepress": "1.0.0-alpha.13"
+    "vitepress": "1.0.0-alpha.30"
   }
 }

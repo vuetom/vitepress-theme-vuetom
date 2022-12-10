@@ -1,11 +1,20 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
     "rootDir": ".",
+    "baseUrl": ".",
     "outDir": "./dist",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+    // "declaration": true,
+    // "declarationDir": "./dist/types",
     "jsx": "preserve",
     "lib": ["ESNext", "DOM"],
+    "types": ["vite/client"],
+    "paths": {
+      "vuetom": ["index.ts"]
+    }
   },
   "include": ["."], 
   "exclude": ["./gulpfile.ts"]

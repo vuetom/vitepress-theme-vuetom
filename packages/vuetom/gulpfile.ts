@@ -8,30 +8,38 @@ import autoprefixer from 'gulp-autoprefixer'
 import cleanCSS from 'gulp-clean-css'
 import rename from 'gulp-rename'
 
-const distFolder = path.resolve(__dirname, './dist/css')
-const distRewriteFolder = path.resolve(__dirname, './dist/css/rewrite')
+const distFolder = path.resolve(__dirname, './dist/styles')
+const distRewriteFolder = path.resolve(__dirname, './dist/styles/rewrite')
 
-function buildThemeChalk() {
+function buildRewriteStyles() {
   const sass = gulpSass(dartSass)
   const noPrefixFile = /(index|main)/
   return src(path.resolve(__dirname, 'styles/rewrite/*.scss'))
     .pipe(sass.sync())
-    .pipe(autoprefixer({ cascade: false }))
     .pipe(
-      cleanCSS({}, (details) => {
-        console.log(
-          `${details.name}: ${
-            details.stats.originalSize / 1000
-          } KB -> ${details.stats.minifiedSize / 1000} KB`
-        )
+      autoprefixer({
+        cascade: true // 是否美化属性值 默认 true
       })
     )
     .pipe(
-      // eslint-disable-next-line no-shadow
-      rename((path) => {
-        if (!noPrefixFile.test(path.basename)) {
-          // eslint-disable-next-line no-param-reassign
-          path.basename = `vt-${path.basename}`
+      cleanCSS(
+        {
+          compatibility: 'ie9', // 压缩兼容模式IE9
+          format: 'beautify'
+        },
+        (details) => {
+          console.log(
+            `${details.name}: ${details.stats.originalSize / 1000} KB -> ${
+              details.stats.minifiedSize / 1000
+            } KB`
+          )
+        }
+      )
+    )
+    .pipe(
+      rename((file) => {
+        if (!noPrefixFile.test(file.basename)) {
+          file.basename = `vt-${file.basename}`
         }
       })
     )
@@ -43,31 +51,49 @@ function buildCommonStyles() {
   const noPrefixFile = /(index|main)/
   return src(path.resolve(__dirname, 'styles/*.scss'))
     .pipe(sass.sync())
-    .pipe(autoprefixer({ cascade: false }))
+    .pipe(autoprefixer({ cascade: true }))
     .pipe(
-      cleanCSS({}, (details) => {
-        console.log(
-          `${details.name}: ${
-            details.stats.originalSize / 1000
-          } KB -> ${details.stats.minifiedSize / 1000} KB`
-        )
-      })
+      cleanCSS(
+        {
+          compatibility: 'ie9',
+          format: 'beautify'
+        },
+        (details) => {
+          console.log(
+            `${details.name}: ${details.stats.originalSize / 1000} KB -> ${
+              details.stats.minifiedSize / 1000
+            } KB`
+          )
+        }
+      )
     )
     .pipe(
-      // eslint-disable-next-line no-shadow
-      rename((path) => {
-        if (!noPrefixFile.test(path.basename)) {
-          // eslint-disable-next-line no-param-reassign
-          path.basename = `vt-${path.basename}`
+      rename((file) => {
+        if (!noPrefixFile.test(file.basename)) {
+          file.basename = `vt-${file.basename}`
         }
       })
     )
     .pipe(dest(distFolder))
 }
 
+/**
+ * 移动图标、字体、tailwind样式文件至dist对应目录下
+ */
+function copyOtherResource() {
+  return src([
+    path.resolve(__dirname, 'styles/fa'),
+    path.resolve(__dirname, 'styles/fonts'),
+    path.resolve(__dirname, 'styles/tailwind')
+  ]).pipe(
+    dest(distFolder)
+  )
+}
+
 export const build = parallel(
-  buildThemeChalk,
-  buildCommonStyles
+  buildRewriteStyles,
+  buildCommonStyles,
+  copyOtherResource
 )
 
 export default build
