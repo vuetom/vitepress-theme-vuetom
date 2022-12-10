@@ -12,8 +12,6 @@ import VTSidebar from './sidebar/VTSidebar.vue'
 const route = useRoute()
 const { frontmatter } = useData()
 const { hasSidebar } = useSidebar()
-
-const { layout } = frontmatter
 </script>
 
 <template>
@@ -31,9 +29,11 @@ const { layout } = frontmatter
     >
       <template #sidebar><VTSidebar /></template>
       <template #doclist>
+        <!-- 文章列表 -->
         <VTDocList v-if="frontmatter.layout === 'home'" />
       </template>
       <template #docone>
+        <!-- 单个文章 -->
         <VTDoc v-if="frontmatter.layout === 'doc'">
           <Content />
         </VTDoc>

@@ -17,13 +17,14 @@ const changeBrandColor = (color: string) => {
 <template>
   <footer
     v-if="theme.footer"
-    class="VTFooter absolute left-0 right-0 bottom-0 container m-auto w-4/5 pb-8"
+    class="VTFooter relative left-0 right-0 bottom-0 container mx-auto w-full pb-8"
     :class="{ 'has-sidebar': hasSidebar }"
   >
-    <div class="grid grid-cols-4 gap-10">
+    <!-- <div class="grid grid-cols-4 gap-10"> -->
+    <div class="flex">
       <div
         id="VTFooterLeft"
-        class="rounded-vt hidden md:col-span-1 md:block">
+        class="rounded-vt hidden w-64 px-4 flex-none md:block">
         <VTLeftButton>
           <div ref="colorRef">
             <span @click="changeBrandColor('red')">red</span>
@@ -33,9 +34,11 @@ const changeBrandColor = (color: string) => {
       </div>
       <div
         id="VTFooterMiddle"
-        class="relative rounded-vt col-span-4 md:col-span-3 bg-cbg p-4 text-center">
+        class="rounded-vt w-full mt-8 px-4 md:w-1/2 flex-grow">
+        <div class="rounded-vt bg-cbg w-4/5 mx-auto text-center py-8">
           <p class="message">{{ theme.footer.message }}</p>
           <p class="copyright">{{ theme.footer.copyright }}</p>
+        </div>
       </div>
     </div>
   </footer>

@@ -37,15 +37,15 @@ const d = defineProps<{
       </div>
       <div class="self-links">
         <div class="py-6 flex flex-wrap text-left text-sm">
-          <div class="w-1/2 px-3 py-1.5 mt-1 hover:bg-cbgs rounded-vt">
+          <div class="w-1/2 py-1.5 pl-2 mt-1 hover:bg-cbgs rounded-vt">
             <i class="w-3 h-3 text-sm mr-1 fa fa-ambulance"></i>&nbsp;
             <span>Gitee</span>
           </div>
-          <div class="w-1/2 px-3 py-1.5 mt-1 hover:bg-cbgs rounded-vt">
+          <div class="w-1/2 py-1.5 pl-2 mt-1 hover:bg-cbgs rounded-vt">
             <i class="w-3 h-3 text-sm mr-1 fa fa-github-alt"></i>&nbsp;
             <span>Github</span>
           </div>
-          <div class="w-1/2 px-3 py-1.5 mt-1 hover:bg-cbgs rounded-vt">
+          <div class="w-1/2 py-1.5 pl-2 mt-1 hover:bg-cbgs rounded-vt">
             <i class="w-3 h-3 text-sm mr-1 fa fa-envelope-o"></i>&nbsp;
             <span>Email</span>
           </div>
