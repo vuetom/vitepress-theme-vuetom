@@ -1,2 +1,2 @@
 
-Guide Page: /.vitepress/pages/guide.md
+**Guide Page**: `/blog/pages/guide.md`

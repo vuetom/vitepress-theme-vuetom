@@ -7,15 +7,15 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
   title: 'Vuetom Blog',
   titleTemplate: 'My Blog',
   description: 'Just a blog',
-  appearance: true,
   base: '/myblog',
   ignoreDeadLinks: true,
   lastUpdated: true,
   themeConfig: {
     nav: [
-      { text: 'Guide', link: '/pages/guide' },
+      { text: '首页', link: '/' },
+      { text: '指导', link: '/pages/guide' },
       {
-        text: 'More',
+        text: '更多',
         items: [
           { text: '分类', link: '/categories/index' },
           { text: '标签', link: '/tags/index' }
@@ -55,10 +55,16 @@ export default defineConfigWithTheme<VuetomThemeConfig>({
     },
     bgImg: '/imgs/blog-bg.png',
     avatar: '/imgs/avatar.jpg',
-    author: 'Vuetom'
+    author: 'Vuetom',
+    parallaxEnable: true,
   },
   markdown: {
     theme: 'material-palenight',
-    lineNumbers: true
+    lineNumbers: false
+  },
+  vite: {
+    ssr: {
+      noExternal: ["vitepress-theme-vuetom"]
+    }
   }
 })
